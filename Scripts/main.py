@@ -17,10 +17,6 @@ done = False
 # -------- Main Program Loop -----------
 while not done:
 
-    #We've left the TitleScreen - Exit the game
-    if current_level == None:
-        break
-
     #Needs Game Logic
 
     # Update the screen with what we've drawn.
