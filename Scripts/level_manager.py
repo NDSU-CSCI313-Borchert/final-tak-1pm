@@ -25,6 +25,6 @@ class LevelManager():
         if not LevelManager.instance:
             LevelManager.instance = LevelManager.__LevelManager()
 
-#Pass attribute retrieval to the instance
-def __getattr__(self, name):
-    return getattr(self.instance, name)
+    #Pass attribute retrieval to the instance
+    def __getattr__(self, name):
+        return getattr(self.instance, name)

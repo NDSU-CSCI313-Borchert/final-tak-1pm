@@ -66,4 +66,4 @@ class GameLevel():
         screen.blit(text, [10, 10])
         
         # Go ahead and update the screen with what we've drawn.
-            pygame.display.flip()
+        pygame.display.flip()

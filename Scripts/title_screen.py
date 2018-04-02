@@ -25,9 +25,9 @@ class TitleScreen():
             #elif event.key == pygame.K_c:
                 #LevelManager().load_level(CreditsScreen())
 
-#No need to do anything here, unless we've got some animation
-def update(self):
-    pass
+    #No need to do anything here, unless we've got some animation
+    def update(self):
+        pass
     
     def draw(self, screen):
         # Clear the screen
