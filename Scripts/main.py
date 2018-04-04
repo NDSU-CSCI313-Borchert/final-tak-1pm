@@ -3,6 +3,7 @@ from constants import *
 from level_manager import *
 from title_screen import *
 from game_level import *
+from pygame import time
 
 # Initialize Pygame
 pygame.init()
@@ -19,6 +20,10 @@ level_manager = LevelManager()
 level_manager.load_level(TitleScreen())
 current_level1 = level_manager.get_current_level()
 
+seconds = 0
+minutes = 0
+hours = 0
+
 done = False
 
 # -------- Main Program Loop -----------
@@ -27,7 +32,8 @@ while not done:
     
     if current_level == None:
         break
-    
+
+
     current_level.update()
     current_level.draw(screen)
     #Needs Game Logic

@@ -8,9 +8,9 @@ from constants import *
 from board import *
 from level_manager import *
 from title_screen import *
+import pygame.time
 
 class GameLevel():
-    
     def __init__(self):
         # Initialize Pygame
         pygame.init()
@@ -36,13 +36,18 @@ class GameLevel():
         board.rect.y = (SCREEN_HEIGHT / 6)
         self.all_sprites_list.add(board)
 
-
-
         # Loop until the user clicks the close button.
         done = False
         
         # Used to manage how fast the screen updates
         clock = pygame.time.Clock()
+
+        self.milliseconds = 0
+        self.seconds = 0
+        self.minutes = 0
+        self.hours = 0
+
+        self.start_time = pygame.time.get_ticks()
         
         
     
@@ -54,16 +59,26 @@ class GameLevel():
 
     #No need to do anything here, unless we've got some animation
     def update(self):
+
+        counting_time = pygame.time.get_ticks() - self.start_time
+
+        self.minutes = str(int(counting_time/60000)).zfill(2)
+        self.seconds = str(int((counting_time%60000)/1000)).zfill(2)
+
         self.screen.fill(WHITE)
         
         self.all_sprites_list.update()
 
     def draw(self, screen):
+        seconds = self.seconds
+        minutes = self.minutes
         self.all_sprites_list.draw(screen)
         title_string = 'Let\'s play Tak!'
         font = pygame.font.SysFont('Helvetica', 15, True, False)
         text = font.render(title_string, True, BLACK)
+        timer = font.render('Time:  ' + str(str(minutes) + ":" + str(seconds)), True, BLACK)
         screen.blit(text, [10, 10])
+        screen.blit(timer, [SCREEN_WIDTH/2, 10])
         
         # Go ahead and update the screen with what we've drawn.
         pygame.display.flip()
