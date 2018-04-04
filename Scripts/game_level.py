@@ -86,6 +86,8 @@ class GameLevel():
                     self.current_player = "Player Two"
                 else:
                     self.current_player = "Player One"
+            elif event.key == pygame.K_r:
+                LevelManager.load_level(GameLevel())
 
     def draw(self, screen):
         seconds = self.seconds
