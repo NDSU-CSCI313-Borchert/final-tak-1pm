@@ -32,8 +32,8 @@ class GameLevel():
         
         # Create the board
         board = Board("5x5")
-        board.rect.x = (SCREEN_WIDTH / 2)
-        board.rect.y = (SCREEN_HEIGHT / 2)
+        board.rect.x = (SCREEN_WIDTH / 4)
+        board.rect.y = (SCREEN_HEIGHT / 6)
         self.all_sprites_list.add(board)
 
 
