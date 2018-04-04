@@ -48,7 +48,15 @@ class GameLevel():
         self.hours = 0
 
         self.start_time = pygame.time.get_ticks()
-        
+
+        self.current_player = "Player One"
+
+        self.grid = []
+
+        for row in range(5):
+            self.grid.append([])
+            for column in range(5):
+                self.grid[row].append(0)
         
     
     def handle_keyboard_event(self, event):
@@ -69,16 +77,29 @@ class GameLevel():
         
         self.all_sprites_list.update()
 
+    def handle_keyboard_event(self, event):
+
+        if event.type == pygame.KEYDOWN:
+            # An argument can be made to place leaving the level in the main loop
+            if event.key == pygame.K_SPACE:
+                if self.current_player == "Player One":
+                    self.current_player = "Player Two"
+                else:
+                    self.current_player = "Player One"
+
     def draw(self, screen):
         seconds = self.seconds
         minutes = self.minutes
         self.all_sprites_list.draw(screen)
+
         title_string = 'Let\'s play Tak!'
         font = pygame.font.SysFont('Helvetica', 15, True, False)
         text = font.render(title_string, True, BLACK)
         timer = font.render('Time:  ' + str(str(minutes) + ":" + str(seconds)), True, BLACK)
+        player_turn = font.render(self.current_player + "\'s Turn.", True, BLACK)
         screen.blit(text, [10, 10])
         screen.blit(timer, [SCREEN_WIDTH/2, 10])
+        screen.blit(player_turn, [SCREEN_WIDTH/2, 40])
         
         # Go ahead and update the screen with what we've drawn.
         pygame.display.flip()
