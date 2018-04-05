@@ -10,3 +10,7 @@ class test_Board(unittest.TestCase):
     if __name__ == '__main__':
         unittest.main()
 """
+
+class test_Board(object):
+    def test_Board_can_be_created(self):
+        assert True
