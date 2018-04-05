@@ -53,17 +53,27 @@ class GameLevel():
 
         self.grid = []
 
+
         for row in range(5):
             self.grid.append([])
             for column in range(5):
                 self.grid[row].append(0)
-        
-    
+
+
+
     def handle_keyboard_event(self, event):
         if event.type == pygame.KEYDOWN:
             # An argument can be made to place leaving the level in the main loop
             if event.key == pygame.K_ESCAPE:
                 LevelManager().leave_level()
+    #Check if the player has made a road to the other side of the board and won. I am thinking when a player puts a piece down we can mark that spot in the grid.
+    def Check_victory(self,board):
+        for y in range(0,5):
+            if board[0][y] ==('X') and board[1][y] ==('X') and board[2][y] ==('X') and board[3][y] ==('X') and board[4][y] ==('X'):
+                return True
+            if board[0][y] == ('Y') and board[1][y] == ('Y') and board[2][y] == ('Y') and board[3][y] == ('Y') and board[4][y] == ('Y'):
+                return True
+        return False
 
     #No need to do anything here, unless we've got some animation
     def update(self):
@@ -76,6 +86,9 @@ class GameLevel():
         self.screen.fill(WHITE)
         
         self.all_sprites_list.update()
+        if self.Check_victory(self.grid):
+            print("Congratulations you won this round of tak")
+
 
     def handle_keyboard_event(self, event):
 
