@@ -1,5 +1,5 @@
 import unittest
-from board import *
+from Scripts.board import *
 
 class test_Board(unittest.TestCase):
     def test_Board_can_be_created(self):
