@@ -1,3 +1,4 @@
+"""
 import unittest
 from board import *
 
@@ -8,3 +9,4 @@ class test_Board(unittest.TestCase):
 
     if __name__ == '__main__':
         unittest.main()
+"""
