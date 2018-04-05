@@ -8,6 +8,6 @@ before_install:
 install:
     - pip install -r requirements.txt
 script:
-    - python3 -m unittest -v Scripts/test_Board.py
+    - python3 -m unittest -v Tests/test_Board.py
 virtualenv:
     system_site_packages: true
