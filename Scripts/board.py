@@ -2,7 +2,7 @@ import pygame
 from art import *
 
 class Board(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self, sprite):
         super().__init__()
 
         self.image = Art.get_image(sprite)
