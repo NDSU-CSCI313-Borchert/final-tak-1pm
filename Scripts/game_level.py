@@ -74,6 +74,12 @@ class GameLevel():
             if board[0][y] == ('Y') and board[1][y] == ('Y') and board[2][y] == ('Y') and board[3][y] == ('Y') and board[4][y] == ('Y'):
                 return True
         return False
+    def print_pos(self):
+        pos = pygame.mouse.get_pos()
+        x = pos[0]
+        y = pos[1]
+        print (x, y)
+    
 
     #No need to do anything here, unless we've got some animation
     def update(self):
