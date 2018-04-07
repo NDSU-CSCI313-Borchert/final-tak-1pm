@@ -6,8 +6,10 @@ import pygame
 import random
 from constants import *
 from board import *
+from player import *
 from level_manager import *
 from title_screen import *
+
 import pygame.time
 
 class GameLevel():
@@ -35,6 +37,21 @@ class GameLevel():
         board.rect.x = (SCREEN_WIDTH / 4)
         board.rect.y = (SCREEN_HEIGHT / 6)
         self.all_sprites_list.add(board)
+        
+        # Create the players
+        player1 = Player()
+        player1.name = "Player One"
+        player2 = Player()
+        player2.name = "Player Two"
+        
+        #Create the pieces
+        player1pieces = []
+        for i in range(20):
+            stone = Stone()
+            stone.rect.x = (SCREEN_WIDTH / 6)
+            stone.rect.y = (SCREEN_HEIGHT / 2)
+            self.all_sprites_list.add(stone)
+            self.player1pieces.append(stone)
 
         # Loop until the user clicks the close button.
         done = False
@@ -49,10 +66,9 @@ class GameLevel():
 
         self.start_time = pygame.time.get_ticks()
 
-        self.current_player = "Player One"
+        self.current_player = player1
 
         self.grid = []
-
 
         for row in range(5):
             self.grid.append([])
@@ -93,7 +109,7 @@ class GameLevel():
         
         self.all_sprites_list.update()
         if self.Check_victory(self.grid):
-            print("Congratulations you won this round of tak")
+            print("Congratulations you won this round of Tak")
 
 
     def handle_keyboard_event(self, event):
@@ -101,10 +117,10 @@ class GameLevel():
         if event.type == pygame.KEYDOWN:
             # An argument can be made to place leaving the level in the main loop
             if event.key == pygame.K_SPACE:
-                if self.current_player == "Player One":
-                    self.current_player = "Player Two"
+                if self.current_player == player1:
+                    self.current_player = player2
                 else:
-                    self.current_player = "Player One"
+                    self.current_player = player1
             elif event.key == pygame.K_r:
                 LevelManager.load_level(GameLevel())
 
@@ -117,7 +133,7 @@ class GameLevel():
         font = pygame.font.SysFont('Helvetica', 15, True, False)
         text = font.render(title_string, True, BLACK)
         timer = font.render('Time:  ' + str(str(minutes) + ":" + str(seconds)), True, BLACK)
-        player_turn = font.render(self.current_player + "\'s Turn.", True, BLACK)
+        player_turn = font.render(self.current_player.name + "\'s Turn.", True, BLACK)
         screen.blit(text, [10, 10])
         screen.blit(timer, [SCREEN_WIDTH/2, 10])
         screen.blit(player_turn, [SCREEN_WIDTH/2, 40])

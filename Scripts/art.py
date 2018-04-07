@@ -3,7 +3,7 @@ import os
 
 pygame.init()
 
-art_dictionary = {"5x5": "5_5_Blue_Yellow.png"}
+art_dictionary = {"5x5": "5_5_Blue_Yellow.png", "brown_stone": "Stone_Brown.png", "beige_stone": "Stone_Beige.png", "brown_capstone": "Capstone_Brown.png", "beige_capstone": "Capstone_Beige.png"}
 
 
 class Art:
@@ -12,7 +12,7 @@ class Art:
 
         screen.fill(color)
         if level == "Game Level":
-            art_dict = {"5x5": "5_5_Blue_Yellow.png"}
+            art_dict = {"5x5": "5_5_Blue_Yellow.png", "brown_stone": "Stone_Brown.png", "beige_stone": "Stone_Beige.png", "brown_capstone": "Capstone_Brown.png", "beige_capstone": "Capstone_Beige.png"}
 
         art_dictionary = art_dict
 
