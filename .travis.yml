@@ -18,6 +18,6 @@ install:
     - pip install -r requirements.txt
 script:
     - cd Scripts
-    - python3 -m unittest tests.py
+    - python -m unittest tests.py
 #virtualenv:
 #    system_site_packages: true
