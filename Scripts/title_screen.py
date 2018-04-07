@@ -34,5 +34,5 @@ class TitleScreen():
         screen.fill(WHITE)
         
         # Draw my title text!
-        screen.blit(self._text, [200, 200])
-        screen.blit(self._proceed, [125, 350])
+        screen.blit(self._text, [SCREEN_WIDTH / 2 - 150, SCREEN_HEIGHT / 2])
+        screen.blit(self._proceed, [SCREEN_WIDTH / 2 - 180, SCREEN_HEIGHT / 2 + 40])
