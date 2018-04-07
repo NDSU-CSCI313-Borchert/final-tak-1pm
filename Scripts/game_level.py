@@ -80,6 +80,8 @@ class GameLevel():
         self.current_player = self.player1
         self.sprite_click_list = []
 
+        self.button = pygame.Rect(50, SCREEN_HEIGHT - 50, 100, 30)
+        
         self.grid = []
 
         for row in range(5):
@@ -151,9 +153,13 @@ class GameLevel():
                 LevelManager.leave_level()
 
         if event.type == pygame.MOUSEBUTTONUP:
+            
             pos = pygame.mouse.get_pos()
             self.current_x = pos[0]
             self.current_y = pos[1]
+            
+            if self.button.collidepoint(pos):
+                LevelManager().load_level(GameLevel())
 
             if self.player1.stones > 0:
                 p1top = self.player1pieces[0]
@@ -184,18 +190,16 @@ class GameLevel():
 #                self.sprite_click_list.append(player2pieces.pop())
 #                print ("piece added")
 
-
-        elif event.type == pygame.MOUSEBUTTONUP:
-            pass
-
     def draw(self, screen):
         seconds = self.seconds
         minutes = self.minutes
         self.all_sprites_list.draw(screen)
 
         title_string = 'Let\'s play Tak!'
+        reset_string = 'Reset'
         font = pygame.font.SysFont('Helvetica', 15, True, False)
         title_text = font.render(title_string, True, BLACK)
+        reset_button_text = font.render(reset_string, True, BLACK)
         timer = font.render('Time:  ' + str(str(minutes) + ":" + str(seconds)), True, BLACK)
         player_turn = font.render(self.current_player.name + "\'s Turn.", True, BLACK)
         player1_pieces_remaining = font.render("Remaining stones: " + str(self.player1.stones), True, BLACK)
@@ -205,6 +209,8 @@ class GameLevel():
         screen.blit(player_turn, [SCREEN_WIDTH/2 - 80, 50])
         screen.blit(player1_pieces_remaining, [(SCREEN_WIDTH / 6) - 130, SCREEN_HEIGHT / 2 + 75])
         screen.blit(player1_pieces_remaining, [(SCREEN_WIDTH / 6 * 5) - 30, SCREEN_HEIGHT / 2 + 75])
+        pygame.draw.rect(screen, [255, 0, 0], self.button)
+        screen.blit(reset_button_text, [75, SCREEN_HEIGHT - 40])
         
         # Go ahead and update the screen with what we've drawn.
         pygame.display.flip()
