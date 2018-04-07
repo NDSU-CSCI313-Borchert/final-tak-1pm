@@ -78,6 +78,7 @@ class GameLevel():
         self.start_time = pygame.time.get_ticks()
 
         self.current_player = self.player1
+        self.sprite_click_list = []
 
         self.grid = []
 
@@ -85,6 +86,9 @@ class GameLevel():
             self.grid.append([])
             for column in range(5):
                 self.grid[row].append(0)
+
+        self.current_x = 0
+        self.current_y = 0
 
 
 
@@ -118,6 +122,18 @@ class GameLevel():
 
         self.screen.fill(WHITE)
         
+        pos = pygame.mouse.get_pos()
+        
+        diff_x = self.current_x - pos[0]
+        diff_y = self.current_y - pos[1]
+        
+        for sprite in self.sprite_click_list:
+            sprite.rect.x -= diff_x
+            sprite.rect.y -= diff_y
+        
+#        self.rect.x = pos[0]
+#        self.rect.y = pos[1]
+
         self.all_sprites_list.update()
         if self.Check_victory(self.grid):
             print("Congratulations you won this round of Tak")
@@ -134,6 +150,24 @@ class GameLevel():
                     self.current_player = self.player1
             elif event.key == pygame.K_r:
                 LevelManager.load_level(GameLevel())
+
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                pos = pygame.mouse.get_pos()
+                self.current_x = pos[0]
+                self.current_y = pos[1]
+
+                p1top = player1pieces.index()
+                p2top = player2pieces.index()
+                
+                if self.current_x == player1pieces[p1top].x and self.current_y == player1pieces[p1top].y and player1.stones > 0:
+                    player1.removeStone()
+                    self.sprite_click_list.append(player1pieces.pop())
+                elif self.current_x == player2pieces[p2top].x and self.current_y == player2pieces[p2top].y and player2.stones > 0:
+                    player2.removeStone()
+                    self.sprite_click_list.append(player2pieces.pop())
+                        
+            elif event.type == pygame.MOUSEBUTTONUP:
+                self.sprite_click_list = []
 
     def draw(self, screen):
         seconds = self.seconds
