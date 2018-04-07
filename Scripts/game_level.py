@@ -7,6 +7,8 @@ import random
 from constants import *
 from board import *
 from player import *
+from stone import *
+from capstone import *
 from level_manager import *
 from title_screen import *
 
@@ -46,12 +48,21 @@ class GameLevel():
         
         #Create the pieces
         player1pieces = []
-        for i in range(20):
-            stone = Stone()
-            stone.rect.x = (SCREEN_WIDTH / 6)
+        for i in range(0, 20):
+            stone = Stone("brown_stone")
+            stone.rect.x = (SCREEN_WIDTH / 6) - 100
             stone.rect.y = (SCREEN_HEIGHT / 2)
             self.all_sprites_list.add(stone)
-            self.player1pieces.append(stone)
+            player1pieces.append(stone)
+        
+        player2pieces = []
+        for i in range(0, 20):
+            stone = Stone("beige_stone")
+            stone.rect.x = (SCREEN_WIDTH / 6 * 5)
+            stone.rect.y = (SCREEN_HEIGHT / 2)
+            self.all_sprites_list.add(stone)
+            player2pieces.append(stone)
+                          
 
         # Loop until the user clicks the close button.
         done = False
