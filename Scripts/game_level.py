@@ -47,21 +47,21 @@ class GameLevel():
         self.player2.name = "Player Two"
         
         #Create the pieces
-        player1pieces = []
+        self.player1pieces = []
         for i in range(0, 20):
             stone = Stone("brown_stone")
             stone.rect.x = (SCREEN_WIDTH / 6) - 100
             stone.rect.y = (SCREEN_HEIGHT / 2)
             self.all_sprites_list.add(stone)
-            player1pieces.append(stone)
+            self.player1pieces.append(stone)
         
-        player2pieces = []
+        self.player2pieces = []
         for i in range(0, 20):
             stone = Stone("beige_stone")
             stone.rect.x = (SCREEN_WIDTH / 6 * 5)
             stone.rect.y = (SCREEN_HEIGHT / 2)
             self.all_sprites_list.add(stone)
-            player2pieces.append(stone)
+            self.player2pieces.append(stone)
                           
 
         # Loop until the user clicks the close button.
@@ -130,9 +130,6 @@ class GameLevel():
         for sprite in self.sprite_click_list:
             sprite.rect.x -= diff_x
             sprite.rect.y -= diff_y
-        
-#        self.rect.x = pos[0]
-#        self.rect.y = pos[1]
 
         self.all_sprites_list.update()
         if self.Check_victory(self.grid):
@@ -151,23 +148,36 @@ class GameLevel():
             elif event.key == pygame.K_r:
                 LevelManager.load_level(GameLevel())
 
-            elif event.type == pygame.MOUSEBUTTONDOWN:
-                pos = pygame.mouse.get_pos()
-                self.current_x = pos[0]
-                self.current_y = pos[1]
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            pos = pygame.mouse.get_pos()
+            self.current_x = pos[0]
+            self.current_y = pos[1]
 
-                p1top = player1pieces.index()
-                p2top = player2pieces.index()
-                
-                if self.current_x == player1pieces[p1top].x and self.current_y == player1pieces[p1top].y and player1.stones > 0:
-                    player1.removeStone()
-                    self.sprite_click_list.append(player1pieces.pop())
-                elif self.current_x == player2pieces[p2top].x and self.current_y == player2pieces[p2top].y and player2.stones > 0:
-                    player2.removeStone()
-                    self.sprite_click_list.append(player2pieces.pop())
-                        
-            elif event.type == pygame.MOUSEBUTTONUP:
-                self.sprite_click_list = []
+            if self.player1.stones > 0:
+                p1top = self.player1pieces[0]
+                print (p1top.rect.x)
+                print (p1top.rect.y)
+            if self.player2.stones > 0:
+                p2top = self.player2pieces[0]
+                print (p2top.rect.x)
+                print (p2top.rect.y)
+                    
+            self.sprite_click_list = [s for s in self.all_sprites_list if s.rect.collidepoint(pos)]
+            
+            #if self.current_x == p1top.rect.x and self.current_y == p1top.rect.y and player1.stones > 0:
+            #if self.player1.stones > 0:
+#            if pygame.mouse.get_pressed()[0] and p1top.rect.collidepoint(pygame.mouse.get_pos()):
+#                self.player1.removeStone()
+#                self.sprite_click_list.append(self.player1pieces.pop())
+#                print ("piece added")
+#            elif self.current_x == p2top.rect.x and self.current_y == p2top.rect.y and player2.stones > 0:
+#                player2.removeStone()
+#                self.sprite_click_list.append(player2pieces.pop())
+#                print ("piece added")
+
+
+        elif event.type == pygame.MOUSEBUTTONUP:
+            pass
 
     def draw(self, screen):
         seconds = self.seconds
