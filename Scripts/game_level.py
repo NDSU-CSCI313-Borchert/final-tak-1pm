@@ -92,11 +92,11 @@ class GameLevel():
 
 
 
-    def handle_keyboard_event(self, event):
-        if event.type == pygame.KEYDOWN:
-            # An argument can be made to place leaving the level in the main loop
-            if event.key == pygame.K_ESCAPE:
-                LevelManager().leave_level()
+#    def handle_keyboard_event(self, event):
+#        if event.type == pygame.KEYDOWN:
+#            # An argument can be made to place leaving the level in the main loop
+#            if event.key == pygame.K_ESCAPE:
+#                LevelManager().leave_level()
     #Check if the player has made a road to the other side of the board and won. I am thinking when a player puts a piece down we can mark that spot in the grid.
     def Check_victory(self,board):
         for y in range(0,5):
@@ -146,23 +146,32 @@ class GameLevel():
                 else:
                     self.current_player = self.player1
             elif event.key == pygame.K_r:
-                LevelManager.load_level(GameLevel())
+                LevelManager().load_level(GameLevel())
+            elif event.key == pygame.K_ESCAPE:
+                LevelManager.leave_level()
 
-        if event.type == pygame.MOUSEBUTTONDOWN:
+        if event.type == pygame.MOUSEBUTTONUP:
             pos = pygame.mouse.get_pos()
             self.current_x = pos[0]
             self.current_y = pos[1]
 
             if self.player1.stones > 0:
                 p1top = self.player1pieces[0]
-                print (p1top.rect.x)
-                print (p1top.rect.y)
+                print ("p1x: " + str(p1top.rect.x))
+                print ("p1y: " + str(p1top.rect.y))
+                    
+                if p1top.rect.collidepoint(pos):
+                    self.player1.removeStone()
+                    self.sprite_click_list.append(self.player1pieces.pop())
+                    print ("Piece added")
+                        
             if self.player2.stones > 0:
                 p2top = self.player2pieces[0]
                 print (p2top.rect.x)
                 print (p2top.rect.y)
-                    
-            self.sprite_click_list = [s for s in self.all_sprites_list if s.rect.collidepoint(pos)]
+
+
+#self.sprite_click_list = [s for s in self.all_sprites_list if s.rect.collidepoint(pos)]
             
             #if self.current_x == p1top.rect.x and self.current_y == p1top.rect.y and player1.stones > 0:
             #if self.player1.stones > 0:
