@@ -41,10 +41,10 @@ class GameLevel():
         self.all_sprites_list.add(board)
         
         # Create the players
-        player1 = Player()
-        player1.name = "Player One"
-        player2 = Player()
-        player2.name = "Player Two"
+        self.player1 = Player()
+        self.player1.name = "Player One"
+        self.player2 = Player()
+        self.player2.name = "Player Two"
         
         #Create the pieces
         player1pieces = []
@@ -77,7 +77,7 @@ class GameLevel():
 
         self.start_time = pygame.time.get_ticks()
 
-        self.current_player = player1
+        self.current_player = self.player1
 
         self.grid = []
 
@@ -128,10 +128,10 @@ class GameLevel():
         if event.type == pygame.KEYDOWN:
             # An argument can be made to place leaving the level in the main loop
             if event.key == pygame.K_SPACE:
-                if self.current_player == player1:
-                    self.current_player = player2
+                if self.current_player == self.player1:
+                    self.current_player = self.player2
                 else:
-                    self.current_player = player1
+                    self.current_player = self.player1
             elif event.key == pygame.K_r:
                 LevelManager.load_level(GameLevel())
 
@@ -142,12 +142,16 @@ class GameLevel():
 
         title_string = 'Let\'s play Tak!'
         font = pygame.font.SysFont('Helvetica', 15, True, False)
-        text = font.render(title_string, True, BLACK)
+        title_text = font.render(title_string, True, BLACK)
         timer = font.render('Time:  ' + str(str(minutes) + ":" + str(seconds)), True, BLACK)
         player_turn = font.render(self.current_player.name + "\'s Turn.", True, BLACK)
-        screen.blit(text, [10, 10])
-        screen.blit(timer, [SCREEN_WIDTH/2, 10])
-        screen.blit(player_turn, [SCREEN_WIDTH/2, 40])
+        player1_pieces_remaining = font.render("Remaining stones: " + str(self.player1.stones), True, BLACK)
+        player2_pieces_remaining = font.render("Remaining stones: " + str(self.player2.stones), True, BLACK)
+        screen.blit(title_text, [SCREEN_WIDTH / 2 - 80, 10])
+        screen.blit(timer, [SCREEN_WIDTH/2 - 80, 30])
+        screen.blit(player_turn, [SCREEN_WIDTH/2 - 80, 50])
+        screen.blit(player1_pieces_remaining, [(SCREEN_WIDTH / 6) - 130, SCREEN_HEIGHT / 2 + 75])
+        screen.blit(player1_pieces_remaining, [(SCREEN_WIDTH / 6 * 5) - 30, SCREEN_HEIGHT / 2 + 75])
         
         # Go ahead and update the screen with what we've drawn.
         pygame.display.flip()

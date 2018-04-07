@@ -13,5 +13,5 @@ class Player():
             self.stones -= 1
 
     def removeCapstone(self):
-        if self.capstone > 0:
-            self.capstone -= 1
+        if self.capstones > 0:
+            self.capstones -= 1
