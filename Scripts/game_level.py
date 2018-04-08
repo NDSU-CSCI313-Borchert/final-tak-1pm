@@ -102,10 +102,10 @@ class GameLevel():
 #                LevelManager().leave_level()
     #Check if the player has made a road to the other side of the board and won. I am thinking when a player puts a piece down we can mark that spot in the grid.
     def Check_victory(self,board):
-        for y in range(0,5):
-            if board[0][y] ==('X') and board[1][y] ==('X') and board[2][y] ==('X') and board[3][y] ==('X') and board[4][y] ==('X'):
+        for x in range(0,5):
+            if board[x][0] ==('X') and board[x][1] ==('X') and board[x][2] ==('X') and board[x][3] ==('X') and board[x][4] ==('X'):
                 return True
-            if board[0][y] == ('Y') and board[1][y] == ('Y') and board[2][y] == ('Y') and board[3][y] == ('Y') and board[4][y] == ('Y'):
+            if board[x][0] == ('Y') and board[x][1] == ('Y') and board[x][2] == ('Y') and board[x][3] == ('Y') and board[x][4] == ('Y'):
                 return True
         return False
     def print_pos(self):
@@ -113,7 +113,11 @@ class GameLevel():
         x = pos[0]
         y = pos[1]
         print (x, y)
-    
+    def next_piece(self,board):
+        if board[0][0] ==('X'):
+            current_piece=board[0][0]
+        if board[0][1] ==('X'):
+            current_piece = board[0][1]
 
     #No need to do anything here, unless we've got some animation
     def update(self):
@@ -148,6 +152,8 @@ class GameLevel():
             pos = pygame.mouse.get_pos()
             self.current_x = pos[0]
             self.current_y = pos[1]
+            print("this is the position")
+            self.print_pos()
             
             if self.button.collidepoint(pos):
                 LevelManager().load_level(GameLevel())
