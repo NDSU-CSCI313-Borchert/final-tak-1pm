@@ -28,6 +28,7 @@ class GameLevel():
         # This is a list of every sprite.
         # All blocks and the player block as well.
         self.all_sprites_list = pygame.sprite.Group()
+        self.board_list = pygame.sprite.Group()
         
         
         level_manager = LevelManager()
@@ -38,7 +39,7 @@ class GameLevel():
         board = Board("5x5")
         board.rect.x = (SCREEN_WIDTH / 4)
         board.rect.y = (SCREEN_HEIGHT / 6)
-        self.all_sprites_list.add(board)
+        self.board_list.add(board)
         
         # Create the players
         self.player1 = Player()
@@ -193,6 +194,7 @@ class GameLevel():
     def draw(self, screen):
         seconds = self.seconds
         minutes = self.minutes
+        self.board_list.draw(screen)
         self.all_sprites_list.draw(screen)
 
         title_string = 'Let\'s play Tak!'
