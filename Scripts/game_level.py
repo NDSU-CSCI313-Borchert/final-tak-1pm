@@ -134,8 +134,8 @@ class GameLevel():
         pos = pygame.mouse.get_pos()
         
         for sprite in self.sprite_click_list:
-            sprite.rect.x = pos[0]
-            sprite.rect.y = pos[1]
+            sprite.rect.x = pos[0]-40
+            sprite.rect.y = pos[1]-25
 
         self.all_sprites_list.update()
         if self.Check_victory(self.grid):
@@ -185,19 +185,25 @@ class GameLevel():
                             
             elif self.click_count == 1:
                 if (SCREEN_WIDTH / 4) < self.current_x < 1129:
-                    distance_to_snap = 100
-                    px, py = pos
+                    # This code helps the pieces snap in place
+                    distance_to_snap = 130
+                    stone = self.sprite_click_list.pop(0)
+                    px, py = stone.rect.topleft
 
                     for cx, cy in self.board_model.grid:
                         if math.hypot(cx-px, cy-py) < distance_to_snap:
-                            stone = self.sprite_click_list.pop(0)
-                            stone.rect.x = cx
-                            stone.rect.y = cy
+                            stone.rect.x = cx+25
+                            stone.rect.y = cy+45
                             break
 
                     self.sprite_click_list = []
 
                     self.click_count = 0
+
+                # Clicking while outside the board will toggle the piece between
+                # road and wall (todo)
+                else:
+                    pass
 
                 if self.current_player == self.player1:
                     self.current_player = self.player2
