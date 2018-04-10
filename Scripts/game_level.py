@@ -10,6 +10,8 @@ from player import *
 from stone import *
 from capstone import *
 from level_manager import *
+from board_model import *
+import math
 from title_screen import *
 
 import pygame.time
@@ -28,6 +30,7 @@ class GameLevel():
         # This is a list of every sprite.
         # All blocks and the player block as well.
         self.all_sprites_list = pygame.sprite.Group()
+        self.board_list = pygame.sprite.Group()
         
         
         level_manager = LevelManager()
@@ -38,7 +41,8 @@ class GameLevel():
         board = Board("5x5")
         board.rect.x = (SCREEN_WIDTH / 4)
         board.rect.y = (SCREEN_HEIGHT / 6)
-        self.all_sprites_list.add(board)
+        self.board_list.add(board)
+        self.board_model = BoardModel(SCREEN_WIDTH/4, SCREEN_HEIGHT/6)
         
         # Create the players
         self.player1 = Player()
@@ -93,8 +97,6 @@ class GameLevel():
         self.current_x = 0
         self.current_y = 0
 
-
-
 #    def handle_keyboard_event(self, event):
 #        if event.type == pygame.KEYDOWN:
 #            # An argument can be made to place leaving the level in the main loop
@@ -132,8 +134,8 @@ class GameLevel():
         pos = pygame.mouse.get_pos()
         
         for sprite in self.sprite_click_list:
-            sprite.rect.x = pos[0]
-            sprite.rect.y = pos[1]
+            sprite.rect.x = pos[0]-40
+            sprite.rect.y = pos[1]-25
 
         self.all_sprites_list.update()
         if self.Check_victory(self.grid):
@@ -161,30 +163,48 @@ class GameLevel():
             if self.click_count == 0:
                 if self.player1.stones > 0:
                     p1top = self.player1pieces[0]
-                    print ("p1x: " + str(p1top.rect.x))
-                    print ("p1y: " + str(p1top.rect.y))
+                    print("p1x: " + str(p1top.rect.x))
+                    print("p1y: " + str(p1top.rect.y))
                     
                     if p1top.rect.collidepoint(pos) and self.current_player == self.player1:
                         self.player1.removeStone()
                         self.sprite_click_list.append(self.player1pieces.pop())
                         self.click_count += 1
-                        print ("Piece added")
+                        print("Piece added")
                 
                 if self.player2.stones > 0:
                     p2top = self.player2pieces[0]
-                    print (p2top.rect.x)
-                    print (p2top.rect.y)
+                    print(p2top.rect.x)
+                    print(p2top.rect.y)
                         
                     if p2top.rect.collidepoint(pos) and self.current_player == self.player2:
                         self.player2.removeStone()
                         self.sprite_click_list.append(self.player2pieces.pop())
                         self.click_count += 1
-                        print ("Piece added")
+                        print("Piece added")
                             
             elif self.click_count == 1:
-                self.sprite_click_list = []
-                self.click_count = 0
-                    
+                if (SCREEN_WIDTH / 4) < self.current_x < 1129:
+                    # This code helps the pieces snap in place
+                    distance_to_snap = 130
+                    stone = self.sprite_click_list.pop(0)
+                    px, py = stone.rect.topleft
+
+                    for cx, cy in self.board_model.grid:
+                        if math.hypot(cx-px, cy-py) < distance_to_snap:
+                            stone.rect.x = cx+25
+                            stone.rect.y = cy+45
+                            break
+
+                    self.sprite_click_list = []
+
+                    self.click_count = 0
+
+                # Clicking while outside the board will toggle the piece between
+                # road and wall
+                else:
+                    pass
+
                 if self.current_player == self.player1:
                     self.current_player = self.player2
                 else:
@@ -193,6 +213,7 @@ class GameLevel():
     def draw(self, screen):
         seconds = self.seconds
         minutes = self.minutes
+        self.board_list.draw(screen)
         self.all_sprites_list.draw(screen)
 
         title_string = 'Let\'s play Tak!'

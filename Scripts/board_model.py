@@ -1,17 +1,24 @@
 import pygame
 from board import *
+from constants import *
 
-class Board_model():
-    def __init__(self,x):
+class BoardModel():
+    def __init__(self,x,y):
         super().__init__()
+        # self.grid = [[((SCREEN_WIDTH/4)+(151*i),(SCREEN_HEIGHT/6+(151*j))) for i in range(5)] for j in range(5)]
+        # print('\n'.join([''.join(['{0}'.format(item) for item in row]) for row in self.grid]))
+
         self.grid = []
-        for row in range(x):
-            self.grid.append([])
-            for column in range(x):
-                self.grid[row].append(0)
+        for x in range(5):
+            for y in range(5):
+                self.grid.append(((SCREEN_WIDTH/4)+(151*x),(SCREEN_HEIGHT/6+(151*y))))
+
+        print(self.grid)
+
     def get_grid(self):
         return self.grid
-    def Check_victory(self, board):
+
+    def check_victory(self, board):
         for x in range(0, 4):
             if board[x][0] == ('X') and board[x][1] == ('X') and board[x][2] == ('X') and board[x][3] == ('X') and \
                     board[x][4] == ('X'):
@@ -27,7 +34,8 @@ class Board_model():
                 return True
 
         return False
-    def Mark_spot(self,pos,b):
+
+    def mark_spot(self,pos,b):
         if b==True:
             mark='X'
         else:
