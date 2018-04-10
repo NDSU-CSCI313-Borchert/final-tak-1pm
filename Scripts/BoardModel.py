@@ -4,11 +4,16 @@ from board import *
 class BoardModel():
     def __init__(self,x):
         super().__init__()
-        self.grid = []
-        for row in range(x):
-            self.grid.append([])
-            for column in range(x):
-                self.grid[row].append(0)
+        
+        self.grid =[]
+        for x in range(5):
+            for y in range(5):
+                self.grid.append(((SCREEN_WIDTH/4)+(151*X),(SCREEN_HEIGHT/6+(151*Y))))
+                
+        print(self.grid)
+         
+        
+        
     def get_grid(self):
         return self.grid
     def Check_victory(self, board):
