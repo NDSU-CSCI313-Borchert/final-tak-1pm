@@ -53,7 +53,7 @@ class GameLevel():
         #Create the pieces
         self.player1pieces = []
         for i in range(0, 20):
-            stone = Stone("brown_stone")
+            stone = Stone("brown_stone", "brown_wall")
             stone.rect.x = (SCREEN_WIDTH / 6) - 100
             stone.rect.y = (SCREEN_HEIGHT / 2)
             self.all_sprites_list.add(stone)
@@ -61,7 +61,7 @@ class GameLevel():
         
         self.player2pieces = []
         for i in range(0, 20):
-            stone = Stone("beige_stone")
+            stone = Stone("beige_stone", "beige_wall")
             stone.rect.x = (SCREEN_WIDTH / 6 * 5)
             stone.rect.y = (SCREEN_HEIGHT / 2)
             self.all_sprites_list.add(stone)
@@ -97,11 +97,6 @@ class GameLevel():
         self.current_x = 0
         self.current_y = 0
 
-#    def handle_keyboard_event(self, event):
-#        if event.type == pygame.KEYDOWN:
-#            # An argument can be made to place leaving the level in the main loop
-#            if event.key == pygame.K_ESCAPE:
-#                LevelManager().leave_level()
     #Check if the player has made a road to the other side of the board and won. I am thinking when a player puts a piece down we can mark that spot in the grid.
     def Check_victory(self,board):
         for x in range(0,5):
@@ -121,7 +116,7 @@ class GameLevel():
         if board[0][1] ==('X'):
             current_piece = board[0][1]
 
-    #No need to do anything here, unless we've got some animation
+    #Animation
     def update(self):
 
         counting_time = pygame.time.get_ticks() - self.start_time
@@ -138,8 +133,8 @@ class GameLevel():
             sprite.rect.y = pos[1]-25
 
         self.all_sprites_list.update()
-        if self.Check_victory(self.grid):
-            print("Congratulations you won this round of Tak")
+            #if self.Check_victory(self.grid):
+            #print("Congratulations you won this round of Tak")
 
 
     def handle_keyboard_event(self, event):
@@ -163,25 +158,19 @@ class GameLevel():
             if self.click_count == 0:
                 if self.player1.stones > 0:
                     p1top = self.player1pieces[0]
-                    print("p1x: " + str(p1top.rect.x))
-                    print("p1y: " + str(p1top.rect.y))
                     
                     if p1top.rect.collidepoint(pos) and self.current_player == self.player1:
                         self.player1.removeStone()
                         self.sprite_click_list.append(self.player1pieces.pop())
                         self.click_count += 1
-                        print("Piece added")
                 
                 if self.player2.stones > 0:
                     p2top = self.player2pieces[0]
-                    print(p2top.rect.x)
-                    print(p2top.rect.y)
                         
                     if p2top.rect.collidepoint(pos) and self.current_player == self.player2:
                         self.player2.removeStone()
                         self.sprite_click_list.append(self.player2pieces.pop())
                         self.click_count += 1
-                        print("Piece added")
                             
             elif self.click_count == 1:
                 if (SCREEN_WIDTH / 4) < self.current_x < 1129:
@@ -199,16 +188,18 @@ class GameLevel():
                     self.sprite_click_list = []
 
                     self.click_count = 0
+            
+                    if self.current_player == self.player1:
+                        self.current_player = self.player2
+                    else:
+                        self.current_player = self.player1
 
                 # Clicking while outside the board will toggle the piece between
                 # road and wall
                 else:
-                    pass
+                    self.sprite_click_list[0].flipStone()
 
-                if self.current_player == self.player1:
-                    self.current_player = self.player2
-                else:
-                    self.current_player = self.player1
+
 
     def draw(self, screen):
         seconds = self.seconds
