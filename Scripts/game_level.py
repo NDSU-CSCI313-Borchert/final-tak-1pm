@@ -10,6 +10,8 @@ from player import *
 from stone import *
 from capstone import *
 from level_manager import *
+from board_model import *
+import math
 from title_screen import *
 
 import pygame.time
@@ -40,6 +42,7 @@ class GameLevel():
         board.rect.x = (SCREEN_WIDTH / 4)
         board.rect.y = (SCREEN_HEIGHT / 6)
         self.board_list.add(board)
+        self.board_model = BoardModel(SCREEN_WIDTH/4, SCREEN_HEIGHT/6)
         
         # Create the players
         self.player1 = Player()
@@ -93,8 +96,6 @@ class GameLevel():
 
         self.current_x = 0
         self.current_y = 0
-
-
 
 #    def handle_keyboard_event(self, event):
 #        if event.type == pygame.KEYDOWN:
@@ -162,30 +163,42 @@ class GameLevel():
             if self.click_count == 0:
                 if self.player1.stones > 0:
                     p1top = self.player1pieces[0]
-                    print ("p1x: " + str(p1top.rect.x))
-                    print ("p1y: " + str(p1top.rect.y))
+                    print("p1x: " + str(p1top.rect.x))
+                    print("p1y: " + str(p1top.rect.y))
                     
                     if p1top.rect.collidepoint(pos) and self.current_player == self.player1:
                         self.player1.removeStone()
                         self.sprite_click_list.append(self.player1pieces.pop())
                         self.click_count += 1
-                        print ("Piece added")
+                        print("Piece added")
                 
                 if self.player2.stones > 0:
                     p2top = self.player2pieces[0]
-                    print (p2top.rect.x)
-                    print (p2top.rect.y)
+                    print(p2top.rect.x)
+                    print(p2top.rect.y)
                         
                     if p2top.rect.collidepoint(pos) and self.current_player == self.player2:
                         self.player2.removeStone()
                         self.sprite_click_list.append(self.player2pieces.pop())
                         self.click_count += 1
-                        print ("Piece added")
+                        print("Piece added")
                             
             elif self.click_count == 1:
-                self.sprite_click_list = []
-                self.click_count = 0
-                    
+                if (SCREEN_WIDTH / 4) < self.current_x < 1129:
+                    distance_to_snap = 100
+                    px, py = pos
+
+                    for cx, cy in self.board_model.grid:
+                        if math.hypot(cx-px, cy-py) < distance_to_snap:
+                            stone = self.sprite_click_list.pop(0)
+                            stone.rect.x = cx
+                            stone.rect.y = cy
+                            break
+
+                    self.sprite_click_list = []
+
+                    self.click_count = 0
+
                 if self.current_player == self.player1:
                     self.current_player = self.player2
                 else:
