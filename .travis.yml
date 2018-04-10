@@ -19,6 +19,6 @@ install:
 script:
 #    - cd Scripts
 #    - python -m unittest tests.py
-    - cd Scripts && python -m unittest discover
+    - cd tests && python -m unittest discover
 #virtualenv:
 #    system_site_packages: true
