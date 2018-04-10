@@ -17,8 +17,8 @@ class Art:
         art_dictionary = art_dict
 
     def get_image(image_request):
-        os.chdir("..")
-        os.chdir("Assets")
+        #os.chdir("..")
+        #os.chdir("Assets")
 
         image_needed = art_dictionary.get(str(image_request))
         return pygame.image.load(image_needed)
