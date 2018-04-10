@@ -201,7 +201,7 @@ class GameLevel():
                     self.click_count = 0
 
                 # Clicking while outside the board will toggle the piece between
-                # road and wall (todo)
+                # road and wall
                 else:
                     pass
 
