@@ -1,8 +1,5 @@
 import unittest
 
-import sys
-sys.path.insert(0, '/final-tak-1pm/Scripts/')
-
 from board import *
 
 class test_Board(unittest.TestCase):
