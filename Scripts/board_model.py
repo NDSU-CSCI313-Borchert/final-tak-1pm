@@ -25,7 +25,51 @@ class BoardModel():
 
 
     def Check_victory(self):
+        my_list =[]
+        my_listy =[]
+        #I find my first position to start
+        for x in range(0,4):
+            if self.markGrid[x][0]==('X'):
+                currentX=x
+                currentY=0
+                my_list.append(currentX)
+                my_listy.append(currentY)
+                break
+        #this check only runs if we found a mark
+        while currentX < 5:
+            if self.markGrid[currentX][currentY] ==('X'):
+                #Look to the spot to the right for the mark
+                if self.markGrid[currentX][currentY+1] ==('X'): 
+                    currentY+=1
+                    while currentY > 0:
+                        if self.markGrid[currentX][currentY+1] ==('X'): 
+                            currentY+=1
+                        else if self.markGrid[currentX+1][currentY] ==('X'):
+                            currentX+=1
+                        else if self.markGrid[currentX-1][currentY] ==('X'):
+                            currentX -=1
+                        if currentX ==4:
+                            return True
+                    while currentX == 0:
+                        if self.markGrid[currentX][currentY+1] ==('X'): 
+                            currentY+=1
+                        else if self.markGrid[currentX+1][currentY] ==('X'):
+                            currentX+=1
+                        if currentX ==4:
+                            return True
 
+                    
+                else if self.markGrid[currentX-1][currentY] ==('X'):
+                    currentX -=1
+                else if self.markGrid[currentX+1][currentY] ==('X'):
+                    currentX+=1
+            
+     
+            
+
+
+
+        
         #for x in range(0, 4):
          #   if board[x][0] == ('X'):
         #       current_spot = board[x][0]
