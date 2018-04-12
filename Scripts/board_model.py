@@ -64,6 +64,23 @@ class BoardModel():
             if self.markGrid[0][y] == ('Y') and self.markGrid[1][y] == ('Y') and self.markGrid[2][y] == ('Y') and self.markGrid[3][y] == ('Y') and \
                     self.markGrid[4][y] == ('Y'):
                 return True
+            #1down and straight across
+        if self.markGrid[0][0] == ('X') and self.markGrid[1][0] and self.markGrid[1][1] and self.markGrid[1][2] and self.markGrid[1][3] and self.markGrid[1][4]:
+            return True
+        #one down one to the right, then straight across
+        if self.markGrid[0][0] == ('X') and self.markGrid[1][0]  == ('X') and self.markGrid[1][1] == ('X') and self.markGrid[2][1] == ('X') and self.markGrid[2][2] == ('X') and self.markGrid[2][3] == ('X') and self.markGrid[2][4] == ('X'):
+            return True
+        #one down, one to the right, one more down, and all the way across
+        if self.markGrid[0][0] == ('X') and self.markGrid[1][0]  == ('X') and self.markGrid[1][1] == ('X') and self.markGrid[2][1] == ('X') and self.markGrid[2][2] == ('X') and self.markGrid[2][3] == ('X') and self.markGrid[2][4] == ('X'):
+            return True
+        # one down, one to the right, two more down, and all the way across
+        if self.markGrid[0][0] == ('X') and self.markGrid[1][0]  == ('X') and self.markGrid[1][1] == ('X') and self.markGrid[2][1] == ('X') and self.markGrid[3][1] == ('X') and self.markGrid[3][2] == ('X') and self.markGrid[3][3] == ('X') and self.markGrid[3][4] == ('X'):
+            return True
+        # one down, one to the right, three more down, and all the way across
+        if self.markGrid[0][0] == ('X') and self.markGrid[1][0] == ('X') and self.markGrid[1][1] == ('X') and \
+                self.markGrid[2][1] == ('X') and self.markGrid[3][1] == ('X') and self.markGrid[3][2] == ('X') and \
+                self.markGrid[3][3] == ('X') and self.markGrid[4][3]==('X') and self.markGrid[3][4] == ('X'):
+            return True
 
         return False
 #pos x from the mouse, position y from the mouse, a boolean stating weather or not it is player1, then if the stone is a standing stone.
