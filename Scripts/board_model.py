@@ -220,3 +220,4 @@ class BoardModel():
         elif posx > 977 and posx < 1129 and posy > 770 and posy < 921:
             if self.markGrid[4][2]!=('') :
                 return True
+
