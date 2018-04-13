@@ -105,12 +105,8 @@ class GameLevel():
             if board[x][0] == ('Y') and board[x][1] == ('Y') and board[x][2] == ('Y') and board[x][3] == ('Y') and board[x][4] == ('Y'):
                 return True
         return False
-    def print_pos(self):
-        pos = pygame.mouse.get_pos()
-        x = pos[0]
-        y = pos[1]
-        print (x, y)
-    def next_piece(self,board):
+        
+    def next_piece(self, board):
         if board[0][0] ==('X'):
             current_piece=board[0][0]
         if board[0][1] ==('X'):
@@ -149,8 +145,6 @@ class GameLevel():
             pos = pygame.mouse.get_pos()
             self.current_x = pos[0]
             self.current_y = pos[1]
-            print("this is the position")
-            self.print_pos()
             
             if self.button.collidepoint(pos):
                 LevelManager().load_level(GameLevel())

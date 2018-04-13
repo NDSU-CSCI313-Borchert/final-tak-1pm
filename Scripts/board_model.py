@@ -12,8 +12,7 @@ class BoardModel():
         for x in range(5):
             for y in range(5):
                 self.grid.append(((SCREEN_WIDTH/4)+(151*x),(SCREEN_HEIGHT/6+(151*y))))
-
-        print(self.grid)
+                
         self.grid2 = []
 
         self.markGrid = [['' for i in range(5)] for j in range(5)]
@@ -44,24 +43,24 @@ class BoardModel():
                     while currentY > 0:
                         if self.markGrid[currentX][currentY+1] ==('X'): 
                             currentY+=1
-                        else if self.markGrid[currentX+1][currentY] ==('X'):
+                        elif self.markGrid[currentX+1][currentY] ==('X'):
                             currentX+=1
-                        else if self.markGrid[currentX-1][currentY] ==('X'):
+                        elif self.markGrid[currentX-1][currentY] ==('X'):
                             currentX -=1
                         if currentX ==4:
                             return True
                     while currentX == 0:
                         if self.markGrid[currentX][currentY+1] ==('X'): 
                             currentY+=1
-                        else if self.markGrid[currentX+1][currentY] ==('X'):
+                        elif self.markGrid[currentX+1][currentY] ==('X'):
                             currentX+=1
                         if currentX ==4:
                             return True
 
                     
-                else if self.markGrid[currentX-1][currentY] ==('X'):
+                elif self.markGrid[currentX-1][currentY] ==('X'):
                     currentX -=1
-                else if self.markGrid[currentX+1][currentY] ==('X'):
+                elif self.markGrid[currentX+1][currentY] ==('X'):
                     currentX+=1
             
      
