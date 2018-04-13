@@ -172,21 +172,24 @@ class GameLevel():
                     distance_to_snap = 130
                     stone = self.sprite_click_list.pop(0)
                     px, py = stone.rect.topleft
-
-                    for cx, cy in self.board_model.coord_grid:
-                        if math.hypot(cx-px, cy-py) < distance_to_snap:
-                            stone.rect.x = cx+25
-                            stone.rect.y = cy+45
-                            break
-
-                    self.sprite_click_list = []
-
-                    self.click_count = 0
-            
-                    if self.current_player == self.player1:
-                        self.current_player = self.player2
+                    
+                    if self.board_model.spot_occupied(px, py):
+                        pass
                     else:
-                        self.current_player = self.player1
+                        for cx, cy in self.board_model.coord_grid:
+                            if math.hypot(cx-px, cy-py) < distance_to_snap:
+                                stone.rect.x = cx+25
+                                stone.rect.y = cy+45
+                                break
+
+                        self.sprite_click_list = []
+
+                        self.click_count = 0
+            
+                        if self.current_player == self.player1:
+                            self.current_player = self.player2
+                        else:
+                            self.current_player = self.player1
 
                 # Clicking while outside the board will toggle the piece between
                 # road and wall
