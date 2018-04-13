@@ -94,23 +94,9 @@ class GameLevel():
             for column in range(5):
                 self.grid[row].append(0)
 
-        self.current_x = 0
-        self.current_y = 0
-
-    #Check if the player has made a road to the other side of the board and won. I am thinking when a player puts a piece down we can mark that spot in the grid.
-    def Check_victory(self,board):
-        for x in range(0,5):
-            if board[x][0] ==('X') and board[x][1] ==('X') and board[x][2] ==('X') and board[x][3] ==('X') and board[x][4] ==('X'):
-                return True
-            if board[x][0] == ('Y') and board[x][1] == ('Y') and board[x][2] == ('Y') and board[x][3] == ('Y') and board[x][4] == ('Y'):
-                return True
-        return False
         
-    def next_piece(self, board):
-        if board[0][0] ==('X'):
-            current_piece=board[0][0]
-        if board[0][1] ==('X'):
-            current_piece = board[0][1]
+
+    
 
     #Animation
     def update(self):
@@ -170,12 +156,24 @@ class GameLevel():
                 if (SCREEN_WIDTH / 4) < self.current_x < 1129:
                     # This code helps the pieces snap in place
                     distance_to_snap = 130
-                    stone = self.sprite_click_list.pop(0)
+                    stone = self.sprite_click_list[0]
                     px, py = stone.rect.topleft
+                    
                     
                     if self.board_model.spot_occupied(px, py):
                         pass
                     else:
+                        if self.current_player == self.player1:
+                            if stone.name == "wall":
+                                self.board_model.Mark_spot(px,py,True,True)
+                            else:
+                                self.board_model.Mark_spot(px,py,True,False)
+                        elif self.current_player == self.player2:
+                            if stone.name == "wall":
+                                self.board_model.Mark_spot(px,py,False,True)
+                            else:
+                                self.board_model.Mark_spot(px,py,False,False)
+                                
                         for cx, cy in self.board_model.coord_grid:
                             if math.hypot(cx-px, cy-py) < distance_to_snap:
                                 stone.rect.x = cx+25
