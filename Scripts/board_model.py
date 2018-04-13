@@ -45,13 +45,18 @@ class BoardModel():
                             currentX+=1
                         elif self.markGrid[currentX-1][currentY] ==('X'):
                             currentX -=1
+                        else:
+                            return False
                         if currentX ==4:
                             return True
+
                     while currentX == 0:
                         if self.markGrid[currentX][currentY+1] ==('X'): 
                             currentY+=1
                         elif self.markGrid[currentX+1][currentY] ==('X'):
                             currentX+=1
+                        elif self.markGrid[currentX][currentY+1] != ('X') and self.markGrid[currentX+1][currentY]!=('X'):
+                            return False
                         if currentX ==4:
                             return True
 
@@ -60,68 +65,7 @@ class BoardModel():
                     currentX -=1
                 elif self.markGrid[currentX+1][currentY] ==('X'):
                     currentX+=1
-            
-     
-            
 
-
-
-        
-        #for x in range(0, 4):
-         #   if board[x][0] == ('X'):
-        #       current_spot = board[x][0]
-        #       self.grid2 = current_spot
-        #       break
-                #I need a little help with logic, am i able to use current spot to check the spot next to it like current_spot[x][y+1]
-        # if board[x + 1][0] == ('X'):
-        #   current_spot = board[x+1][0]
-        #   self.grid2[2] = current_spot
-        #   if board[x + 2][0] == ('X'):
-        #       current_spot = board[x + 2][0]
-        #       self.grid2[3] = current_spot
-
-        #   if board[x + 1][1] == ('X'):
-        #           current_spot = board[x + 1][1]
-        #           self.grid2[3] = current_spot
-
-        # if board[x][0+1] == ('X'):
-        #   current_spot = board[x][0+1]
-        #   self.grid2[2] = current_spot
-
-        #if board[x - 1][0] == ('X'):
-        #   current_spot= board[x-1][0]
-        #   self.grid2[3] = current_spot
-        for x in range(0, 4):
-            if self.markGrid[x][0] == ('X') and self.markGrid[x][1] == ('X') and self.markGrid[x][2] == ('X') and self.markGrid[x][3] == ('X') and \
-                    self.markGrid[x][4] == ('X'):
-                return True
-            if self.markGrid[x][0] == ('Y') and self.markGrid[x][1] == ('Y') and self.markGrid[x][2] == ('Y') and self.markGrid[x][3] == ('Y') and \
-                    self.markGrid[x][4] == ('Y'):
-                return True
-        for y in range(0, 4):
-            if self.markGrid[0][y] == ('X') and self.markGrid[1][y] == ('X') and self.markGrid[2][y] == ('X') and self.markGrid[3][y] == ('X') and \
-                    self.markGrid[4][y] == ('X'):
-                return True
-            if self.markGrid[0][y] == ('Y') and self.markGrid[1][y] == ('Y') and self.markGrid[2][y] == ('Y') and self.markGrid[3][y] == ('Y') and \
-                    self.markGrid[4][y] == ('Y'):
-                return True
-            #1down and straight across
-        if self.markGrid[0][0] == ('X') and self.markGrid[1][0] and self.markGrid[1][1] and self.markGrid[1][2] and self.markGrid[1][3] and self.markGrid[1][4]:
-            return True
-        #one down one to the right, then straight across
-        if self.markGrid[0][0] == ('X') and self.markGrid[1][0]  == ('X') and self.markGrid[1][1] == ('X') and self.markGrid[2][1] == ('X') and self.markGrid[2][2] == ('X') and self.markGrid[2][3] == ('X') and self.markGrid[2][4] == ('X'):
-            return True
-        #one down, one to the right, one more down, and all the way across
-        if self.markGrid[0][0] == ('X') and self.markGrid[1][0]  == ('X') and self.markGrid[1][1] == ('X') and self.markGrid[2][1] == ('X') and self.markGrid[2][2] == ('X') and self.markGrid[2][3] == ('X') and self.markGrid[2][4] == ('X'):
-            return True
-        # one down, one to the right, two more down, and all the way across
-        if self.markGrid[0][0] == ('X') and self.markGrid[1][0]  == ('X') and self.markGrid[1][1] == ('X') and self.markGrid[2][1] == ('X') and self.markGrid[3][1] == ('X') and self.markGrid[3][2] == ('X') and self.markGrid[3][3] == ('X') and self.markGrid[3][4] == ('X'):
-            return True
-        # one down, one to the right, three more down, and all the way across
-        if self.markGrid[0][0] == ('X') and self.markGrid[1][0] == ('X') and self.markGrid[1][1] == ('X') and \
-                self.markGrid[2][1] == ('X') and self.markGrid[3][1] == ('X') and self.markGrid[3][2] == ('X') and \
-                self.markGrid[3][3] == ('X') and self.markGrid[4][3]==('X') and self.markGrid[3][4] == ('X'):
-            return True
 
         return False
 #pos x from the mouse, position y from the mouse, a boolean stating weather or not it is player1, then if the stone is a standing stone.
@@ -135,58 +79,144 @@ class BoardModel():
         if posx > 374 and posx < 526 and posy > 166 and posy < 317:
             self.markGrid[0][0] = mark
         #The first column
-        if posx > 374 and posx < 526 and posy > 316 and posy < 467:
+        elif posx > 374 and posx < 526 and posy > 316 and posy < 467:
             self.markGrid[1][0] = mark
-        if posx > 374 and posx < 526 and posy > 467 and posy < 619:
+        elif posx > 374 and posx < 526 and posy > 467 and posy < 619:
             self.markGrid[2][0] = mark
-        if posx > 374 and posx < 526 and posy > 618 and posy < 771:
+        elif posx > 374 and posx < 526 and posy > 618 and posy < 771:
             self.markGrid[3][0] = mark
-        if posx > 374 and posx < 526 and posy > 770 and posy < 921:
+        elif posx > 374 and posx < 526 and posy > 770 and posy < 921:
             self.markGrid[4][0] = mark
         #The first row
-        if posx > 526 and posx < 677 and posy > 166 and posy < 317:
+        elif posx > 526 and posx < 677 and posy > 166 and posy < 317:
             self.markGrid[0][1] = mark
         #The second column
-        if posx > 526 and posx < 677 and posy > 316 and posy < 468:
+        elif posx > 526 and posx < 677 and posy > 316 and posy < 468:
             self.markGrid[1][1] = mark
-        if posx > 526 and posx < 677 and posy > 467 and posy < 619:
+        elif posx > 526 and posx < 677 and posy > 467 and posy < 619:
             self.markGrid[2][1] = mark
-        if posx > 526 and posx < 677 and posy > 618 and posy < 771:
+        elif posx > 526 and posx < 677 and posy > 618 and posy < 771:
             self.markGrid[3][1] = mark
-        if posx > 526 and posx < 677 and posy > 770 and posy < 921:
+        elif posx > 526 and posx < 677 and posy > 770 and posy < 921:
             self.markGrid[4][1] = mark
 
 
         #Third Column
-        if posx > 677 and posx < 826 and posy > 166 and posy < 317:
+        elif posx > 677 and posx < 826 and posy > 166 and posy < 317:
             self.markGrid[0][2] = mark
-        if posx > 677 and posx < 826 and posy > 316 and posy < 468:
+        elif posx > 677 and posx < 826 and posy > 316 and posy < 468:
             self.markGrid[1][2] = mark
-        if posx > 677 and posx < 826 and posy > 467 and posy < 619:
+        elif posx > 677 and posx < 826 and posy > 467 and posy < 619:
             self.markGrid[2][2] = mark
-        if posx > 677 and posx < 826 and posy > 618 and posy < 771:
+        elif posx > 677 and posx < 826 and posy > 618 and posy < 771:
             self.markGrid[3][2] = mark
-        if posx > 677 and posx < 826 and posy > 770 and posy < 921:
+        elif posx > 677 and posx < 826 and posy > 770 and posy < 921:
             self.markGrid[4][2] = mark
         #fourth coloumn
-        if posx > 826 and posx < 978 and posy > 166 and posy < 317:
+        elif posx > 826 and posx < 978 and posy > 166 and posy < 317:
             self.markGrid[0][3] = mark
-        if posx > 826 and posx < 978 and posy > 316 and posy < 468:
+        elif posx > 826 and posx < 978 and posy > 316 and posy < 468:
             self.markGrid[1][2] = mark
-        if posx > 826 and posx < 978 and posy > 467 and posy < 619:
+        elif posx > 826 and posx < 978 and posy > 467 and posy < 619:
             self.markGrid[2][2] = mark
-        if posx > 826 and posx < 978 and posy > 618 and posy < 771:
+        elif posx > 826 and posx < 978 and posy > 618 and posy < 771:
             self.markGrid[3][2] = mark
-        if posx > 826 and posx < 978 and posy > 770 and posy < 921:
+        elif posx > 826 and posx < 978 and posy > 770 and posy < 921:
             self.markGrid[4][2] = mark
         #fifth coloumn
-        if posx > 977 and posx < 1129 and posy > 166 and posy < 317:
+        elif posx > 977 and posx < 1129 and posy > 166 and posy < 317:
             self.markGrid[0][4] = mark
-        if posx > 977 and posx < 1129 and posy > 316 and posy < 468:
+        elif posx > 977 and posx < 1129 and posy > 316 and posy < 468:
             self.markGrid[1][2] = mark
-        if posx > 977 and posx < 1129 and posy > 467 and posy < 619:
+        elif posx > 977 and posx < 1129 and posy > 467 and posy < 619:
             self.markGrid[2][2] = mark
-        if posx > 977 and posx < 1129 and posy > 618 and posy < 771:
+        elif posx > 977 and posx < 1129 and posy > 618 and posy < 771:
             self.markGrid[3][2] = mark
-        if posx > 977 and posx < 1129 and posy > 770 and posy < 921:
+        elif posx > 977 and posx < 1129 and posy > 770 and posy < 921:
             self.markGrid[4][2] = mark
+    #Feed this method an x and y coordinate for it to check if that spot is occupied
+    def spot_occuped(self,posx,posy):
+
+        if posx > 374 and posx < 526 and posy > 166 and posy < 317:
+            if self.markGrid[0][0] !=('') :
+                return True
+        #The first column
+        elif posx > 374 and posx < 526 and posy > 316 and posy < 467:
+            if self.markGrid[1][0]!=('') :
+                return True
+        elif posx > 374 and posx < 526 and posy > 467 and posy < 619:
+            if self.markGrid[2][0]!=('') :
+                return True
+        elif posx > 374 and posx < 526 and posy > 618 and posy < 771:
+            if self.markGrid[3][0]!=('') :
+                return True
+        elif posx > 374 and posx < 526 and posy > 770 and posy < 921:
+            if self.markGrid[4][0]!=('') :
+                return True
+        #The first row
+        elif posx > 526 and posx < 677 and posy > 166 and posy < 317:
+            if self.markGrid[0][1]!=('') :
+                return True
+        #The second column
+        elif posx > 526 and posx < 677 and posy > 316 and posy < 468:
+            if self.markGrid[1][1]!=('') :
+                return True
+        elif posx > 526 and posx < 677 and posy > 467 and posy < 619:
+            if self.markGrid[2][1]!=('') :
+                return True
+        elif posx > 526 and posx < 677 and posy > 618 and posy < 771:
+            if self.markGrid[3][1]!=('') :
+                return True
+        elif posx > 526 and posx < 677 and posy > 770 and posy < 921:
+            if self.markGrid[4][1]!=('') :
+                return True
+
+
+        #Third Column
+        elif posx > 677 and posx < 826 and posy > 166 and posy < 317:
+            if self.markGrid[0][2]!=('') :
+                return True
+        elif posx > 677 and posx < 826 and posy > 316 and posy < 468:
+            if self.markGrid[1][2]!=('') :
+                return True
+        elif posx > 677 and posx < 826 and posy > 467 and posy < 619:
+            if self.markGrid[2][2]!=('') :
+                return True
+        elif posx > 677 and posx < 826 and posy > 618 and posy < 771:
+            if self.markGrid[3][2]!=('') :
+                return True
+        elif posx > 677 and posx < 826 and posy > 770 and posy < 921:
+            if self.markGrid[4][2]!=('') :
+                return True
+        #fourth coloumn
+        elif posx > 826 and posx < 978 and posy > 166 and posy < 317:
+            if self.markGrid[0][3]!=('') :
+                return True
+        elif posx > 826 and posx < 978 and posy > 316 and posy < 468:
+            if self.markGrid[1][2]!=('') :
+                return True
+        elif posx > 826 and posx < 978 and posy > 467 and posy < 619:
+            if self.markGrid[2][2]!=('') :
+                return True
+        elif posx > 826 and posx < 978 and posy > 618 and posy < 771:
+            if self.markGrid[3][2]!=('') :
+                return True
+        elif posx > 826 and posx < 978 and posy > 770 and posy < 921:
+            if self.markGrid[4][2]!=('') :
+                return True
+        #fifth coloumn
+        elif posx > 977 and posx < 1129 and posy > 166 and posy < 317:
+            if self.markGrid[0][4]!=('') :
+                return True
+        elif posx > 977 and posx < 1129 and posy > 316 and posy < 468:
+            if self.markGrid[1][2]!=('') :
+                return True
+        elif posx > 977 and posx < 1129 and posy > 467 and posy < 619:
+            if self.markGrid[2][2]!=('') :
+                return True
+        elif posx > 977 and posx < 1129 and posy > 618 and posy < 771:
+            if self.markGrid[3][2]!=('') :
+                return True
+        elif posx > 977 and posx < 1129 and posy > 770 and posy < 921:
+            if self.markGrid[4][2]!=('') :
+                return True
