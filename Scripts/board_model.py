@@ -135,7 +135,7 @@ class BoardModel():
         elif posx > 977 and posx < 1129 and posy > 770 and posy < 921:
             self.markGrid[4][2] = mark
     #Feed this method an x and y coordinate for it to check if that spot is occupied
-    def spot_occuped(self,posx,posy):
+    def spot_occupied(self,posx,posy):
 
         if posx > 374 and posx < 526 and posy > 166 and posy < 317:
             if self.markGrid[0][0] !=('') :
