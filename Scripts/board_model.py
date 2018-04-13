@@ -5,8 +5,6 @@ from constants import *
 class BoardModel():
     def __init__(self,x,y):
         super().__init__()
-        # self.grid = [[((SCREEN_WIDTH/4)+(151*i),(SCREEN_HEIGHT/6+(151*j))) for i in range(5)] for j in range(5)]
-        # print('\n'.join([''.join(['{0}'.format(item) for item in row]) for row in self.grid]))
 
         self.coord_grid = []
         for x in range(5):
