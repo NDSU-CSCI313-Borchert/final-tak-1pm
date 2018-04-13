@@ -173,7 +173,7 @@ class GameLevel():
                     stone = self.sprite_click_list.pop(0)
                     px, py = stone.rect.topleft
 
-                    for cx, cy in self.board_model.grid:
+                    for cx, cy in self.board_model.coord_grid:
                         if math.hypot(cx-px, cy-py) < distance_to_snap:
                             stone.rect.x = cx+25
                             stone.rect.y = cy+45

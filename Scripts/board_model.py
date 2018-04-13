@@ -8,11 +8,11 @@ class BoardModel():
         # self.grid = [[((SCREEN_WIDTH/4)+(151*i),(SCREEN_HEIGHT/6+(151*j))) for i in range(5)] for j in range(5)]
         # print('\n'.join([''.join(['{0}'.format(item) for item in row]) for row in self.grid]))
 
-        self.grid = []
+        self.coord_grid = []
         for x in range(5):
             for y in range(5):
-                self.grid.append(((SCREEN_WIDTH/4)+(151*x),(SCREEN_HEIGHT/6+(151*y))))
-                
+                self.coord_grid.append(((SCREEN_WIDTH/4)+(151*x),(SCREEN_HEIGHT/6+(151*y))))
+
         self.grid2 = []
 
         self.markGrid = [['' for i in range(5)] for j in range(5)]
