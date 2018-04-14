@@ -3,6 +3,7 @@
     Author: Skyler Svendsen
 """
 import pygame
+import pprint
 import random
 from constants import *
 from board import *
@@ -161,11 +162,13 @@ class GameLevel():
                     
                     
                     if self.board_model.spot_occupied(px, py):
+                        print("hello")
                         pass
                     else:
                         if self.current_player == self.player1:
                             if stone.name == "wall":
                                 self.board_model.Mark_spot(px,py,True,True)
+                                print (px)
                             else:
                                 self.board_model.Mark_spot(px,py,True,False)
                         elif self.current_player == self.player2:
