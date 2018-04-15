@@ -4,6 +4,7 @@
 """
 import pygame
 import random
+import pprint
 from constants import *
 from board import *
 from player import *
@@ -161,6 +162,7 @@ class GameLevel():
                     
                     
                     if self.board_model.spot_occupied(px, py):
+                        print("Occupied")
                         pass
                     else:
                         if self.current_player == self.player1:
