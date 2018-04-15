@@ -27,84 +27,25 @@ class BoardModel():
         v_victory = False
         my_list =[]
         my_listy =[]
-        #I find my first position to start
+
+        # Vertical check
         for x in range(0,4):
             if self.markGrid[0][x]==('X'):
-                currentX=x
-                currentY=0
                 if self.markGrid[1][x] and self.markGrid[2][x] and self.markGrid[3][x] and self.markGrid[4][x] == 'X':
                     v_victory = True
                     break
-                # my_list.append(currentX)
-                # my_listy.append(currentY)
-                # break
 
-        return v_victory
-        #this check only runs if we found a mark
-        # while currentY < 4:
-        #     # Just a second check to make sure we have a mark
-        #     if self.markGrid[currentX][currentY] == ('X'):
-        #         # Look to the spot to the right for the mark
-        #         if currentX == 0:
-        #             if self.markGrid[currentX][currentY + 1] == ('X'):
-        #                 currentY += 1
-        #             elif self.markGrid[currentX + 1][currentY] == ('X'):
-        #                 currentX += 1
-        #
-        #         if self.markGrid[currentX][currentY+1] ==('X'):
-        #             currentY+=1
-        #         elif self.markGrid[currentX+1][currentY]:
-        #             currentX+=1
-        #         elif self.markGrid[currentX - 1][currentY] == ('X'):
-        #             currentX -= 1
-        #         else:
-        #             break
-        # if currentY==4:
-        #     return True
-        #
-        #
-        # #looking for a vertical win
-        # for y in range(0,4):
-        #     if self.markGrid[4][y]==('X'):
-        #         currentX=4
-        #         currentY=y
-        #         break
-        # while currentX > 0:
-        #
-        #     if self.markGrid[currentX][currentY] == ('X'):
-        #         if currentX == 4 and currentY ==0:
-        #             if self.markGrid[currentX-1][currentY] ==('X'):
-        #                 currentX-=1
-        #             elif self.markGrid[currentX][currentY+1]==('X'):
-        #                 currentY+=1
-        #             else:
-        #                 break
-        #         if currentX ==4:
-        #             if self.markGrid[currentX-1][currentY] ==('X'):
-        #                 currentX-=1
-        #             elif self.markGrid[currentX][currentY+1]==('X'):
-        #                 currentY+=1
-        #             elif self.markGrid[currentX][currentY-1]==('X'):
-        #                 currentY-=1
-        #             else:
-        #                 break
-        #
-        #         if self.markGrid[currentX - 1][currentY] == ('X'):
-        #             currentX -= 1
-        #         elif self.markGrid[currentX][currentY + 1] == ('X'):
-        #             currentY += 1
-        #         elif self.markGrid[currentX][currentY - 1] == ('X'):
-        #             currentY -= 1
-        #         else:
-        #             break
-        #
-        # if currentX==0:
-        #     return True
-        #
-        #
-        # return False
+        # Horizontal check
+        for y in range(0,4):
+            if self.markGrid[y][0] == 'X':
+                if self.markGrid[y][1] and self.markGrid[y][2] and self.markGrid[y][3] and self.markGrid[y][4] == 'X':
+                    h_victory = True
+                    break
 
-
+        if v_victory or h_victory:
+            return True
+        else:
+            return False
 
 
     def Check_victoryY(self):
