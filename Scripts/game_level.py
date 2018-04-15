@@ -18,7 +18,7 @@ from title_screen import *
 import pygame.time
 
 class GameLevel():
-    def __init__(self):
+    def __init__(self, p1_wins=0, p2_wins=0):
         # Initialize Pygame
         pygame.init()
         
@@ -90,10 +90,8 @@ class GameLevel():
         
         self.grid = []
 
-        for row in range(5):
-            self.grid.append([])
-            for column in range(5):
-                self.grid[row].append(0)
+        self.p1_wins = p1_wins
+        self.p2_wins = p2_wins
 
         
 
