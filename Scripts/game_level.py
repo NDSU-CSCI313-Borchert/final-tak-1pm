@@ -190,10 +190,10 @@ class GameLevel():
                             else:
                                 self.current_player = self.player2
                         else:
-                            # if self.board_model.Check_victoryY():
-                            #     self.done = True
-                            #     self.winner = "Player Two"
-                            # else:
+                            if self.board_model.Check_victoryY():
+                                self.done = True
+                                self.winner = "Player Two"
+                            else:
                                 self.current_player = self.player1
                         print(self.winner)
 
