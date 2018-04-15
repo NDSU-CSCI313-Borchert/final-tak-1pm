@@ -18,7 +18,7 @@ from title_screen import *
 import pygame.time
 
 class GameLevel():
-    def __init__(self, p1_wins=0, p2_wins=0):
+    def __init__(self, p1_wins=0, p2_wins=0, p1_score=0, p2_score=0):
         # Initialize Pygame
         pygame.init()
         
@@ -90,6 +90,8 @@ class GameLevel():
 
         self.p1_wins = p1_wins
         self.p2_wins = p2_wins
+        self.p1_score = p1_score
+        self.p2_score = p2_score
 
         self.winner = ""
         self.done = False
@@ -131,7 +133,7 @@ class GameLevel():
             self.current_y = pos[1]
 
             if self.button.collidepoint(pos):
-                LevelManager().load_level(GameLevel(self.p1_wins, self.p2_wins))
+                LevelManager().load_level(GameLevel(self.p1_wins, self.p2_wins, self.p1_score, self.p2_score))
 
             if self.click_count == 0:
                 if self.player1.stones > 0 and not self.done:
@@ -189,6 +191,7 @@ class GameLevel():
                                 self.done = True
                                 self.winner = "Player One"
                                 self.p1_wins += 1
+                                self.p1_score += (25 + self.player1.stones)
                             else:
                                 self.current_player = self.player2
                         else:
@@ -196,6 +199,7 @@ class GameLevel():
                                 self.done = True
                                 self.winner = "Player Two"
                                 self.p2_wins += 1
+                                self.p2_score += (25 + self.player2.stones)
                             else:
                                 self.current_player = self.player1
                         print(self.winner)
@@ -224,8 +228,11 @@ class GameLevel():
         player_turn = font.render(self.current_player.name + "\'s Turn.", True, BLACK)
         player1_pieces_remaining = font.render("Remaining stones: " + str(self.player1.stones), True, BLACK)
         player2_pieces_remaining = font.render("Remaining stones: " + str(self.player2.stones), True, BLACK)
+
         player_1_wins = font.render("Wins: " + str(self.p1_wins), True, BLACK)
         player_2_wins = font.render("Wins: " + str(self.p2_wins), True, BLACK)
+        player1_score = font.render("Score: " + str(self.p1_score), True, BLACK)
+        player2_score = font.render("Score: " + str(self.p2_score), True, BLACK)
 
         win_message = font.render(self.winner + " has won! Hit the Reset button to play again!", True, BLACK)
 
@@ -245,6 +252,12 @@ class GameLevel():
             screen.blit(player_1_wins, [(SCREEN_WIDTH / 6) - 80, 200])
         if self.p2_wins > 0:
             screen.blit(player_2_wins, [(SCREEN_WIDTH / 6 * 5) + 30, 200])
+
+        if self.p1_score > 0:
+            screen.blit(player1_score, [(SCREEN_WIDTH /6 - 80), 250])
+
+        if self.p2_score > 0:
+            screen.blit(player2_score, [(SCREEN_WIDTH /6 * 5) + 30, 250])
 
         pygame.draw.rect(screen, [255, 0, 0], self.button)
         screen.blit(reset_button_text, [75, SCREEN_HEIGHT - 40])
