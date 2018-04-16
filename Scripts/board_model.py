@@ -31,14 +31,14 @@ class BoardModel():
         # Vertical check
         for y in range(0,5):
             if self.markGrid[0][y]==('X'):
-                if self.markGrid[1][y] and self.markGrid[2][y] and self.markGrid[3][y] and self.markGrid[4][y] == 'X':
+                if self.markGrid[1][y] == 'X' and self.markGrid[2][y] == 'X' and self.markGrid[3][y] == 'X' and self.markGrid[4][y] == 'X':
                     v_victory = True
                     break
 
         # Horizontal check
         for x in range(0,5):
             if self.markGrid[x][0] == 'X':
-                if self.markGrid[x][1] and self.markGrid[x][2] and self.markGrid[x][3] and self.markGrid[x][4] == 'X':
+                if self.markGrid[x][1] == 'X' and self.markGrid[x][2] == 'X' and self.markGrid[x][3] == 'X' and self.markGrid[x][4] == 'X':
                     h_victory = True
                     break
 
@@ -57,14 +57,14 @@ class BoardModel():
         # Vertical check
         for y in range(0, 5):
             if self.markGrid[0][y] == ('Y'):
-                if self.markGrid[1][y] and self.markGrid[2][y] and self.markGrid[3][y] and self.markGrid[4][y] == 'Y':
+                if self.markGrid[1][y]  == 'Y' and self.markGrid[2][y]  == 'Y' and self.markGrid[3][y] == 'Y' and self.markGrid[4][y] == 'Y':
                     v_victory = True
                     break
 
         # Horizontal check
         for x in range(0, 5):
             if self.markGrid[x][0] == 'Y':
-                if self.markGrid[x][1] and self.markGrid[x][2] and self.markGrid[x][3] and self.markGrid[x][4] == 'Y':
+                if self.markGrid[x][1] == 'Y' and self.markGrid[x][2] == 'Y' and self.markGrid[x][3] == 'Y' and self.markGrid[x][4] == 'Y':
                     h_victory = True
                     break
 
