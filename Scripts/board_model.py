@@ -145,86 +145,86 @@ class BoardModel():
     def spot_occupied(self,posx,posy):
 
         if posx > 374 and posx < 526 and posy > 166 and posy < 317:
-            if self.markGrid[0][0] ==('Z') :
+            if self.markGrid[0][0] !=('') :
                 return True
         #The first column
         elif posx > 374 and posx < 526 and posy > 316 and posy < 467:
-            if self.markGrid[1][0]==('Z') :
+            if self.markGrid[1][0]!=('') :
                 return True
         elif posx > 374 and posx < 526 and posy > 467 and posy < 619:
-            if self.markGrid[2][0]==('Z') :
+            if self.markGrid[2][0]!=('') :
                 return True
         elif posx > 374 and posx < 526 and posy > 618 and posy < 771:
-            if self.markGrid[3][0]==('Z') :
+            if self.markGrid[3][0]!=('') :
                 return True
         elif posx > 374 and posx < 526 and posy > 770 and posy < 921:
-            if self.markGrid[4][0]==('Z') :
+            if self.markGrid[4][0]!=('') :
                 return True
         #The first row
         elif posx > 526 and posx < 677 and posy > 166 and posy < 317:
-            if self.markGrid[0][1]==('Z') :
+            if self.markGrid[0][1]!=('') :
                 return True
         #The second column
         elif posx > 526 and posx < 677 and posy > 316 and posy < 468:
-            if self.markGrid[1][1]==('Z') :
+            if self.markGrid[1][1]!=('') :
                 return True
         elif posx > 526 and posx < 677 and posy > 467 and posy < 619:
-            if self.markGrid[2][1]==('Z') :
+            if self.markGrid[2][1]!=('') :
                 return True
         elif posx > 526 and posx < 677 and posy > 618 and posy < 771:
-            if self.markGrid[3][1]==('Z') :
+            if self.markGrid[3][1]!=('') :
                 return True
         elif posx > 526 and posx < 677 and posy > 770 and posy < 921:
-            if self.markGrid[4][1]==('Z') :
+            if self.markGrid[4][1]!=('') :
                 return True
 
 
         #Third Column
         elif posx > 677 and posx < 826 and posy > 166 and posy < 317:
-            if self.markGrid[0][2]==('Z') :
+            if self.markGrid[0][2]!=('') :
                 return True
         elif posx > 677 and posx < 826 and posy > 316 and posy < 468:
-            if self.markGrid[1][2]==('Z') :
+            if self.markGrid[1][2]!=('') :
                 return True
         elif posx > 677 and posx < 826 and posy > 467 and posy < 619:
-            if self.markGrid[2][2]==('Z') :
+            if self.markGrid[2][2]!=('') :
                 return True
         elif posx > 677 and posx < 826 and posy > 618 and posy < 771:
-            if self.markGrid[3][2]==('Z') :
+            if self.markGrid[3][2]!=('') :
                 return True
         elif posx > 677 and posx < 826 and posy > 770 and posy < 921:
-            if self.markGrid[4][2]==('Z') :
+            if self.markGrid[4][2]!=('') :
                 return True
         #fourth coloumn
         elif posx > 826 and posx < 978 and posy > 166 and posy < 317:
-            if self.markGrid[0][3]==('Z') :
+            if self.markGrid[0][3]!=('') :
                 return True
         elif posx > 826 and posx < 978 and posy > 316 and posy < 468:
-            if self.markGrid[1][3]==('Z') :
+            if self.markGrid[1][3]!=('') :
                 return True
         elif posx > 826 and posx < 978 and posy > 467 and posy < 619:
-            if self.markGrid[2][3]==('Z') :
+            if self.markGrid[2][3]!=('') :
                 return True
         elif posx > 826 and posx < 978 and posy > 618 and posy < 771:
-            if self.markGrid[3][3]==('Z') :
+            if self.markGrid[3][3]!=('') :
                 return True
         elif posx > 826 and posx < 978 and posy > 770 and posy < 921:
-            if self.markGrid[4][3]==('Z') :
+            if self.markGrid[4][3]!=('') :
                 return True
         #fifth coloumn
         elif posx > 977 and posx < 1129 and posy > 166 and posy < 317:
-            if self.markGrid[0][4]==('Z') :
+            if self.markGrid[0][4]!=('') :
                 return True
         elif posx > 977 and posx < 1129 and posy > 316 and posy < 468:
-            if self.markGrid[1][4]==('Z') :
+            if self.markGrid[1][4]!=('') :
                 return True
         elif posx > 977 and posx < 1129 and posy > 467 and posy < 619:
-            if self.markGrid[2][4]==('Z') :
+            if self.markGrid[2][4]!=('') :
                 return True
         elif posx > 977 and posx < 1129 and posy > 618 and posy < 771:
-            if self.markGrid[3][4]==('Z') :
+            if self.markGrid[3][4]!=('') :
                 return True
         elif posx > 977 and posx < 1129 and posy > 770 and posy < 921:
-            if self.markGrid[4][4]==('Z') :
+            if self.markGrid[4][4]!=('') :
                 return True
 
