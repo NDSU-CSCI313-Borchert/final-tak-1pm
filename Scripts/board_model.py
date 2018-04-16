@@ -23,157 +23,57 @@ class BoardModel():
 
 
     def Check_victoryX(self):
+        h_victory = False
+        v_victory = False
         my_list =[]
         my_listy =[]
-        #I find my first position to start
-        for x in range(0,4):
-            if self.markGrid[x][0]==('X'):
-                currentX=x
-                currentY=0
-                my_list.append(currentX)
-                my_listy.append(currentY)
-                break
-        #this check only runs if we found a mark
-        while currentY < 4:
-            # Just a second check to make sure we have a mark
-            if self.markGrid[currentX][currentY] == ('X'):
-                # Look to the spot to the right for the mark
-                if currentX == 0:
-                    if self.markGrid[currentX][currentY + 1] == ('X'):
-                        currentY += 1
-                    elif self.markGrid[currentX + 1][currentY] == ('X'):
-                        currentX += 1
 
-                if self.markGrid[currentX][currentY+1] ==('X'):
-                    currentY+=1
-                elif self.markGrid[currentX+1][currentY]:
-                    currentX+=1
-                elif self.markGrid[currentX - 1][currentY] == ('X'):
-                    currentX -= 1
-                else:
-                    break
-        if currentY==4:
-            return True
-
-
-        #looking for a vertical win
-        for y in range(0,4):
-            if self.markGrid[4][y]==('X'):
-                currentX=4
-                currentY=y
-                break
-        while currentX > 0:
-
-            if self.markGrid[currentX][currentY] == ('X'):
-                if currentX == 4 and currentY ==0:
-                    if self.markGrid[currentX-1][currentY] ==('X'):
-                        currentX-=1
-                    elif self.markGrid[currentX][currentY+1]==('X'):
-                        currentY+=1
-                    else:
-                        break
-                if currentX ==4:
-                    if self.markGrid[currentX-1][currentY] ==('X'):
-                        currentX-=1
-                    elif self.markGrid[currentX][currentY+1]==('X'):
-                        currentY+=1
-                    elif self.markGrid[currentX][currentY-1]==('X'):
-                        currentY-=1
-                    else:
-                        break
-
-                if self.markGrid[currentX - 1][currentY] == ('X'):
-                    currentX -= 1
-                elif self.markGrid[currentX][currentY + 1] == ('X'):
-                    currentY += 1
-                elif self.markGrid[currentX][currentY - 1] == ('X'):
-                    currentY -= 1
-                else:
+        # Vertical check
+        for y in range(0,5):
+            if self.markGrid[0][y]==('X'):
+                if self.markGrid[1][y] and self.markGrid[2][y] and self.markGrid[3][y] and self.markGrid[4][y] == 'X':
+                    v_victory = True
                     break
 
-        if currentX==0:
+        # Horizontal check
+        for x in range(0,5):
+            if self.markGrid[x][0] == 'X':
+                if self.markGrid[x][1] and self.markGrid[x][2] and self.markGrid[x][3] and self.markGrid[x][4] == 'X':
+                    h_victory = True
+                    break
+
+        if v_victory or h_victory:
             return True
-
-
-        return False
-
-
+        else:
+            return False
 
 
     def Check_victoryY(self):
-        my_list =[]
-        my_listy =[]
-        #I find my first position to start
-        for x in range(0,4):
-            if self.markGrid[x][0]==('Y'):
-                currentX=x
-                currentY=0
-                my_list.append(currentX)
-                my_listy.append(currentY)
-                break
-        #this check only runs if we found a mark
-        while currentY < 4:
-            # Just a second check to make sure we have a mark
-            if self.markGrid[currentX][currentY] == ('Y'):
-                # Look to the spot to the right for the mark
-                if currentX == 0:
-                    if self.markGrid[currentX][currentY + 1] == ('Y'):
-                        currentY += 1
-                    elif self.markGrid[currentX + 1][currentY] == ('Y'):
-                        currentX += 1
+        h_victory = False
+        v_victory = False
+        my_list = []
+        my_listy = []
 
-                if self.markGrid[currentX][currentY+1] ==('Y'):
-                    currentY+=1
-                elif self.markGrid[currentX+1][currentY]:
-                    currentX+=1
-                elif self.markGrid[currentX - 1][currentY] == ('Y'):
-                    currentX -= 1
-                else:
-                    break
-        if currentY==4:
-            return True
-
-
-        #looking for a vertical win
-        for y in range(0,4):
-            if self.markGrid[4][y]==('Y'):
-                currentX=4
-                currentY=y
-                break
-        while currentX > 0:
-
-            if self.markGrid[currentX][currentY] == ('Y'):
-                if currentX == 4 and currentY ==0:
-                    if self.markGrid[currentX-1][currentY] ==('Y'):
-                        currentX-=1
-                    elif self.markGrid[currentX][currentY+1]==('Y'):
-                        currentY+=1
-                    else:
-                        break
-                if currentX ==4:
-                    if self.markGrid[currentX-1][currentY] ==('Y'):
-                        currentX-=1
-                    elif self.markGrid[currentX][currentY+1]==('Y'):
-                        currentY+=1
-                    elif self.markGrid[currentX][currentY-1]==('Y'):
-                        currentY-=1
-                    else:
-                        break
-
-                if self.markGrid[currentX - 1][currentY] == ('Y'):
-                    currentX -= 1
-                elif self.markGrid[currentX][currentY + 1] == ('Y'):
-                    currentY += 1
-                elif self.markGrid[currentX][currentY - 1] == ('Y'):
-                    currentY -= 1
-                else:
+        # Vertical check
+        for y in range(0, 5):
+            if self.markGrid[0][y] == ('Y'):
+                if self.markGrid[1][y] and self.markGrid[2][y] and self.markGrid[3][y] and self.markGrid[4][y] == 'Y':
+                    v_victory = True
                     break
 
-        if currentX==0:
-            return True
+        # Horizontal check
+        for x in range(0, 5):
+            if self.markGrid[x][0] == 'Y':
+                if self.markGrid[x][1] and self.markGrid[x][2] and self.markGrid[x][3] and self.markGrid[x][4] == 'Y':
+                    h_victory = True
+                    break
 
-        return False
-#pos x from the mouse, position y from the mouse, a boolean stating weather or not it is player1, then if the stone is a standing stone.
+        if v_victory or h_victory:
+            return True
+        else:
+            return False
+
+    # pos x from the mouse, position y from the mouse, a boolean stating weather or not it is player1, then if the stone is a standing stone.
     def Mark_spot(self, posx, posy, b,standingStone):
         if b == True:
             mark = 'X'
@@ -245,86 +145,86 @@ class BoardModel():
     def spot_occupied(self,posx,posy):
 
         if posx > 374 and posx < 526 and posy > 166 and posy < 317:
-            if self.markGrid[0][0] ==('Z') :
+            if self.markGrid[0][0] !=('') :
                 return True
         #The first column
         elif posx > 374 and posx < 526 and posy > 316 and posy < 467:
-            if self.markGrid[1][0]==('Z') :
+            if self.markGrid[1][0]!=('') :
                 return True
         elif posx > 374 and posx < 526 and posy > 467 and posy < 619:
-            if self.markGrid[2][0]==('Z') :
+            if self.markGrid[2][0]!=('') :
                 return True
         elif posx > 374 and posx < 526 and posy > 618 and posy < 771:
-            if self.markGrid[3][0]==('Z') :
+            if self.markGrid[3][0]!=('') :
                 return True
         elif posx > 374 and posx < 526 and posy > 770 and posy < 921:
-            if self.markGrid[4][0]==('Z') :
+            if self.markGrid[4][0]!=('') :
                 return True
         #The first row
         elif posx > 526 and posx < 677 and posy > 166 and posy < 317:
-            if self.markGrid[0][1]==('Z') :
+            if self.markGrid[0][1]!=('') :
                 return True
         #The second column
         elif posx > 526 and posx < 677 and posy > 316 and posy < 468:
-            if self.markGrid[1][1]==('Z') :
+            if self.markGrid[1][1]!=('') :
                 return True
         elif posx > 526 and posx < 677 and posy > 467 and posy < 619:
-            if self.markGrid[2][1]==('Z') :
+            if self.markGrid[2][1]!=('') :
                 return True
         elif posx > 526 and posx < 677 and posy > 618 and posy < 771:
-            if self.markGrid[3][1]==('Z') :
+            if self.markGrid[3][1]!=('') :
                 return True
         elif posx > 526 and posx < 677 and posy > 770 and posy < 921:
-            if self.markGrid[4][1]==('Z') :
+            if self.markGrid[4][1]!=('') :
                 return True
 
 
         #Third Column
         elif posx > 677 and posx < 826 and posy > 166 and posy < 317:
-            if self.markGrid[0][2]==('Z') :
+            if self.markGrid[0][2]!=('') :
                 return True
         elif posx > 677 and posx < 826 and posy > 316 and posy < 468:
-            if self.markGrid[1][2]==('Z') :
+            if self.markGrid[1][2]!=('') :
                 return True
         elif posx > 677 and posx < 826 and posy > 467 and posy < 619:
-            if self.markGrid[2][2]==('Z') :
+            if self.markGrid[2][2]!=('') :
                 return True
         elif posx > 677 and posx < 826 and posy > 618 and posy < 771:
-            if self.markGrid[3][2]==('Z') :
+            if self.markGrid[3][2]!=('') :
                 return True
         elif posx > 677 and posx < 826 and posy > 770 and posy < 921:
-            if self.markGrid[4][2]==('Z') :
+            if self.markGrid[4][2]!=('') :
                 return True
         #fourth coloumn
         elif posx > 826 and posx < 978 and posy > 166 and posy < 317:
-            if self.markGrid[0][3]==('Z') :
+            if self.markGrid[0][3]!=('') :
                 return True
         elif posx > 826 and posx < 978 and posy > 316 and posy < 468:
-            if self.markGrid[1][3]==('Z') :
+            if self.markGrid[1][3]!=('') :
                 return True
         elif posx > 826 and posx < 978 and posy > 467 and posy < 619:
-            if self.markGrid[2][3]==('Z') :
+            if self.markGrid[2][3]!=('') :
                 return True
         elif posx > 826 and posx < 978 and posy > 618 and posy < 771:
-            if self.markGrid[3][3]==('Z') :
+            if self.markGrid[3][3]!=('') :
                 return True
         elif posx > 826 and posx < 978 and posy > 770 and posy < 921:
-            if self.markGrid[4][3]==('Z') :
+            if self.markGrid[4][3]!=('') :
                 return True
         #fifth coloumn
         elif posx > 977 and posx < 1129 and posy > 166 and posy < 317:
-            if self.markGrid[0][4]==('Z') :
+            if self.markGrid[0][4]!=('') :
                 return True
         elif posx > 977 and posx < 1129 and posy > 316 and posy < 468:
-            if self.markGrid[1][4]==('Z') :
+            if self.markGrid[1][4]!=('') :
                 return True
         elif posx > 977 and posx < 1129 and posy > 467 and posy < 619:
-            if self.markGrid[2][4]==('Z') :
+            if self.markGrid[2][4]!=('') :
                 return True
         elif posx > 977 and posx < 1129 and posy > 618 and posy < 771:
-            if self.markGrid[3][4]==('Z') :
+            if self.markGrid[3][4]!=('') :
                 return True
         elif posx > 977 and posx < 1129 and posy > 770 and posy < 921:
-            if self.markGrid[4][4]==('Z') :
+            if self.markGrid[4][4]!=('') :
                 return True
 
