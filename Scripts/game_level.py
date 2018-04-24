@@ -18,7 +18,7 @@ from title_screen import *
 import pygame.time
 
 class GameLevel():
-    def __init__(self, p1_wins=0, p2_wins=0, p1_score=0, p2_score=0):
+    def __init__(self, p1_wins=0, p2_wins=0, p1_score=0, p2_score=0, size="", design=""):
         # Initialize Pygame
         pygame.init()
         
