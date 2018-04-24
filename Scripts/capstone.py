@@ -6,4 +6,5 @@ class Capstone(pygame.sprite.Sprite):
         super().__init__()
         self.image = Art.get_image(sprite)
         self.rect = self.image.get_rect()
+        self.name = "capstone"
 
