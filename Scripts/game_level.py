@@ -126,7 +126,9 @@ class GameLevel():
             if event.key == pygame.K_ESCAPE:
                 LevelManager.leave_level()
 
-        if event.type == pygame.MOUSEBUTTONUP:
+        elif event.type == pygame.MOUSEBUTTONUP and event.button == LEFT_CLICK:
+
+            print ("Left click")
 
             pos = pygame.mouse.get_pos()
             self.current_x = pos[0]
@@ -208,7 +210,9 @@ class GameLevel():
                 # road and wall
                 else:
                     self.sprite_click_list[0].flipStone()
-
+        
+        elif event.type == pygame.MOUSEBUTTONUP and event.button == RIGHT_CLICK:
+            print ("Right click")
 
 
     def draw(self, screen):
