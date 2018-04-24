@@ -2,6 +2,7 @@ import pygame
 from constants import *
 from level_manager import *
 from game_level import *
+from menu_level import *
 
 class TitleScreen():
     def __init__(self):
@@ -21,7 +22,7 @@ class TitleScreen():
             if event.key == pygame.K_ESCAPE:
                 LevelManager().leave_level()
             elif event.key == pygame.K_p:
-                LevelManager().load_level(GameLevel())
+                LevelManager().load_level(MenuLevel())
             #elif event.key == pygame.K_c:
                 #LevelManager().load_level(CreditsScreen())
 
