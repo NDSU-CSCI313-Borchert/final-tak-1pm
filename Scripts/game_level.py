@@ -39,21 +39,36 @@ class GameLevel():
         self.done = False
         
         # Create the board
-        board = Board("5x5_Brown")
+        board = Board("5x5Brown")
         board.rect.x = (SCREEN_WIDTH / 4)
         board.rect.y = (SCREEN_HEIGHT / 6)
         self.board_list.add(board)
         self.board_model = BoardModel(SCREEN_WIDTH/4, SCREEN_HEIGHT/6)
+
+        # set the board's size and design
+        self.size = size
+        self.design = design
+
+        # set how many pieces there are (based on board size)
+        self.piece_total = 0
+        self.capstone_total = 0
+        if self.size == "3x3":
+            self.piece_total = 10
+        elif self.size == "4x4":
+            self.piece_total = 15
+        elif self.size == "5x5":
+            self.piece_total = 21
+            self.capstone_total = 1
         
         # Create the players
-        self.player1 = Player()
+        self.player1 = Player(self.piece_total, self.capstone_total)
         self.player1.name = "Player One"
-        self.player2 = Player()
+        self.player2 = Player(self.piece_total, self.capstone_total)
         self.player2.name = "Player Two"
-        
+
         #Create the pieces
         self.player1pieces = []
-        for i in range(0, 20):
+        for i in range(0, self.piece_total-1):
             stone = Stone("brown_stone", "brown_wall")
             stone.rect.x = (SCREEN_WIDTH / 6) - 100
             stone.rect.y = (SCREEN_HEIGHT / 2)
@@ -61,26 +76,24 @@ class GameLevel():
             self.player1pieces.append(stone)
         
         self.player2pieces = []
-        for i in range(0, 20):
+        for i in range(0, self.piece_total-1):
             stone = Stone("beige_stone", "beige_wall")
             stone.rect.x = (SCREEN_WIDTH / 6 * 5)
             stone.rect.y = (SCREEN_HEIGHT / 2)
             self.all_sprites_list.add(stone)
             self.player2pieces.append(stone)
-
-        self.size = size
-        self.design = design
         
-        #Create the capstones
-        self.player1capstone = Capstone("brown_capstone")
-        self.player1capstone.rect.x = (SCREEN_WIDTH / 6) - 95
-        self.player1capstone.rect.y = (SCREEN_HEIGHT / 2) + 150
-        self.all_sprites_list.add(self.player1capstone)
-        
-        self.player2capstone = Capstone("beige_capstone")
-        self.player2capstone.rect.x = ((SCREEN_WIDTH / 6 * 5) - 0)
-        self.player2capstone.rect.y = (SCREEN_HEIGHT / 2) + 150
-        self.all_sprites_list.add(self.player2capstone)
+        #Create the capstones if board size allows it
+        if self.capstone_total > 0:
+            self.player1capstone = Capstone("brown_capstone")
+            self.player1capstone.rect.x = (SCREEN_WIDTH / 6) - 95
+            self.player1capstone.rect.y = (SCREEN_HEIGHT / 2) + 150
+            self.all_sprites_list.add(self.player1capstone)
+            
+            self.player2capstone = Capstone("beige_capstone")
+            self.player2capstone.rect.x = ((SCREEN_WIDTH / 6 * 5) - 0)
+            self.player2capstone.rect.y = (SCREEN_HEIGHT / 2) + 150
+            self.all_sprites_list.add(self.player2capstone)
         
         # Loop until the user clicks the close button.
         done = False
@@ -181,9 +194,9 @@ class GameLevel():
                 
                 #capstone p2 pick up logic
                 if self.player2.capstones > 0 and not self.done:
-                    p1top = self.player2capstone
+                    p2top = self.player2capstone
                         
-                    if p1top.rect.collidepoint(pos) and self.current_player == self.player2:
+                    if p2top.rect.collidepoint(pos) and self.current_player == self.player2:
                         self.player2.removeCapstone()
                         self.sprite_click_list.append(self.player2capstone)
                         self.click_count += 1
@@ -261,7 +274,10 @@ class GameLevel():
             self.current_x = pos[0]
             self.current_y = pos[1]
     
-            
+            #for each spite in grid
+                #if self.sprite.collidepoint(pos):
+                    #function to only allow piece to move one space adjacent
+        print(self.size)
 
 
 
@@ -299,9 +315,11 @@ class GameLevel():
             screen.blit(player_turn, [SCREEN_WIDTH/2 - 80, 50])
 
         screen.blit(player1_pieces_remaining, [(SCREEN_WIDTH / 6) - 130, SCREEN_HEIGHT / 2 + 75])
-        screen.blit(player1_capstone_remaining, [(SCREEN_WIDTH / 6) - 130, SCREEN_HEIGHT / 2 + 175])
         screen.blit(player2_pieces_remaining, [(SCREEN_WIDTH / 6 * 5) - 30, SCREEN_HEIGHT / 2 + 75])
-        screen.blit(player2_capstone_remaining, [(SCREEN_WIDTH / 6 * 5) - 30, SCREEN_HEIGHT / 2 + 175])
+
+        if self.capstone_total > 0:
+            screen.blit(player1_capstone_remaining, [(SCREEN_WIDTH / 6) - 130, SCREEN_HEIGHT / 2 + 350])
+            screen.blit(player2_capstone_remaining, [(SCREEN_WIDTH / 6 * 5) - 30, SCREEN_HEIGHT / 2 + 350])
 
         if self.done:
             screen.blit(win_message, [SCREEN_WIDTH/2-80, 50])
