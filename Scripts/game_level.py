@@ -39,7 +39,7 @@ class GameLevel():
         self.done = False
         
         # Create the board
-        board = Board("5x5_Brown")
+        board = Board("5x5Brown")
         board.rect.x = (SCREEN_WIDTH / 4)
         board.rect.y = (SCREEN_HEIGHT / 6)
         self.board_list.add(board)
