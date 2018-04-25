@@ -18,7 +18,7 @@ from title_screen import *
 import pygame.time
 
 class GameLevel():
-    def __init__(self, p1_wins=0, p2_wins=0, p1_score=0, p2_score=0):
+    def __init__(self, p1_wins=0, p2_wins=0, p1_score=0, p2_score=0, size="", design=""):
         # Initialize Pygame
         pygame.init()
         
@@ -67,6 +67,9 @@ class GameLevel():
             stone.rect.y = (SCREEN_HEIGHT / 2)
             self.all_sprites_list.add(stone)
             self.player2pieces.append(stone)
+
+        self.size = size
+        self.design = design
         
         #Create the capstones
         self.player1capstone = Capstone("brown_capstone")
