@@ -201,6 +201,16 @@ class GameLevel():
                         self.sprite_click_list.append(self.player2capstone)
                         self.click_count += 1
 
+                #piece on grid pick up logic (psuedocode)
+                        
+                #for each spite in grid
+                    #if self.sprite.collidepoint(pos):
+                        #if grid pos contains a stack of pieces
+                            #if left click push piece on to moving stack
+                            #elif right click replaces piece from moving stack to grid stack
+
+                        #function to only allow piece to move one space adjacent
+
             elif self.click_count == 1:
                 if (SCREEN_WIDTH / 4) < self.current_x < 1129:
                     # This code helps the pieces snap in place
@@ -253,8 +263,7 @@ class GameLevel():
                                 self.current_player = self.player1
                         print(self.winner)
 
-                # Clicking while outside the board will toggle the piece between
-                # road and wall
+                # Clicking outside the board will toggle the piece between road and wall
                 else:
                     self.sprite_click_list[0].flipStone()
         
@@ -269,6 +278,7 @@ class GameLevel():
                 #if self.sprite.collidepoint(pos):
                     #function to only allow piece to move one space adjacent
         print(self.size)
+
 
 
     def draw(self, screen):
