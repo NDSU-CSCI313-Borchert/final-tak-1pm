@@ -67,7 +67,9 @@ class GameLevel():
             stone.rect.y = (SCREEN_HEIGHT / 2)
             self.all_sprites_list.add(stone)
             self.player2pieces.append(stone)
-                          
+
+        self.size = size
+        self.design = design
 
         # Loop until the user clicks the close button.
         done = False
