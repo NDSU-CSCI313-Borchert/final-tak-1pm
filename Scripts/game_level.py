@@ -222,6 +222,8 @@ class GameLevel():
                     if self.board_model.spot_occupied(px, py):
                         print("Occupied")
                         pass
+                    #if capstone.name == 'capstone'
+                        #self.board_model.Mark_spot(px,py,if player 1 this true, this should be false if not a standing stone)
 
                     else:
                         if self.current_player == self.player1:
