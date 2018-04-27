@@ -21,7 +21,7 @@ class test_BoardModel(unittest.TestCase):
 
     def test_board_model_coord_grid_has_correct_length(self):
         board_model = BoardModel(0,0,"3x3")
-        self.assertEqual(len(board_model.coord_grid), 3)
+        self.assertEqual(len(board_model.coord_grid), (board_model.dimensions**2))
 
     #def test_board_model_can_mark(self):
      #   board_model = BoardModel(0, 0)
