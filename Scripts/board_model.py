@@ -14,8 +14,8 @@ class BoardModel():
         
         for x in range(self.dimensions):
             for y in range(self.dimensions):
-                print(pos)
-                self.coord_grid.append(((pos[0])+(152*x),(pos[1]+(152*y))))
+                print(((pos[0])+(151*x),(pos[1]+(151*y))))
+                self.coord_grid.append(((pos[0])+(151*x),(pos[1]+(151*y))))
 
         self.grid2 = []
 
