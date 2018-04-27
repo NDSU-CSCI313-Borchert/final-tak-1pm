@@ -47,10 +47,10 @@ class GameLevel():
         board_type = str(self.size) + str(self.design)
 
         board = Board(board_type)
-        board.rect.x = (SCREEN_WIDTH / 4)
-        board.rect.y = (SCREEN_HEIGHT / 6)
+        board.rect.center = (SCREEN_CENTER)
+        board.rect.center = (SCREEN_CENTER)
         self.board_list.add(board)
-        self.board_model = BoardModel(SCREEN_WIDTH/4, SCREEN_HEIGHT/6, self.size)
+        self.board_model = BoardModel(board.rect.topleft, self.size)
 
         # set how many pieces there are (based on board size)
         self.piece_total = 0
