@@ -37,17 +37,20 @@ class GameLevel():
         level_manager = LevelManager()
         
         self.done = False
-        
-        # Create the board
-        board = Board("5x5Brown")
-        board.rect.x = (SCREEN_WIDTH / 4)
-        board.rect.y = (SCREEN_HEIGHT / 6)
-        self.board_list.add(board)
-        self.board_model = BoardModel(SCREEN_WIDTH/4, SCREEN_HEIGHT/6)
 
         # set the board's size and design
         self.size = size
         self.design = design
+
+        # Create the board
+
+        board_type = str(self.size) + str(self.design)
+
+        board = Board(board_type)
+        board.rect.x = (SCREEN_WIDTH / 4)
+        board.rect.y = (SCREEN_HEIGHT / 6)
+        self.board_list.add(board)
+        self.board_model = BoardModel(SCREEN_WIDTH/4, SCREEN_HEIGHT/6)
 
         # set how many pieces there are (based on board size)
         self.piece_total = 0
@@ -150,7 +153,7 @@ class GameLevel():
         if event.type == pygame.KEYDOWN:
 
             if event.key == pygame.K_ESCAPE:
-                LevelManager.leave_level()
+                LevelManager().leave_level()
 
         elif event.type == pygame.MOUSEBUTTONUP and event.button == LEFT_CLICK:
 
