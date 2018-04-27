@@ -17,7 +17,7 @@ class BoardModel():
         self.grid2 = []
 
         self.markGrid = [['' for i in range(5)] for j in range(5)]
-        self.pick_up_stack=[]
+        self.handstack=[]
         self.stack=[]
         self.stack2=[]
         self.stack3=[]
@@ -76,8 +76,125 @@ class BoardModel():
             return True
         else:
             return False
-#finish mark spot then come back to this need to implement putting pieces on top of each other first
-    def pick_up(self,posx,posy):
+#xposition, ypositon, then if it is player1 make it true
+
+
+    def pickup(self, posx,posy):
+        if posx > 374 and posx < 526 and posy > 166 and posy < 317:
+            if self.markGrid[0][0]!=(''):
+                self.handstack.append(self.markGrid[0][0])
+                self.markGrid[0][0]=self.stack.pop()
+            # The first column
+        elif posx > 374 and posx < 526 and posy > 316 and posy < 467:
+            if self.markGrid[1][0]!=(''):
+                self.handstack.append(self.markGrid[1][0])
+                self.markGrid[1][0] = self.stack2.pop()
+        elif posx > 374 and posx < 526 and posy > 467 and posy < 619:
+            if self.markGrid[2][0]!=(''):
+                self.handstack.append(self.markGrid[2][0])
+                self.markGrid[2][0] = self.stack3.pop()
+        elif posx > 374 and posx < 526 and posy > 618 and posy < 771:
+            if self.markGrid[3][0]!=(''):
+                self.handstack.append(self.markGrid[3][0])
+                self.markGrid[3][0] = self.stack4.pop()
+        elif posx > 374 and posx < 526 and posy > 770 and posy < 921:
+            if self.markGrid[4][0]!=(''):
+                self.handstack.append(self.markGrid[4][0])
+                self.markGrid[4][0] = self.stack5.pop()
+            # The first row
+        elif posx > 526 and posx < 677 and posy > 166 and posy < 317:
+            if self.markGrid[0][1]!=(''):
+                self.handstack.append(self.markGrid[0][1])
+                self.markGrid[0][1] = self.stack6.pop()
+            # The second column
+        elif posx > 526 and posx < 677 and posy > 316 and posy < 468:
+            if self.markGrid[1][1]!=(''):
+                self.handstack.append(self.markGrid[1][1])
+                self.markGrid[1][1] = self.stack7.pop()
+        elif posx > 526 and posx < 677 and posy > 467 and posy < 619:
+            if self.markGrid[2][1]!=(''):
+                self.handstack.append(self.markGrid[2][1])
+                self.markGrid[2][1] = self.stack8.pop()
+        elif posx > 526 and posx < 677 and posy > 618 and posy < 771:
+            if self.markGrid[3][1]!=(''):
+                self.handstack.append(self.markGrid[3][1])
+                self.markGrid[3][1] = self.stack9.pop()
+        elif posx > 526 and posx < 677 and posy > 770 and posy < 921:
+            if self.markGrid[4][1]!=(''):
+                self.handstack.append(self.markGrid[4][1])
+                self.markGrid[4][1] = self.stack10.pop()
+
+            # Third Column
+        elif posx > 677 and posx < 826 and posy > 166 and posy < 317:
+            if self.markGrid[0][2]!=(''):
+                self.handstack.append(self.markGrid[0][2])
+                self.markGrid[0][2] = self.stack11.pop()
+        elif posx > 677 and posx < 826 and posy > 316 and posy < 468:
+            if self.markGrid[1][2]!=(''):
+                self.handstack.append(self.markGrid[1][2])
+                self.markGrid[1][2] = self.stack12.pop()
+        elif posx > 677 and posx < 826 and posy > 467 and posy < 619:
+            if self.markGrid[2][2]!=(''):
+                self.handstack.append(self.markGrid[2][2])
+                self.markGrid[2][2] = self.stack13.pop()
+        elif posx > 677 and posx < 826 and posy > 618 and posy < 771:
+            if self.markGrid[3][2]!=(''):
+                self.handstack.append(self.markGrid[3][2])
+                self.markGrid[3][2] = self.stack14.pop()
+        elif posx > 677 and posx < 826 and posy > 770 and posy < 921:
+            if self.markGrid[4][2]!=(''):
+                self.handstack.append(self.markGrid[4][2])
+                self.markGrid[4][2] = self.stack15.pop()
+            # fourth coloumn
+        elif posx > 826 and posx < 978 and posy > 166 and posy < 317:
+            if self.markGrid[0][3]!=(''):
+                self.handstack.append(self.markGrid[0][3])
+                self.markGrid[0][3] = self.stack16.pop()
+        elif posx > 826 and posx < 978 and posy > 316 and posy < 468:
+            if self.markGrid[1][3]!=(''):
+                self.handstack.append(self.markGrid[1][3])
+                self.markGrid[1][3] = self.stack17.pop()
+        elif posx > 826 and posx < 978 and posy > 467 and posy < 619:
+            if self.markGrid[2][3]!=(''):
+                self.handstack.append(self.markGrid[2][3])
+                self.markGrid[2][3] = self.stack18.pop()
+        elif posx > 826 and posx < 978 and posy > 618 and posy < 771:
+            if self.markGrid[3][3]!=(''):
+                self.handstack.append(self.markGrid[3][3])
+                self.markGrid[3][3] = self.stack19.pop()
+        elif posx > 826 and posx < 978 and posy > 770 and posy < 921:
+            if self.markGrid[4][3]!=(''):
+                self.handstack.append(self.markGrid[4][3])
+                self.markGrid[4][3] = self.stack20.pop()
+            # fifth coloumn
+        elif posx > 977 and posx < 1129 and posy > 166 and posy < 317:
+            if self.markGrid[0][4]!=(''):
+                self.handstack.append(self.markGrid[0][4])
+                self.markGrid[0][4] = self.stack21.pop()
+        elif posx > 977 and posx < 1129 and posy > 316 and posy < 468:
+            if self.markGrid[1][4]!=(''):
+                self.handstack.append(self.markGrid[1][4])
+            self.markGrid[1][4] = self.stack22.pop()
+        elif posx > 977 and posx < 1129 and posy > 467 and posy < 619:
+            if self.markGrid[2][4]!=(''):
+                self.handstack.append(self.markGrid[2][4])
+                self.markGrid[2][4] = self.stack23.pop()
+        elif posx > 977 and posx < 1129 and posy > 618 and posy < 771:
+            if self.markGrid[3][4]!=(''):
+                self.handstack.append(self.markGrid[3][4])
+                self.markGrid[3][4] = self.stack24.pop()
+        elif posx > 977 and posx < 1129 and posy > 770 and posy < 921:
+            if self.markGrid[4][4]!=(''):
+                self.handstack.append(self.markGrid[4][4])
+                self.markGrid[4][4] = self.stack25.pop()
+
+
+
+    def flatten_stone(self,posx,posy,b):
+        if b == True:
+            mark = 'X'
+        else:
+            mark = 'Y'
         if posx > 374 and posx < 526 and posy > 166 and posy < 317:
             self.markGrid[0][0] = mark
             # The first column
@@ -135,6 +252,8 @@ class BoardModel():
             self.markGrid[3][4] = mark
         elif posx > 977 and posx < 1129 and posy > 770 and posy < 921:
             self.markGrid[4][4] = mark
+
+
     def Check_victoryY(self):
         h_victory = False
         v_victory = False
