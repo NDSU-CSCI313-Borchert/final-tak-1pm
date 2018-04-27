@@ -24,7 +24,7 @@ class test_Board(unittest.TestCase):
         board = Board(board_type)
         self.assertTrue(True)
         
-     def test_5x5_space_board_can_be_created(self):
+    def test_5x5_space_board_can_be_created(self):
         size = "5x5"
         design = "Space"
         board_type = str(size) + str(design)
