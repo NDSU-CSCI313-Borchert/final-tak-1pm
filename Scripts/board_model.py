@@ -4,12 +4,14 @@ from board import *
 from constants import *
 
 class BoardModel():
-    def __init__(self,x,y):
+    def __init__(self,x,y, dimensions):
         super().__init__()
 
         self.coord_grid = []
-        for x in range(5):
-            for y in range(5):
+        self.dimensions = int(dimensions[0])
+
+        for x in range(self.dimensions):
+            for y in range(self.dimensions):
                 self.coord_grid.append(((SCREEN_WIDTH/4)+(151*x),(SCREEN_HEIGHT/6+(151*y))))
 
         self.grid2 = []

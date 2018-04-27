@@ -14,7 +14,7 @@ class MenuLevel():
         # key when calling the art class
 
         self.sizes = ["5x5", "4x4", "3x3"]
-        self.designs = ["Blue", "Brown", "Summerbreeze"]
+        self.designs = ["Yellow", "Brown", "Summerbreeze", "Space"]
 
         self.size_index = 0
         self.design_index = 0

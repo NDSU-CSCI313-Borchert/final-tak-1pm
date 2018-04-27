@@ -37,17 +37,20 @@ class GameLevel():
         level_manager = LevelManager()
         
         self.done = False
-        
-        # Create the board
-        board = Board("5x5Brown")
-        board.rect.x = (SCREEN_WIDTH / 4)
-        board.rect.y = (SCREEN_HEIGHT / 6)
-        self.board_list.add(board)
-        self.board_model = BoardModel(SCREEN_WIDTH/4, SCREEN_HEIGHT/6)
 
         # set the board's size and design
         self.size = size
         self.design = design
+
+        # Create the board
+
+        board_type = str(self.size) + str(self.design)
+
+        board = Board(board_type)
+        board.rect.x = (SCREEN_WIDTH / 4)
+        board.rect.y = (SCREEN_HEIGHT / 6)
+        self.board_list.add(board)
+        self.board_model = BoardModel(SCREEN_WIDTH/4, SCREEN_HEIGHT/6, self.size)
 
         # set how many pieces there are (based on board size)
         self.piece_total = 0
@@ -150,11 +153,11 @@ class GameLevel():
         if event.type == pygame.KEYDOWN:
 
             if event.key == pygame.K_ESCAPE:
-                LevelManager.leave_level()
+                LevelManager().leave_level()
 
         elif event.type == pygame.MOUSEBUTTONUP and event.button == LEFT_CLICK:
 
-            print ("Left click")
+            print("Left click")
 
             pos = pygame.mouse.get_pos()
             self.current_x = pos[0]
@@ -212,7 +215,7 @@ class GameLevel():
                         #function to only allow piece to move one space adjacent
 
             elif self.click_count == 1:
-                if (SCREEN_WIDTH / 4) < self.current_x < 1129:
+                if (SCREEN_WIDTH / 4) < self.current_x < ((SCREEN_WIDTH/4)+(151*int(self.size[0]))):
                     # This code helps the pieces snap in place
                     distance_to_snap = 130
                     stone = self.sprite_click_list[0]

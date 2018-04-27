@@ -4,16 +4,24 @@ from board_model import *
 
 class test_BoardModel(unittest.TestCase):
     def test_board_model_can_be_created(self):
-        board_model = BoardModel(0,0)
+        board_model = BoardModel(0,0,"3x3")
         self.assertTrue(True)
 
     def test_board_model_has_coord_grid(self):
-        board_model = BoardModel(0,0)
+        board_model = BoardModel(0,0,"3x3")
         self.assertTrue(board_model.coord_grid)
 
     def test_board_model_has_marking_grid(self):
-        board_model = BoardModel(0,0)
+        board_model = BoardModel(0,0,"3x3")
         self.assertTrue(board_model.markGrid)
+
+    def test_board_model_has_dimensions(self):
+        board_model = BoardModel(0,0,"3x3")
+        self.assertEqual(board_model.dimensions, 3)
+
+    def test_board_model_coord_grid_has_correct_length(self):
+        board_model = BoardModel(0,0,"3x3")
+        self.assertEqual(len(board_model.coord_grid), (board_model.dimensions**2))
 
     #def test_board_model_can_mark(self):
      #   board_model = BoardModel(0, 0)
