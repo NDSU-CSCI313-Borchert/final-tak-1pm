@@ -43,7 +43,6 @@ class GameLevel():
         self.design = design
 
         # Create the board
-
         board_type = str(self.size) + str(self.design)
 
         self.board = Board(board_type)
@@ -96,6 +95,32 @@ class GameLevel():
             self.player2capstone.rect.x = ((SCREEN_WIDTH / 6 * 5) - 0)
             self.player2capstone.rect.y = (SCREEN_HEIGHT / 2) + 150
             self.all_sprites_list.add(self.player2capstone)
+        
+        self.stack_0_0 = []
+        self.stack_0_1 = []
+        self.stack_0_2 = []
+        self.stack_0_3 = []
+        self.stack_0_4 = []
+        self.stack_1_0 = []
+        self.stack_1_1 = []
+        self.stack_1_2 = []
+        self.stack_1_3 = []
+        self.stack_1_4 = []
+        self.stack_2_0 = []
+        self.stack_2_1 = []
+        self.stack_2_2 = []
+        self.stack_2_3 = []
+        self.stack_2_4 = []
+        self.stack_3_0 = []
+        self.stack_3_1 = []
+        self.stack_3_2 = []
+        self.stack_3_3 = []
+        self.stack_3_4 = []
+        self.stack_4_0 = []
+        self.stack_4_1 = []
+        self.stack_4_2 = []
+        self.stack_4_3 = []
+        self.stack_4_4 = []
         
         # Loop until the user clicks the close button.
         done = False

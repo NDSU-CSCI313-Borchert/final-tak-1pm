@@ -22,40 +22,107 @@ class BoardModel():
         self.grid2 = []
 
         self.markGrid = [['' for i in range(5)] for j in range(5)]
-        self.handstack=[]
-        self.stack=[]
-        self.stack2=[]
-        self.stack3=[]
-        self.stack4=[]
-        self.stack5=[]
-        self.stack6=[]
-        self.stack7=[]
-        self.stack8=[]
-        self.stack9=[]
-        self.stack10=[]
-        self.stack11=[]
-        self.stack11=[]
-        self.stack12=[]
-        self.stack13=[]
-        self.stack14=[]
-        self.stack15=[]
-        self.stack16=[]
-        self.stack17=[]
-        self.stack18=[]
-        self.stack18=[]
-        self.stack19=[]
-        self.stack20=[]
-        self.stack21=[]
-        self.stack22=[]
-        self.stack23=[]
-        self.stack24=[]
-        self.stack25=[]
+        
+        self.handstack = []
+        
+        self.stack_0_0_model = []
+        self.stack_0_1_model = []
+        self.stack_0_2_model = []
+        self.stack_0_3_model = []
+        self.stack_0_4_model = []
+        self.stack_1_0_model = []
+        self.stack_1_1_model = []
+        self.stack_1_2_model = []
+        self.stack_1_3_model = []
+        self.stack_1_4_model = []
+        self.stack_2_0_model = []
+        self.stack_2_1_model = []
+        self.stack_2_2_model = []
+        self.stack_2_3_model = []
+        self.stack_2_4_model = []
+        self.stack_3_0_model = []
+        self.stack_3_1_model = []
+        self.stack_3_2_model = []
+        self.stack_3_3_model = []
+        self.stack_3_4_model = []
+        self.stack_4_0_model = []
+        self.stack_4_1_model = []
+        self.stack_4_2_model = []
+        self.stack_4_3_model = []
+        self.stack_4_4_model = []
 
     def get_grid(self):
         return self.grid
-
-
-
+    
+    def get_square(self, x, y):
+        """
+        Grid reference
+        __________________________
+        | 00 | 01 | 02 | 03 | 04 |
+        --------------------------
+        | 10 | 11 | 12 | 13 | 14 |
+        --------------------------
+        | 20 | 21 | 22 | 23 | 24 |
+        --------------------------
+        | 30 | 31 | 32 | 33 | 34 |
+        --------------------------
+        | 40 | 41 | 42 | 43 | 44 |
+        --------------------------
+        """
+        if x > 374 and x < 526 and y > 166 and y < 317:
+            return "00"
+        elif x > 374 and x < 526 and y > 316 and y < 467:
+            return "10"
+        elif x > 374 and x < 526 and y > 466 and y < 617:
+            return "20"
+        elif x > 374 and x < 526 and y > 616 and y < 767:
+            return "30"
+        elif x > 374 and x < 526 and y > 766 and y < 917:
+            return "40"
+        
+        elif x > 526 and x < 677 and y > 166 and y < 317:
+            return "01"
+        elif x > 526 and x < 677 and y > 316 and y < 467:
+            return "11"
+        elif x > 526 and x < 677 and y > 466 and y < 617:
+            return "21"
+        elif x > 526 and x < 677 and y > 616 and y < 767:
+            return "31"
+        elif x > 526 and x < 677 and y > 766 and y < 917:
+            return "41"
+                
+        elif x > 677 and x < 826 and y > 166 and y < 317:
+            return "02"
+        elif x > 677 and x < 826 and y > 316 and y < 467:
+            return "12"
+        elif x > 677 and x < 826 and y > 466 and y < 617:
+            return "22"
+        elif x > 677 and x < 826 and y > 616 and y < 767:
+            return "32"
+        elif x > 677 and x < 826 and y > 766 and y < 917:
+            return "42"
+        
+        elif x > 826 and x < 978 and y > 166 and y < 317:
+            return "03"
+        elif x > 826 and x < 978 and y > 316 and y < 467:
+            return "13"
+        elif x > 826 and x < 978 and y > 466 and y < 617:
+            return "23"
+        elif x > 826 and x < 978 and y > 616 and y < 767:
+            return "33"
+        elif x > 826 and x < 978 and y > 766 and y < 917:
+            return "43"
+        
+        elif x > 977 and x < 1129 and y > 166 and y < 317:
+            return "04"
+        elif x > 977 and x < 1129 and y > 316 and y < 467:
+            return "14"
+        elif x > 977 and x < 1129 and y > 466 and y < 617:
+            return "24"
+        elif x > 977 and x < 1129 and y > 616 and y < 767:
+            return "34"
+        elif x > 977 and x < 1129 and y > 766 and y < 917:
+            return "44"
 
     def Check_victoryX(self):
         h_victory = False
@@ -85,110 +152,125 @@ class BoardModel():
 
 
     def pickup(self, posx,posy):
-        if posx > 374 and posx < 526 and posy > 166 and posy < 317:
+        
+        """
+            Grid reference
+            __________________________
+            | 00 | 01 | 02 | 03 | 04 |
+            --------------------------
+            | 10 | 11 | 12 | 13 | 14 |
+            --------------------------
+            | 20 | 21 | 22 | 23 | 24 |
+            --------------------------
+            | 30 | 31 | 32 | 33 | 34 |
+            --------------------------
+            | 40 | 41 | 42 | 43 | 44 |
+            --------------------------
+        """
+        
+        pickup = self.get_square(posx, posy)
+        
+        if pickup == "00":
             if self.markGrid[0][0]!=(''):
                 self.handstack.append(self.markGrid[0][0])
                 self.markGrid[0][0]=self.stack.pop()
-            # The first column
-        elif posx > 374 and posx < 526 and posy > 316 and posy < 467:
+        elif pickup == "10":
             if self.markGrid[1][0]!=(''):
                 self.handstack.append(self.markGrid[1][0])
                 self.markGrid[1][0] = self.stack2.pop()
-        elif posx > 374 and posx < 526 and posy > 467 and posy < 619:
+        elif pickup == "20":
             if self.markGrid[2][0]!=(''):
                 self.handstack.append(self.markGrid[2][0])
                 self.markGrid[2][0] = self.stack3.pop()
-        elif posx > 374 and posx < 526 and posy > 618 and posy < 771:
+        elif pickup == "30":
             if self.markGrid[3][0]!=(''):
                 self.handstack.append(self.markGrid[3][0])
                 self.markGrid[3][0] = self.stack4.pop()
-        elif posx > 374 and posx < 526 and posy > 770 and posy < 921:
+        elif pickup == "40":
             if self.markGrid[4][0]!=(''):
                 self.handstack.append(self.markGrid[4][0])
                 self.markGrid[4][0] = self.stack5.pop()
-            # The first row
-        elif posx > 526 and posx < 677 and posy > 166 and posy < 317:
+
+        elif pickup == "01":
             if self.markGrid[0][1]!=(''):
                 self.handstack.append(self.markGrid[0][1])
                 self.markGrid[0][1] = self.stack6.pop()
-            # The second column
-        elif posx > 526 and posx < 677 and posy > 316 and posy < 468:
+        elif pickup == "11":
             if self.markGrid[1][1]!=(''):
                 self.handstack.append(self.markGrid[1][1])
                 self.markGrid[1][1] = self.stack7.pop()
-        elif posx > 526 and posx < 677 and posy > 467 and posy < 619:
+        elif pickup == "21":
             if self.markGrid[2][1]!=(''):
                 self.handstack.append(self.markGrid[2][1])
                 self.markGrid[2][1] = self.stack8.pop()
-        elif posx > 526 and posx < 677 and posy > 618 and posy < 771:
+        elif pickup == "31":
             if self.markGrid[3][1]!=(''):
                 self.handstack.append(self.markGrid[3][1])
                 self.markGrid[3][1] = self.stack9.pop()
-        elif posx > 526 and posx < 677 and posy > 770 and posy < 921:
+        elif pickup == "41":
             if self.markGrid[4][1]!=(''):
                 self.handstack.append(self.markGrid[4][1])
                 self.markGrid[4][1] = self.stack10.pop()
 
-            # Third Column
-        elif posx > 677 and posx < 826 and posy > 166 and posy < 317:
+        elif pickup == "02":
             if self.markGrid[0][2]!=(''):
                 self.handstack.append(self.markGrid[0][2])
                 self.markGrid[0][2] = self.stack11.pop()
-        elif posx > 677 and posx < 826 and posy > 316 and posy < 468:
+        elif pickup == "12":
             if self.markGrid[1][2]!=(''):
                 self.handstack.append(self.markGrid[1][2])
                 self.markGrid[1][2] = self.stack12.pop()
-        elif posx > 677 and posx < 826 and posy > 467 and posy < 619:
+        elif pickup == "22":
             if self.markGrid[2][2]!=(''):
                 self.handstack.append(self.markGrid[2][2])
                 self.markGrid[2][2] = self.stack13.pop()
-        elif posx > 677 and posx < 826 and posy > 618 and posy < 771:
+        elif pickup == "32":
             if self.markGrid[3][2]!=(''):
                 self.handstack.append(self.markGrid[3][2])
                 self.markGrid[3][2] = self.stack14.pop()
-        elif posx > 677 and posx < 826 and posy > 770 and posy < 921:
+        elif pickup == "42":
             if self.markGrid[4][2]!=(''):
                 self.handstack.append(self.markGrid[4][2])
                 self.markGrid[4][2] = self.stack15.pop()
-            # fourth coloumn
-        elif posx > 826 and posx < 978 and posy > 166 and posy < 317:
+
+        elif pickup == "03":
             if self.markGrid[0][3]!=(''):
                 self.handstack.append(self.markGrid[0][3])
                 self.markGrid[0][3] = self.stack16.pop()
-        elif posx > 826 and posx < 978 and posy > 316 and posy < 468:
+        elif pickup == "13":
             if self.markGrid[1][3]!=(''):
                 self.handstack.append(self.markGrid[1][3])
                 self.markGrid[1][3] = self.stack17.pop()
-        elif posx > 826 and posx < 978 and posy > 467 and posy < 619:
+        elif pickup == "23":
             if self.markGrid[2][3]!=(''):
                 self.handstack.append(self.markGrid[2][3])
                 self.markGrid[2][3] = self.stack18.pop()
-        elif posx > 826 and posx < 978 and posy > 618 and posy < 771:
+        elif pickup == "33":
             if self.markGrid[3][3]!=(''):
                 self.handstack.append(self.markGrid[3][3])
                 self.markGrid[3][3] = self.stack19.pop()
-        elif posx > 826 and posx < 978 and posy > 770 and posy < 921:
+        elif pickup == "43":
             if self.markGrid[4][3]!=(''):
                 self.handstack.append(self.markGrid[4][3])
                 self.markGrid[4][3] = self.stack20.pop()
-            # fifth coloumn
-        elif posx > 977 and posx < 1129 and posy > 166 and posy < 317:
+
+        elif pickup == "04":
             if self.markGrid[0][4]!=(''):
                 self.handstack.append(self.markGrid[0][4])
                 self.markGrid[0][4] = self.stack21.pop()
-        elif posx > 977 and posx < 1129 and posy > 316 and posy < 468:
+        elif pickup == "14":
             if self.markGrid[1][4]!=(''):
                 self.handstack.append(self.markGrid[1][4])
             self.markGrid[1][4] = self.stack22.pop()
-        elif posx > 977 and posx < 1129 and posy > 467 and posy < 619:
+        elif pickup == "24":
             if self.markGrid[2][4]!=(''):
                 self.handstack.append(self.markGrid[2][4])
                 self.markGrid[2][4] = self.stack23.pop()
-        elif posx > 977 and posx < 1129 and posy > 618 and posy < 771:
+        elif pickup == "34":
             if self.markGrid[3][4]!=(''):
                 self.handstack.append(self.markGrid[3][4])
                 self.markGrid[3][4] = self.stack24.pop()
-        elif posx > 977 and posx < 1129 and posy > 770 and posy < 921:
+        elif pickup == "44":
             if self.markGrid[4][4]!=(''):
                 self.handstack.append(self.markGrid[4][4])
                 self.markGrid[4][4] = self.stack25.pop()
@@ -196,68 +278,83 @@ class BoardModel():
 
 
     def flatten_stone(self,posx,posy,b):
+        
+        """
+            Grid reference
+            __________________________
+            | 00 | 01 | 02 | 03 | 04 |
+            --------------------------
+            | 10 | 11 | 12 | 13 | 14 |
+            --------------------------
+            | 20 | 21 | 22 | 23 | 24 |
+            --------------------------
+            | 30 | 31 | 32 | 33 | 34 |
+            --------------------------
+            | 40 | 41 | 42 | 43 | 44 |
+            --------------------------
+        """
+        
+        pickup = self.get_square(posx, posy)
+        
         if b == True:
             mark = 'X'
         else:
             mark = 'Y'
-        if posx > 374 and posx < 526 and posy > 166 and posy < 317:
+        
+        if pickup == "00":
             self.markGrid[0][0] = mark
-            # The first column
-        elif posx > 374 and posx < 526 and posy > 316 and posy < 467:
+        elif pickup == "10":
             self.markGrid[1][0] = mark
-        elif posx > 374 and posx < 526 and posy > 467 and posy < 619:
+        elif pickup == "20":
             self.markGrid[2][0] = mark
-        elif posx > 374 and posx < 526 and posy > 618 and posy < 771:
+        elif pickup == "30":
             self.markGrid[3][0] = mark
-        elif posx > 374 and posx < 526 and posy > 770 and posy < 921:
+        elif pickup == "40":
             self.markGrid[4][0] = mark
-            # The first row
-        elif posx > 526 and posx < 677 and posy > 166 and posy < 317:
+
+        elif pickup == "01":
             self.markGrid[0][1] = mark
-            # The second column
-        elif posx > 526 and posx < 677 and posy > 316 and posy < 468:
+        elif pickup == "11":
             self.markGrid[1][1] = mark
-        elif posx > 526 and posx < 677 and posy > 467 and posy < 619:
+        elif pickup == "21":
             self.markGrid[2][1] = mark
-        elif posx > 526 and posx < 677 and posy > 618 and posy < 771:
+        elif pickup == "31":
             self.markGrid[3][1] = mark
-        elif posx > 526 and posx < 677 and posy > 770 and posy < 921:
+        elif pickup == "41":
             self.markGrid[4][1] = mark
 
-            # Third Column
-        elif posx > 677 and posx < 826 and posy > 166 and posy < 317:
+        elif pickup == "02":
             self.markGrid[0][2] = mark
-        elif posx > 677 and posx < 826 and posy > 316 and posy < 468:
+        elif pickup == "12":
             self.markGrid[1][2] = mark
-        elif posx > 677 and posx < 826 and posy > 467 and posy < 619:
+        elif pickup == "22":
             self.markGrid[2][2] = mark
-        elif posx > 677 and posx < 826 and posy > 618 and posy < 771:
+        elif pickup == "32":
             self.markGrid[3][2] = mark
-        elif posx > 677 and posx < 826 and posy > 770 and posy < 921:
+        elif pickup == "42":
             self.markGrid[4][2] = mark
-            # fourth coloumn
-        elif posx > 826 and posx < 978 and posy > 166 and posy < 317:
-            self.markGrid[0][3] = mark
-        elif posx > 826 and posx < 978 and posy > 316 and posy < 468:
-            self.markGrid[1][3] = mark
-        elif posx > 826 and posx < 978 and posy > 467 and posy < 619:
-            self.markGrid[2][3] = mark
-        elif posx > 826 and posx < 978 and posy > 618 and posy < 771:
-            self.markGrid[3][3] = mark
-        elif posx > 826 and posx < 978 and posy > 770 and posy < 921:
-            self.markGrid[4][3] = mark
-            # fifth coloumn
-        elif posx > 977 and posx < 1129 and posy > 166 and posy < 317:
-            self.markGrid[0][4] = mark
-        elif posx > 977 and posx < 1129 and posy > 316 and posy < 468:
-            self.markGrid[1][4] = mark
-        elif posx > 977 and posx < 1129 and posy > 467 and posy < 619:
-            self.markGrid[2][4] = mark
-        elif posx > 977 and posx < 1129 and posy > 618 and posy < 771:
-            self.markGrid[3][4] = mark
-        elif posx > 977 and posx < 1129 and posy > 770 and posy < 921:
-            self.markGrid[4][4] = mark
 
+        elif pickup == "03":
+            self.markGrid[0][3] = mark
+        elif pickup == "13":
+            self.markGrid[1][3] = mark
+        elif pickup == "23":
+            self.markGrid[2][3] = mark
+        elif pickup == "33":
+            self.markGrid[3][3] = mark
+        elif pickup == "43":
+            self.markGrid[4][3] = mark
+
+        elif pickup == "04":
+            self.markGrid[0][4] = mark
+        elif pickup == "14":
+            self.markGrid[1][4] = mark
+        elif pickup == "24":
+            self.markGrid[2][4] = mark
+        elif pickup == "34":
+            self.markGrid[3][4] = mark
+        elif pickup == "44":
+            self.markGrid[4][4] = mark
 
     def Check_victoryY(self):
         h_victory = False
@@ -286,181 +383,208 @@ class BoardModel():
 
     # pos x from the mouse, position y from the mouse, a boolean stating weather or not it is player1, then if the stone is a standing stone.
     def Mark_spot(self, posx, posy, b,standingStone):
+        
+        """
+            Grid reference
+            __________________________
+            | 00 | 01 | 02 | 03 | 04 |
+            --------------------------
+            | 10 | 11 | 12 | 13 | 14 |
+            --------------------------
+            | 20 | 21 | 22 | 23 | 24 |
+            --------------------------
+            | 30 | 31 | 32 | 33 | 34 |
+            --------------------------
+            | 40 | 41 | 42 | 43 | 44 |
+            --------------------------
+        """
+        pickup = self.get_square(posx, posy)
+        
         if b == True:
             mark = 'X'
         else:
             mark = 'Y'
         if standingStone == True:
             mark = 'Z'
-        if posx > 374 and posx < 526 and posy > 166 and posy < 317:
-            self.stack.append(self.markGrid[0][0])
+        
+        if pickup == "00":
+            self.stack_0_0_model.append(self.markGrid[0][0])
             self.markGrid[0][0] = mark
-        #The first column
-        elif posx > 374 and posx < 526 and posy > 316 and posy < 467:
-            self.stack2.append(self.markGrid[1][0])
+        elif pickup == "10":
+            self.stack_1_0_model.append(self.markGrid[1][0])
             self.markGrid[1][0] = mark
-        elif posx > 374 and posx < 526 and posy > 467 and posy < 619:
-            self.stack3.append(self.markGrid[2][0])
+        elif pickup == "20":
+            self.stack_2_0_model.append(self.markGrid[2][0])
             self.markGrid[2][0] = mark
-        elif posx > 374 and posx < 526 and posy > 618 and posy < 771:
-            self.stack4.append(self.markGrid[3][0])
+        elif pickup == "30":
+            self.stack_3_0_model.append(self.markGrid[3][0])
             self.markGrid[3][0] = mark
-        elif posx > 374 and posx < 526 and posy > 770 and posy < 921:
-            self.stack5.append(self.markGrid[4][0])
+        elif pickup == "40":
+            self.stack_4_0_model.append(self.markGrid[4][0])
             self.markGrid[4][0] = mark
-        #The first row
-        elif posx > 526 and posx < 677 and posy > 166 and posy < 317:
-            self.stack6.append(self.markGrid[0][1])
+
+        elif pickup == "01":
+            self.stack_0_1_model.append(self.markGrid[0][1])
             self.markGrid[0][1] = mark
-        #The second column
-        elif posx > 526 and posx < 677 and posy > 316 and posy < 468:
-            self.stack7.append(self.markGrid[1][1])
+        elif pickup == "11":
+            self.stack_1_1_model.append(self.markGrid[1][1])
             self.markGrid[1][1] = mark
-        elif posx > 526 and posx < 677 and posy > 467 and posy < 619:
-            self.stack8.append(self.markGrid[2][1])
+        elif pickup == "21":
+            self.stack_2_1_model.append(self.markGrid[2][1])
             self.markGrid[2][1] = mark
-        elif posx > 526 and posx < 677 and posy > 618 and posy < 771:
-            self.stack9.append(self.markGrid[3][1])
+        elif pickup == "31":
+            self.stack_3_1_model.append(self.markGrid[3][1])
             self.markGrid[3][1] = mark
-        elif posx > 526 and posx < 677 and posy > 770 and posy < 921:
-            self.stack10.append(self.markGrid[4][1])
+        elif pickup == "41":
+            self.stack_4_1_model.append(self.markGrid[4][1])
             self.markGrid[4][1] = mark
 
-
-        #Third Column
-        elif posx > 677 and posx < 826 and posy > 166 and posy < 317:
-            self.stack11.append(self.markGrid[0][2])
+        elif pickup == "02":
+            self.stack_0_2_model.append(self.markGrid[0][2])
             self.markGrid[0][2] = mark
-        elif posx > 677 and posx < 826 and posy > 316 and posy < 468:
-            self.stack12.append(self.markGrid[1][2])
+        elif pickup == "12":
+            self.stack_1_2_model.append(self.markGrid[1][2])
             self.markGrid[1][2] = mark
-        elif posx > 677 and posx < 826 and posy > 467 and posy < 619:
-            self.stack13.append(self.markGrid[2][2])
+        elif pickup == "22":
+            self.stack_2_2_model.append(self.markGrid[2][2])
             self.markGrid[2][2] = mark
-        elif posx > 677 and posx < 826 and posy > 618 and posy < 771:
-            self.stack14.append(self.markGrid[3][2])
+        elif pickup == "32":
+            self.stack_3_2_model.append(self.markGrid[3][2])
             self.markGrid[3][2] = mark
-        elif posx > 677 and posx < 826 and posy > 770 and posy < 921:
-            self.stack15.append(self.markGrid[4][2])
+        elif pickup == "42":
+            self.stack_4_2_model.append(self.markGrid[4][2])
             self.markGrid[4][2] = mark
-        #fourth coloumn
-        elif posx > 826 and posx < 978 and posy > 166 and posy < 317:
-            self.stack16.append(self.markGrid[0][3])
+
+        elif pickup == "03":
+            self.stack_0_3_model.append(self.markGrid[0][3])
             self.markGrid[0][3] = mark
-        elif posx > 826 and posx < 978 and posy > 316 and posy < 468:
-            self.stack17.append(self.markGrid[1][3])
+        elif pickup == "13":
+            self.stack_1_3_model.append(self.markGrid[1][3])
             self.markGrid[1][3] = mark
-        elif posx > 826 and posx < 978 and posy > 467 and posy < 619:
-            self.stack18.append(self.markGrid[2][3])
+        elif pickup == "23":
+            self.stack_2_3_model.append(self.markGrid[2][3])
             self.markGrid[2][3] = mark
-        elif posx > 826 and posx < 978 and posy > 618 and posy < 771:
-            self.stack19.append(self.markGrid[3][3])
+        elif pickup == "33":
+            self.stack_3_3_model.append(self.markGrid[3][3])
             self.markGrid[3][3] = mark
-        elif posx > 826 and posx < 978 and posy > 770 and posy < 921:
-            self.stack20.append(self.markGrid[4][3])
+        elif pickup == "43":
+            self.stack_4_3_model.append(self.markGrid[4][3])
             self.markGrid[4][3] = mark
-        #fifth coloumn
-        elif posx > 977 and posx < 1129 and posy > 166 and posy < 317:
-            self.stack21.append(self.markGrid[0][4])
+
+        elif pickup == "04":
+            self.stack_0_4_model.append(self.markGrid[0][4])
             self.markGrid[0][4] = mark
-        elif posx > 977 and posx < 1129 and posy > 316 and posy < 468:
-            self.stack22.append(self.markGrid[1][4])
+        elif pickup == "14":
+            self.stack_1_4_model.append(self.markGrid[1][4])
             self.markGrid[1][4] = mark
-        elif posx > 977 and posx < 1129 and posy > 467 and posy < 619:
-            self.stack23.append(self.markGrid[2][4])
+        elif pickup == "24":
+            self.stack_2_4_model.append(self.markGrid[2][4])
             self.markGrid[2][4] = mark
-        elif posx > 977 and posx < 1129 and posy > 618 and posy < 771:
-            self.stack24.append(self.markGrid[3][4])
+        elif pickup == "34":
+            self.stack_3_4_model.append(self.markGrid[3][4])
             self.markGrid[3][4] = mark
-        elif posx > 977 and posx < 1129 and posy > 770 and posy < 921:
-            self.stack25.append(self.markGrid[4][4])
+        elif pickup == "44":
+            self.stack_4_4_model.append(self.markGrid[4][4])
             self.markGrid[4][4] = mark
         pprint.pprint(self.markGrid)
 
     #Feed this method an x and y coordinate for it to check if that spot is occupied
     def spot_occupied(self,posx,posy):
 
-        if posx > 374 and posx < 526 and posy > 166 and posy < 317:
+        """
+        Grid reference
+        __________________________
+        | 00 | 01 | 02 | 03 | 04 |
+        --------------------------
+        | 10 | 11 | 12 | 13 | 14 |
+        --------------------------
+        | 20 | 21 | 22 | 23 | 24 |
+        --------------------------
+        | 30 | 31 | 32 | 33 | 34 |
+        --------------------------
+        | 40 | 41 | 42 | 43 | 44 |
+        --------------------------
+        """
+        
+        pickup = self.get_square(posx, posy)
+
+        if pickup == "00":
             if self.markGrid[0][0] ==('Z') :
                 return True
-        #The first column
-        elif posx > 374 and posx < 526 and posy > 316 and posy < 467:
+        elif pickup == "10":
             if self.markGrid[1][0]==('Z') :
                 return True
-        elif posx > 374 and posx < 526 and posy > 467 and posy < 619:
+        elif pickup == "20":
             if self.markGrid[2][0]==('Z') :
                 return True
-        elif posx > 374 and posx < 526 and posy > 618 and posy < 771:
+        elif pickup == "30":
             if self.markGrid[3][0]==('Z') :
                 return True
-        elif posx > 374 and posx < 526 and posy > 770 and posy < 921:
+        elif pickup == "40":
             if self.markGrid[4][0]==('Z') :
                 return True
-        #The first row
-        elif posx > 526 and posx < 677 and posy > 166 and posy < 317:
+
+        elif pickup == "01":
             if self.markGrid[0][1]==('Z') :
                 return True
-        #The second column
-        elif posx > 526 and posx < 677 and posy > 316 and posy < 468:
+        elif pickup == "11":
             if self.markGrid[1][1]==('Z') :
                 return True
-        elif posx > 526 and posx < 677 and posy > 467 and posy < 619:
+        elif pickup == "21":
             if self.markGrid[2][1]==('Z') :
                 return True
-        elif posx > 526 and posx < 677 and posy > 618 and posy < 771:
+        elif pickup == "31":
             if self.markGrid[3][1]==('Z') :
                 return True
-        elif posx > 526 and posx < 677 and posy > 770 and posy < 921:
+        elif pickup == "41":
             if self.markGrid[4][1]==('Z') :
                 return True
 
-
-        #Third Column
-        elif posx > 677 and posx < 826 and posy > 166 and posy < 317:
+        elif pickup == "02":
             if self.markGrid[0][2]==('Z') :
                 return True
-        elif posx > 677 and posx < 826 and posy > 316 and posy < 468:
+        elif pickup == "12":
             if self.markGrid[1][2]==('Z') :
                 return True
-        elif posx > 677 and posx < 826 and posy > 467 and posy < 619:
+        elif pickup == "22":
             if self.markGrid[2][2]==('Z') :
                 return True
-        elif posx > 677 and posx < 826 and posy > 618 and posy < 771:
+        elif pickup == "32":
             if self.markGrid[3][2]==('Z') :
                 return True
-        elif posx > 677 and posx < 826 and posy > 770 and posy < 921:
+        elif pickup == "42":
             if self.markGrid[4][2]==('Z') :
                 return True
-        #fourth coloumn
-        elif posx > 826 and posx < 978 and posy > 166 and posy < 317:
+
+        elif pickup == "03":
             if self.markGrid[0][3]==('Z') :
                 return True
-        elif posx > 826 and posx < 978 and posy > 316 and posy < 468:
+        elif pickup == "13":
             if self.markGrid[1][3]==('Z') :
                 return True
-        elif posx > 826 and posx < 978 and posy > 467 and posy < 619:
+        elif pickup == "23":
             if self.markGrid[2][3]==('Z') :
                 return True
-        elif posx > 826 and posx < 978 and posy > 618 and posy < 771:
+        elif pickup == "33":
             if self.markGrid[3][3]==('Z') :
                 return True
-        elif posx > 826 and posx < 978 and posy > 770 and posy < 921:
+        elif pickup == "43":
             if self.markGrid[4][3]==('Z') :
                 return True
-        #fifth coloumn
-        elif posx > 977 and posx < 1129 and posy > 166 and posy < 317:
+
+        elif pickup == "04":
             if self.markGrid[0][4]==('Z') :
                 return True
-        elif posx > 977 and posx < 1129 and posy > 316 and posy < 468:
+        elif pickup == "14":
             if self.markGrid[1][4]==('Z') :
                 return True
-        elif posx > 977 and posx < 1129 and posy > 467 and posy < 619:
+        elif pickup == "24":
             if self.markGrid[2][4]==('Z') :
                 return True
-        elif posx > 977 and posx < 1129 and posy > 618 and posy < 771:
+        elif pickup == "34":
             if self.markGrid[3][4]==('Z') :
                 return True
-        elif posx > 977 and posx < 1129 and posy > 770 and posy < 921:
+        elif pickup == "44":
             if self.markGrid[4][4]==('Z') :
                 return True
 
