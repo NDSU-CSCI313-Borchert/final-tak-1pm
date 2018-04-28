@@ -11,7 +11,9 @@ class BoardModel():
         self.dimensions = int(dimensions[0])
 
         self.pos = pos
-        
+
+        print(self.dimensions)
+
         for x in range(self.dimensions):
             for y in range(self.dimensions):
                 print(((pos[0])+(151*x),(pos[1]+(151*y))))
