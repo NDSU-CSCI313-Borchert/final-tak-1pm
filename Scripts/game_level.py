@@ -46,11 +46,10 @@ class GameLevel():
 
         board_type = str(self.size) + str(self.design)
 
-        board = Board(board_type)
-        board.rect.x = (SCREEN_WIDTH / 4)
-        board.rect.y = (SCREEN_HEIGHT / 6)
-        self.board_list.add(board)
-        self.board_model = BoardModel(SCREEN_WIDTH/4, SCREEN_HEIGHT/6, self.size)
+        self.board = Board(board_type)
+        self.board.rect.center = (SCREEN_CENTER)
+        self.board_list.add(self.board)
+        self.board_model = BoardModel(self.board.rect.topleft, self.size)
 
         # set how many pieces there are (based on board size)
         self.piece_total = 0
@@ -163,6 +162,8 @@ class GameLevel():
             self.current_x = pos[0]
             self.current_y = pos[1]
 
+            print(pos)
+
             if self.button.collidepoint(pos):
                 LevelManager().load_level(GameLevel(self.p1_wins, self.p2_wins, self.p1_score, self.p2_score))
 
@@ -215,9 +216,9 @@ class GameLevel():
                         #function to only allow piece to move one space adjacent
 
             elif self.click_count == 1:
-                if (SCREEN_WIDTH / 4) < self.current_x < ((SCREEN_WIDTH/4)+(151*int(self.size[0]))):
+                if (self.board.rect.topleft[0] < self.current_x < self.board.rect.topright[0]) and (self.board.rect.topleft[1] < self.current_y < self.board.rect.bottomleft[1]):
                     # This code helps the pieces snap in place
-                    distance_to_snap = 130
+                    distance_to_snap = 145
                     stone = self.sprite_click_list[0]
                     px, py = stone.rect.topleft
 
@@ -282,7 +283,6 @@ class GameLevel():
             #for each spite in grid
                 #if self.sprite.collidepoint(pos):
                     #function to only allow piece to move one space adjacent
-        print(self.size)
 
 
 
