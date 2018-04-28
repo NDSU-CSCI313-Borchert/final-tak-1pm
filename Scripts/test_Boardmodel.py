@@ -105,23 +105,23 @@ class test_BoardModel(unittest.TestCase):
 
     def test_board_model_get_square_returns_correct_coord_04(self):
         board_model = BoardModel(0, 0, "5x5")
-        self.assertEqual(board_model.get_square(900, 200), "04")
+        self.assertEqual(board_model.get_square(1000, 200), "04")
     
     def test_board_model_get_square_returns_correct_coord_14(self):
         board_model = BoardModel(0, 0, "5x5")
-        self.assertEqual(board_model.get_square(900, 400), "14")
+        self.assertEqual(board_model.get_square(1000, 400), "14")
     
     def test_board_model_get_square_returns_correct_coord_24(self):
         board_model = BoardModel(0, 0, "5x5")
-        self.assertEqual(board_model.get_square(900, 500), "24")
+        self.assertEqual(board_model.get_square(1000, 500), "24")
     
     def test_board_model_get_square_returns_correct_coord_34(self):
         board_model = BoardModel(0, 0, "5x5")
-        self.assertEqual(board_model.get_square(900, 700), "34")
+        self.assertEqual(board_model.get_square(1000, 700), "34")
     
     def test_board_model_get_square_returns_correct_coord_44(self):
         board_model = BoardModel(0, 0, "5x5")
-        self.assertEqual(board_model.get_square(900, 800), "44")
+        self.assertEqual(board_model.get_square(1000, 800), "44")
 
     #def test_board_model_can_mark(self):
      #   board_model = BoardModel(0, 0)
