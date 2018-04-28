@@ -17,40 +17,107 @@ class BoardModel():
         self.grid2 = []
 
         self.markGrid = [['' for i in range(5)] for j in range(5)]
-        self.handstack=[]
-        self.stack=[]
-        self.stack2=[]
-        self.stack3=[]
-        self.stack4=[]
-        self.stack5=[]
-        self.stack6=[]
-        self.stack7=[]
-        self.stack8=[]
-        self.stack9=[]
-        self.stack10=[]
-        self.stack11=[]
-        self.stack11=[]
-        self.stack12=[]
-        self.stack13=[]
-        self.stack14=[]
-        self.stack15=[]
-        self.stack16=[]
-        self.stack17=[]
-        self.stack18=[]
-        self.stack18=[]
-        self.stack19=[]
-        self.stack20=[]
-        self.stack21=[]
-        self.stack22=[]
-        self.stack23=[]
-        self.stack24=[]
-        self.stack25=[]
+        
+        self.handstack = []
+        
+        self.stack_0_0_model = []
+        self.stack_0_1_model = []
+        self.stack_0_2_model = []
+        self.stack_0_3_model = []
+        self.stack_0_4_model = []
+        self.stack_1_0_model = []
+        self.stack_1_1_model = []
+        self.stack_1_2_model = []
+        self.stack_1_3_model = []
+        self.stack_1_4_model = []
+        self.stack_2_0_model = []
+        self.stack_2_1_model = []
+        self.stack_2_2_model = []
+        self.stack_2_3_model = []
+        self.stack_2_4_model = []
+        self.stack_3_0_model = []
+        self.stack_3_1_model = []
+        self.stack_3_2_model = []
+        self.stack_3_3_model = []
+        self.stack_3_4_model = []
+        self.stack_4_0_model = []
+        self.stack_4_1_model = []
+        self.stack_4_2_model = []
+        self.stack_4_3_model = []
+        self.stack_4_4_model = []
 
     def get_grid(self):
         return self.grid
-
-
-
+    
+    def get_square(self, x, y):
+        """
+        Grid reference
+        __________________________
+        | 00 | 01 | 02 | 03 | 04 |
+        --------------------------
+        | 10 | 11 | 12 | 13 | 14 |
+        --------------------------
+        | 20 | 21 | 22 | 23 | 24 |
+        --------------------------
+        | 30 | 31 | 32 | 33 | 34 |
+        --------------------------
+        | 40 | 41 | 42 | 43 | 44 |
+        --------------------------
+        """
+        if x > 374 and x < 526 and y > 166 and y < 317:
+            return "00"
+        elif x > 374 and x < 526 and y > 316 and y < 467:
+            return "10"
+        elif x > 374 and x < 526 and y > 466 and y < 617:
+            return "20"
+        elif x > 374 and x < 526 and y > 616 and y < 767:
+            return "30"
+        elif x > 374 and x < 526 and y > 766 and y < 917:
+            return "40"
+        
+        elif x > 526 and x < 677 and y > 166 and y < 317:
+            return "01"
+        elif x > 526 and x < 677 and y > 316 and y < 467:
+            return "11"
+        elif x > 526 and x < 677 and y > 466 and y < 617:
+            return "21"
+        elif x > 526 and x < 677 and y > 616 and y < 767:
+            return "31"
+        elif x > 526 and x < 677 and y > 766 and y < 917:
+            return "41"
+                
+        elif x > 677 and x < 826 and y > 166 and y < 317:
+            return "02"
+        elif x > 677 and x < 826 and y > 316 and y < 467:
+            return "12"
+        elif x > 677 and x < 826 and y > 466 and y < 617:
+            return "22"
+        elif x > 677 and x < 826 and y > 616 and y < 767:
+            return "32"
+        elif x > 677 and x < 826 and y > 766 and y < 917:
+            return "42"
+        
+        elif x > 826 and x < 978 and y > 166 and y < 317:
+            return "03"
+        elif x > 826 and x < 978 and y > 316 and y < 467:
+            return "13"
+        elif x > 826 and x < 978 and y > 466 and y < 617:
+            return "23"
+        elif x > 826 and x < 978 and y > 616 and y < 767:
+            return "33"
+        elif x > 826 and x < 978 and y > 766 and y < 917:
+            return "43"
+        
+        elif x > 977 and x < 1129 and y > 166 and y < 317:
+            return "04"
+        elif x > 977 and x < 1129 and y > 316 and y < 467:
+            return "14"
+        elif x > 977 and x < 1129 and y > 466 and y < 617:
+            return "24"
+        elif x > 977 and x < 1129 and y > 616 and y < 767:
+            return "34"
+        elif x > 977 and x < 1129 and y > 766 and y < 917:
+            return "44"
 
     def Check_victoryX(self):
         h_victory = False
