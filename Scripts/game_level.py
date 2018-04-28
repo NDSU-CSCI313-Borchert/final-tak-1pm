@@ -216,11 +216,11 @@ class GameLevel():
                         #function to only allow piece to move one space adjacent
 
             elif self.click_count == 1:
-                if self.board.rect.topleft[0] < self.current_x < self.board.rect.topright[0]:
+                if (self.board.rect.topleft[0] < self.current_x < self.board.rect.topright[0]) and (self.board.rect.topleft[1] < self.current_y < self.board.rect.bottomleft[1]):
                     # This code helps the pieces snap in place
                     distance_to_snap = 145
                     stone = self.sprite_click_list[0]
-                    px, py = stone.rect.center
+                    px, py = stone.rect.topleft
 
 
                     if self.board_model.spot_occupied(px, py):
