@@ -4,6 +4,7 @@ from game_level import *
 
 class test_GameLevel(unittest.TestCase):
     
+    '''
     def test_game_level_can_be_created_5_Brown(self):
         game_level = GameLevel(size="5x5", design="Brown")
         self.assertTrue(True)
@@ -83,8 +84,7 @@ class test_GameLevel(unittest.TestCase):
     def test_game_level_player2_has_correct_color_piece(self):
         game_level = GameLevel(size="5x5", design="Brown")
         self.assertEqual(game_level.player2pieces[0].color, "beige")
-
-
+    '''
 
 
 
