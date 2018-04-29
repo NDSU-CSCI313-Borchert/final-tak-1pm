@@ -168,109 +168,109 @@ class BoardModel():
             --------------------------
         """
         
-        pickup = self.get_square(posx, posy)
+        position = self.get_square(posx, posy)
         
-        if pickup == "00":
+        if position == "00":
             if self.markGrid[0][0]!=(''):
                 self.handstack.append(self.markGrid[0][0])
                 self.markGrid[0][0]=self.stack.pop()
-        elif pickup == "10":
+        elif position == "10":
             if self.markGrid[1][0]!=(''):
                 self.handstack.append(self.markGrid[1][0])
                 self.markGrid[1][0] = self.stack2.pop()
-        elif pickup == "20":
+        elif position == "20":
             if self.markGrid[2][0]!=(''):
                 self.handstack.append(self.markGrid[2][0])
                 self.markGrid[2][0] = self.stack3.pop()
-        elif pickup == "30":
+        elif position == "30":
             if self.markGrid[3][0]!=(''):
                 self.handstack.append(self.markGrid[3][0])
                 self.markGrid[3][0] = self.stack4.pop()
-        elif pickup == "40":
+        elif position == "40":
             if self.markGrid[4][0]!=(''):
                 self.handstack.append(self.markGrid[4][0])
                 self.markGrid[4][0] = self.stack5.pop()
 
-        elif pickup == "01":
+        elif position == "01":
             if self.markGrid[0][1]!=(''):
                 self.handstack.append(self.markGrid[0][1])
                 self.markGrid[0][1] = self.stack6.pop()
-        elif pickup == "11":
+        elif position == "11":
             if self.markGrid[1][1]!=(''):
                 self.handstack.append(self.markGrid[1][1])
                 self.markGrid[1][1] = self.stack7.pop()
-        elif pickup == "21":
+        elif position == "21":
             if self.markGrid[2][1]!=(''):
                 self.handstack.append(self.markGrid[2][1])
                 self.markGrid[2][1] = self.stack8.pop()
-        elif pickup == "31":
+        elif position == "31":
             if self.markGrid[3][1]!=(''):
                 self.handstack.append(self.markGrid[3][1])
                 self.markGrid[3][1] = self.stack9.pop()
-        elif pickup == "41":
+        elif position == "41":
             if self.markGrid[4][1]!=(''):
                 self.handstack.append(self.markGrid[4][1])
                 self.markGrid[4][1] = self.stack10.pop()
 
-        elif pickup == "02":
+        elif position == "02":
             if self.markGrid[0][2]!=(''):
                 self.handstack.append(self.markGrid[0][2])
                 self.markGrid[0][2] = self.stack11.pop()
-        elif pickup == "12":
+        elif position == "12":
             if self.markGrid[1][2]!=(''):
                 self.handstack.append(self.markGrid[1][2])
                 self.markGrid[1][2] = self.stack12.pop()
-        elif pickup == "22":
+        elif position == "22":
             if self.markGrid[2][2]!=(''):
                 self.handstack.append(self.markGrid[2][2])
                 self.markGrid[2][2] = self.stack13.pop()
-        elif pickup == "32":
+        elif position == "32":
             if self.markGrid[3][2]!=(''):
                 self.handstack.append(self.markGrid[3][2])
                 self.markGrid[3][2] = self.stack14.pop()
-        elif pickup == "42":
+        elif position == "42":
             if self.markGrid[4][2]!=(''):
                 self.handstack.append(self.markGrid[4][2])
                 self.markGrid[4][2] = self.stack15.pop()
 
-        elif pickup == "03":
+        elif position == "03":
             if self.markGrid[0][3]!=(''):
                 self.handstack.append(self.markGrid[0][3])
                 self.markGrid[0][3] = self.stack16.pop()
-        elif pickup == "13":
+        elif position == "13":
             if self.markGrid[1][3]!=(''):
                 self.handstack.append(self.markGrid[1][3])
                 self.markGrid[1][3] = self.stack17.pop()
-        elif pickup == "23":
+        elif position == "23":
             if self.markGrid[2][3]!=(''):
                 self.handstack.append(self.markGrid[2][3])
                 self.markGrid[2][3] = self.stack18.pop()
-        elif pickup == "33":
+        elif position == "33":
             if self.markGrid[3][3]!=(''):
                 self.handstack.append(self.markGrid[3][3])
                 self.markGrid[3][3] = self.stack19.pop()
-        elif pickup == "43":
+        elif position == "43":
             if self.markGrid[4][3]!=(''):
                 self.handstack.append(self.markGrid[4][3])
                 self.markGrid[4][3] = self.stack20.pop()
 
-        elif pickup == "04":
+        elif position == "04":
             if self.markGrid[0][4]!=(''):
                 self.handstack.append(self.markGrid[0][4])
                 self.markGrid[0][4] = self.stack21.pop()
-        elif pickup == "14":
+        elif position == "14":
             if self.markGrid[1][4]!=(''):
                 self.handstack.append(self.markGrid[1][4])
             self.markGrid[1][4] = self.stack22.pop()
-        elif pickup == "24":
+        elif position == "24":
             if self.markGrid[2][4]!=(''):
                 self.handstack.append(self.markGrid[2][4])
                 self.markGrid[2][4] = self.stack23.pop()
-        elif pickup == "34":
+        elif position == "34":
             if self.markGrid[3][4]!=(''):
                 self.handstack.append(self.markGrid[3][4])
                 self.markGrid[3][4] = self.stack24.pop()
-        elif pickup == "44":
+        elif position == "44":
             if self.markGrid[4][4]!=(''):
                 self.handstack.append(self.markGrid[4][4])
                 self.markGrid[4][4] = self.stack25.pop()
@@ -294,66 +294,66 @@ class BoardModel():
             --------------------------
         """
         
-        pickup = self.get_square(posx, posy)
+        position = self.get_square(posx, posy)
         
         if b == True:
             mark = 'X'
         else:
             mark = 'Y'
         
-        if pickup == "00":
+        if position == "00":
             self.markGrid[0][0] = mark
-        elif pickup == "10":
+        elif position == "10":
             self.markGrid[1][0] = mark
-        elif pickup == "20":
+        elif position == "20":
             self.markGrid[2][0] = mark
-        elif pickup == "30":
+        elif position == "30":
             self.markGrid[3][0] = mark
-        elif pickup == "40":
+        elif position == "40":
             self.markGrid[4][0] = mark
 
-        elif pickup == "01":
+        elif position == "01":
             self.markGrid[0][1] = mark
-        elif pickup == "11":
+        elif position == "11":
             self.markGrid[1][1] = mark
-        elif pickup == "21":
+        elif position == "21":
             self.markGrid[2][1] = mark
-        elif pickup == "31":
+        elif position == "31":
             self.markGrid[3][1] = mark
-        elif pickup == "41":
+        elif position == "41":
             self.markGrid[4][1] = mark
 
-        elif pickup == "02":
+        elif position == "02":
             self.markGrid[0][2] = mark
-        elif pickup == "12":
+        elif position == "12":
             self.markGrid[1][2] = mark
-        elif pickup == "22":
+        elif position == "22":
             self.markGrid[2][2] = mark
-        elif pickup == "32":
+        elif position == "32":
             self.markGrid[3][2] = mark
-        elif pickup == "42":
+        elif position == "42":
             self.markGrid[4][2] = mark
 
-        elif pickup == "03":
+        elif position == "03":
             self.markGrid[0][3] = mark
-        elif pickup == "13":
+        elif position == "13":
             self.markGrid[1][3] = mark
-        elif pickup == "23":
+        elif position == "23":
             self.markGrid[2][3] = mark
-        elif pickup == "33":
+        elif position == "33":
             self.markGrid[3][3] = mark
-        elif pickup == "43":
+        elif position == "43":
             self.markGrid[4][3] = mark
 
-        elif pickup == "04":
+        elif position == "04":
             self.markGrid[0][4] = mark
-        elif pickup == "14":
+        elif position == "14":
             self.markGrid[1][4] = mark
-        elif pickup == "24":
+        elif position == "24":
             self.markGrid[2][4] = mark
-        elif pickup == "34":
+        elif position == "34":
             self.markGrid[3][4] = mark
-        elif pickup == "44":
+        elif position == "44":
             self.markGrid[4][4] = mark
 
     def Check_victoryY(self):
@@ -398,7 +398,7 @@ class BoardModel():
             | 40 | 41 | 42 | 43 | 44 |
             --------------------------
         """
-        pickup = self.get_square(posx, posy)
+        position = self.get_square(posx, posy)
         
         if b == True:
             mark = 'X'
@@ -407,86 +407,86 @@ class BoardModel():
         if standingStone == True:
             mark = 'Z'
         
-        if pickup == "00":
+        if position == "00":
             self.stack_0_0_model.append(self.markGrid[0][0])
             self.markGrid[0][0] = mark
-        elif pickup == "10":
+        elif position == "10":
             self.stack_1_0_model.append(self.markGrid[1][0])
             self.markGrid[1][0] = mark
-        elif pickup == "20":
+        elif position == "20":
             self.stack_2_0_model.append(self.markGrid[2][0])
             self.markGrid[2][0] = mark
-        elif pickup == "30":
+        elif position == "30":
             self.stack_3_0_model.append(self.markGrid[3][0])
             self.markGrid[3][0] = mark
-        elif pickup == "40":
+        elif position == "40":
             self.stack_4_0_model.append(self.markGrid[4][0])
             self.markGrid[4][0] = mark
 
-        elif pickup == "01":
+        elif position == "01":
             self.stack_0_1_model.append(self.markGrid[0][1])
             self.markGrid[0][1] = mark
-        elif pickup == "11":
+        elif position == "11":
             self.stack_1_1_model.append(self.markGrid[1][1])
             self.markGrid[1][1] = mark
-        elif pickup == "21":
+        elif position == "21":
             self.stack_2_1_model.append(self.markGrid[2][1])
             self.markGrid[2][1] = mark
-        elif pickup == "31":
+        elif position == "31":
             self.stack_3_1_model.append(self.markGrid[3][1])
             self.markGrid[3][1] = mark
-        elif pickup == "41":
+        elif position == "41":
             self.stack_4_1_model.append(self.markGrid[4][1])
             self.markGrid[4][1] = mark
 
-        elif pickup == "02":
+        elif position == "02":
             self.stack_0_2_model.append(self.markGrid[0][2])
             self.markGrid[0][2] = mark
-        elif pickup == "12":
+        elif position == "12":
             self.stack_1_2_model.append(self.markGrid[1][2])
             self.markGrid[1][2] = mark
-        elif pickup == "22":
+        elif position == "22":
             self.stack_2_2_model.append(self.markGrid[2][2])
             self.markGrid[2][2] = mark
-        elif pickup == "32":
+        elif position == "32":
             self.stack_3_2_model.append(self.markGrid[3][2])
             self.markGrid[3][2] = mark
-        elif pickup == "42":
+        elif position == "42":
             self.stack_4_2_model.append(self.markGrid[4][2])
             self.markGrid[4][2] = mark
 
-        elif pickup == "03":
+        elif position == "03":
             self.stack_0_3_model.append(self.markGrid[0][3])
             self.markGrid[0][3] = mark
-        elif pickup == "13":
+        elif position == "13":
             self.stack_1_3_model.append(self.markGrid[1][3])
             self.markGrid[1][3] = mark
-        elif pickup == "23":
+        elif position == "23":
             self.stack_2_3_model.append(self.markGrid[2][3])
             self.markGrid[2][3] = mark
-        elif pickup == "33":
+        elif position == "33":
             self.stack_3_3_model.append(self.markGrid[3][3])
             self.markGrid[3][3] = mark
-        elif pickup == "43":
+        elif position == "43":
             self.stack_4_3_model.append(self.markGrid[4][3])
             self.markGrid[4][3] = mark
 
-        elif pickup == "04":
+        elif position == "04":
             self.stack_0_4_model.append(self.markGrid[0][4])
             self.markGrid[0][4] = mark
-        elif pickup == "14":
+        elif position == "14":
             self.stack_1_4_model.append(self.markGrid[1][4])
             self.markGrid[1][4] = mark
-        elif pickup == "24":
+        elif position == "24":
             self.stack_2_4_model.append(self.markGrid[2][4])
             self.markGrid[2][4] = mark
-        elif pickup == "34":
+        elif position == "34":
             self.stack_3_4_model.append(self.markGrid[3][4])
             self.markGrid[3][4] = mark
-        elif pickup == "44":
+        elif position == "44":
             self.stack_4_4_model.append(self.markGrid[4][4])
             self.markGrid[4][4] = mark
-        pprint.pprint(self.markGrid)
+    #print.print(self.markGrid)
 
     #Feed this method an x and y coordinate for it to check if that spot is occupied
     def spot_occupied(self,posx,posy):
@@ -506,85 +506,85 @@ class BoardModel():
         --------------------------
         """
         
-        pickup = self.get_square(posx, posy)
+        position = self.get_square(posx, posy)
 
-        if pickup == "00":
+        if position == "00":
             if self.markGrid[0][0] ==('Z') :
                 return True
-        elif pickup == "10":
+        elif position == "10":
             if self.markGrid[1][0]==('Z') :
                 return True
-        elif pickup == "20":
+        elif position == "20":
             if self.markGrid[2][0]==('Z') :
                 return True
-        elif pickup == "30":
+        elif position == "30":
             if self.markGrid[3][0]==('Z') :
                 return True
-        elif pickup == "40":
+        elif position == "40":
             if self.markGrid[4][0]==('Z') :
                 return True
 
-        elif pickup == "01":
+        elif position == "01":
             if self.markGrid[0][1]==('Z') :
                 return True
-        elif pickup == "11":
+        elif position == "11":
             if self.markGrid[1][1]==('Z') :
                 return True
-        elif pickup == "21":
+        elif position == "21":
             if self.markGrid[2][1]==('Z') :
                 return True
-        elif pickup == "31":
+        elif position == "31":
             if self.markGrid[3][1]==('Z') :
                 return True
-        elif pickup == "41":
+        elif position == "41":
             if self.markGrid[4][1]==('Z') :
                 return True
 
-        elif pickup == "02":
+        elif position == "02":
             if self.markGrid[0][2]==('Z') :
                 return True
-        elif pickup == "12":
+        elif position == "12":
             if self.markGrid[1][2]==('Z') :
                 return True
-        elif pickup == "22":
+        elif position == "22":
             if self.markGrid[2][2]==('Z') :
                 return True
-        elif pickup == "32":
+        elif position == "32":
             if self.markGrid[3][2]==('Z') :
                 return True
-        elif pickup == "42":
+        elif position == "42":
             if self.markGrid[4][2]==('Z') :
                 return True
 
-        elif pickup == "03":
+        elif position == "03":
             if self.markGrid[0][3]==('Z') :
                 return True
-        elif pickup == "13":
+        elif position == "13":
             if self.markGrid[1][3]==('Z') :
                 return True
-        elif pickup == "23":
+        elif position == "23":
             if self.markGrid[2][3]==('Z') :
                 return True
-        elif pickup == "33":
+        elif position == "33":
             if self.markGrid[3][3]==('Z') :
                 return True
-        elif pickup == "43":
+        elif position == "43":
             if self.markGrid[4][3]==('Z') :
                 return True
 
-        elif pickup == "04":
+        elif position == "04":
             if self.markGrid[0][4]==('Z') :
                 return True
-        elif pickup == "14":
+        elif position == "14":
             if self.markGrid[1][4]==('Z') :
                 return True
-        elif pickup == "24":
+        elif position == "24":
             if self.markGrid[2][4]==('Z') :
                 return True
-        elif pickup == "34":
+        elif position == "34":
             if self.markGrid[3][4]==('Z') :
                 return True
-        elif pickup == "44":
+        elif position == "44":
             if self.markGrid[4][4]==('Z') :
                 return True
 

@@ -246,14 +246,20 @@ class GameLevel():
                     distance_to_snap = 145
                     stone = self.sprite_click_list[0]
                     px, py = stone.rect.topleft
-
-
+                    
+                    
+                    position = self.board_model.get_square(px, py)
+                    print(position)
+                    
+                    #####code that handles placing a piece######
+                    #if spot is occupied don't allow placement
                     if self.board_model.spot_occupied(px, py):
                         print("Occupied")
                         pass
                     #if capstone.name == 'capstone'
                         #self.board_model.Mark_spot(px,py,if player 1 this true, this should be false if not a standing stone)
-
+                    
+                    #if spot is unoccupied allow placement
                     else:
                         if self.current_player == self.player1:
                             if stone.name == "wall":
@@ -272,6 +278,7 @@ class GameLevel():
                                 stone.rect.y = cy+45
                                 break
 
+                        #remove piece from sprite click list and place into stack grids
                         self.sprite_click_list = []
 
                         self.click_count = 0
