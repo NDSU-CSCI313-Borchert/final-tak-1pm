@@ -17,6 +17,11 @@ class Stone(pygame.sprite.Sprite):
         else:
             self.name = "wall"
 
+        if sprite1 == "brown_stone":
+            self.color = "brown"
+        elif sprite1 == "beige_stone":
+            self.color = "beige"
+
     def flipStone(self):
         self.index += 1
         if self.index >= len(self.images):
