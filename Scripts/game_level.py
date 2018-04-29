@@ -181,18 +181,18 @@ class GameLevel():
 
         elif event.type == pygame.MOUSEBUTTONUP and event.button == LEFT_CLICK:
 
-            print("Left click")
 
             pos = pygame.mouse.get_pos()
+            
             self.current_x = pos[0]
             self.current_y = pos[1]
 
-            print(pos)
+            grid_pos = self.board_model.get_square(self.current_x, self.current_y)
 
             if self.button.collidepoint(pos):
                 LevelManager().load_level(GameLevel(self.p1_wins, self.p2_wins, self.p1_score, self.p2_score))
 
-            #No piece picked up
+            #No piece has been picked up yet
             if self.click_count == 0:
                 
                 #regular piece p1 pick up logic
@@ -230,8 +230,262 @@ class GameLevel():
                         self.sprite_click_list.append(self.player2capstone)
                         self.click_count += 1
 
-                #piece on grid pick up logic (psuedocode)
+                """
+                Grid reference
+                __________________________
+                | 00 | 01 | 02 | 03 | 04 |
+                --------------------------
+                | 10 | 11 | 12 | 13 | 14 |
+                --------------------------
+                | 20 | 21 | 22 | 23 | 24 |
+                --------------------------
+                | 30 | 31 | 32 | 33 | 34 |
+                --------------------------
+                | 40 | 41 | 42 | 43 | 44 |
+                --------------------------
+                """
+
+###############piece pickup from grid logic###################
+                
+                #find the grid that was clicked on
+                if grid_pos == "00":
+                    
+                    #grab index of top piece
+                    index = len(self.stack_0_0) - 1
+                    
+                    #if current stack has a piece in it, we are safe to call operations
+                    if len(self.stack_0_0) > 0:
                         
+                        #check current player against color of piece
+                        if self.current_player == self.player1 and self.stack_0_0[index].color == "brown":
+                            
+                            #if current player matches color of piece clicked on, allow to push to sprite click list
+                            self.sprite_click_list.append(self.stack_0_0.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_0_0[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_0_0.pop())
+                            self.click_count += 1
+                elif grid_pos == "10":
+                    index = len(self.stack_1_0) - 1
+                    if len(self.stack_1_0) > 0:
+                        if self.current_player == self.player1 and self.stack_1_0[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_1_0.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_1_0[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_1_0.pop())
+                            self.click_count += 1
+                elif grid_pos == "20":
+                    index = len(self.stack_2_0) - 1
+                    if len(self.stack_2_0) > 0:
+                        if self.current_player == self.player1 and self.stack_2_0[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_2_0.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_2_0[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_2_0.pop())
+                            self.click_count += 1
+                elif grid_pos == "30":
+                    index = len(self.stack_3_0) - 1
+                    if len(self.stack_3_0) > 0:
+                        if self.current_player == self.player1 and self.stack_3_0[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_3_0.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_3_0[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_3_0.pop())
+                            self.click_count += 1
+                elif grid_pos == "40":
+                    index = len(self.stack_4_0) - 1
+                    if len(self.stack_4_0) > 0:
+                        if self.current_player == self.player1 and self.stack_4_0[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_4_0.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_4_0[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_4_0.pop())
+                            self.click_count += 1
+
+                elif grid_pos == "01":
+                    index = len(self.stack_0_1) - 1
+                    if len(self.stack_0_1) > 0:
+                        if self.current_player == self.player1 and self.stack_0_1[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_0_1.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_0_1[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_0_1.pop())
+                            self.click_count += 1
+                elif grid_pos == "11":
+                    index = len(self.stack_1_1) - 1
+                    if len(self.stack_1_1) > 0:
+                        if self.current_player == self.player1 and self.stack_1_1[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_1_1.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_1_1[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_1_1.pop())
+                            self.click_count += 1
+                elif grid_pos == "21":
+                    index = len(self.stack_2_1) - 1
+                    if len(self.stack_2_1) > 0:
+                        if self.current_player == self.player1 and self.stack_2_1[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_2_1.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_2_1[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_2_1.pop())
+                            self.click_count += 1
+                elif grid_pos == "31":
+                    index = len(self.stack_3_1) - 1
+                    if len(self.stack_3_1) > 0:
+                        if self.current_player == self.player1 and self.stack_3_1[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_3_1.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_3_1[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_3_1.pop())
+                            self.click_count += 1
+                elif grid_pos == "41":
+                    index = len(self.stack_4_1) - 1
+                    if len(self.stack_4_1) > 0:
+                        if self.current_player == self.player1 and self.stack_4_1[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_4_1.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_4_1[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_4_1.pop())
+                            self.click_count += 1
+
+                elif grid_pos == "02":
+                    index = len(self.stack_0_2) - 1
+                    if len(self.stack_0_2) > 0:
+                        if self.current_player == self.player1 and self.stack_0_2[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_0_2.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_0_2[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_0_2.pop())
+                            self.click_count += 1
+                elif grid_pos == "12":
+                    index = len(self.stack_1_2) - 1
+                    if len(self.stack_1_2) > 0:
+                        if self.current_player == self.player1 and self.stack_1_2[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_1_2.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_1_2[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_1_2.pop())
+                            self.click_count += 1
+                elif grid_pos == "22":
+                    index = len(self.stack_2_2) - 1
+                    if len(self.stack_2_2) > 0:
+                        if self.current_player == self.player1 and self.stack_2_2[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_2_2.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_2_2[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_2_2.pop())
+                            self.click_count += 1
+                elif grid_pos == "32":
+                    index = len(self.stack_3_2) - 1
+                    if len(self.stack_3_2) > 0:
+                        if self.current_player == self.player1 and self.stack_3_2[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_3_2.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_3_2[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_3_2.pop())
+                            self.click_count += 1
+                elif grid_pos == "42":
+                    index = len(self.stack_4_2) - 1
+                    if len(self.stack_4_2) > 0:
+                        if self.current_player == self.player1 and self.stack_4_2[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_4_2.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_4_2[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_4_2.pop())
+                            self.click_count += 1
+
+                elif grid_pos == "03":
+                    index = len(self.stack_0_3) - 1
+                    if len(self.stack_0_3) > 0:
+                        if self.current_player == self.player1 and self.stack_0_3[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_0_3.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_0_3[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_0_3.pop())
+                            self.click_count += 1
+                elif grid_pos == "13":
+                    index = len(self.stack_1_3) - 1
+                    if len(self.stack_1_3) > 0:
+                        if self.current_player == self.player1 and self.stack_1_3[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_1_3.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_1_3[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_1_3.pop())
+                            self.click_count += 1
+                elif grid_pos == "23":
+                    index = len(self.stack_2_3) - 1
+                    if len(self.stack_2_3) > 0:
+                        if self.current_player == self.player1 and self.stack_2_3[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_2_3.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_2_3[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_2_3.pop())
+                            self.click_count += 1
+                elif grid_pos == "33":
+                    index = len(self.stack_3_3) - 1
+                    if len(self.stack_3_3) > 0:
+                        if self.current_player == self.player1 and self.stack_3_3[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_3_3.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_3_3[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_3_3.pop())
+                            self.click_count += 1
+                elif grid_pos == "43":
+                    index = len(self.stack_4_3) - 1
+                    if len(self.stack_4_3) > 0:
+                        if self.current_player == self.player1 and self.stack_4_3[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_4_3.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_4_3[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_4_3.pop())
+                            self.click_count += 1
+
+                elif grid_pos == "04":
+                    index = len(self.stack_0_4) - 1
+                    if len(self.stack_0_4) > 0:
+                        if self.current_player == self.player1 and self.stack_0_4[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_0_4.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_0_4[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_0_4.pop())
+                            self.click_count += 1
+                elif grid_pos == "14":
+                    index = len(self.stack_1_4) - 1
+                    if len(self.stack_1_4) > 0:
+                        if self.current_player == self.player1 and self.stack_1_4[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_1_4.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_1_4[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_1_4.pop())
+                            self.click_count += 1
+                elif grid_pos == "24":
+                    index = len(self.stack_2_4) - 1
+                    if len(self.stack_2_4) > 0:
+                        if self.current_player == self.player1 and self.stack_2_4[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_2_4.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_2_4[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_2_4.pop())
+                            self.click_count += 1
+                elif grid_pos == "34":
+                    index = len(self.stack_3_4) - 1
+                    if len(self.stack_3_4) > 0:
+                        if self.current_player == self.player1 and self.stack_3_4[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_3_4.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_3_4[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_3_4.pop())
+                            self.click_count += 1
+                elif grid_pos == "44":
+                    index = len(self.stack_4_4) - 1
+                    if len(self.stack_4_4) > 0:
+                        if self.current_player == self.player1 and self.stack_4_4[index].color == "brown":
+                            self.sprite_click_list.append(self.stack_4_4.pop())
+                            self.click_count += 1
+                        elif self.current_player == self.player2 and self.stack_4_4[index].color == "beige":
+                            self.sprite_click_list.append(self.stack_4_4.pop())
+                            self.click_count += 1
+                
                 #for each spite in grid
                     #if self.sprite.collidepoint(pos):
                         #if grid pos contains a stack of pieces
@@ -240,13 +494,13 @@ class GameLevel():
 
                         #function to only allow piece to move one space adjacent
 
+            #piece has been picked up and is in sprite click list
             elif self.click_count == 1:
                 if (self.board.rect.topleft[0] < self.current_x < self.board.rect.topright[0]) and (self.board.rect.topleft[1] < self.current_y < self.board.rect.bottomleft[1]):
                     # This code helps the pieces snap in place
                     distance_to_snap = 145
                     stone = self.sprite_click_list[0]
                     px, py = stone.rect.topleft
-                    
                     
                     position = self.board_model.get_square(px, py)
                     print(position)
@@ -279,7 +533,60 @@ class GameLevel():
                                 break
 
                         #remove piece from sprite click list and place into stack grids
-                        self.sprite_click_list = []
+                        if position == "00":
+                            self.stack_0_0.append(self.sprite_click_list.pop())
+                        elif position == "10":
+                            self.stack_1_0.append(self.sprite_click_list.pop())
+                        elif position == "20":
+                            self.stack_2_0.append(self.sprite_click_list.pop())
+                        elif position == "30":
+                            self.stack_3_0.append(self.sprite_click_list.pop())
+                        elif position == "40":
+                            self.stack_4_0.append(self.sprite_click_list.pop())
+                                                                
+                        elif position == "01":
+                            self.stack_0_1.append(self.sprite_click_list.pop())
+                        elif position == "11":
+                            self.stack_1_1.append(self.sprite_click_list.pop())
+                        elif position == "21":
+                            self.stack_2_1.append(self.sprite_click_list.pop())
+                        elif position == "31":
+                            self.stack_3_1.append(self.sprite_click_list.pop())
+                        elif position == "41":
+                            self.stack_4_1.append(self.sprite_click_list.pop())
+                                                                                                        
+                        elif position == "02":
+                            self.stack_0_2.append(self.sprite_click_list.pop())
+                        elif position == "12":
+                            self.stack_1_2.append(self.sprite_click_list.pop())
+                        elif position == "22":
+                            self.stack_2_2.append(self.sprite_click_list.pop())
+                        elif position == "32":
+                            self.stack_3_2.append(self.sprite_click_list.pop())
+                        elif position == "42":
+                            self.stack_4_2.append(self.sprite_click_list.pop())
+
+                        elif position == "03":
+                            self.stack_0_3.append(self.sprite_click_list.pop())
+                        elif position == "13":
+                            self.stack_1_3.append(self.sprite_click_list.pop())
+                        elif position == "23":
+                            self.stack_2_3.append(self.sprite_click_list.pop())
+                        elif position == "33":
+                            self.stack_3_3.append(self.sprite_click_list.pop())
+                        elif position == "43":
+                            self.stack_4_3.append(self.sprite_click_list.pop())
+
+                        elif position == "04":
+                            self.stack_0_4.append(self.sprite_click_list.pop())
+                        elif position == "14":
+                            self.stack_1_4.append(self.sprite_click_list.pop())
+                        elif position == "24":
+                            self.stack_2_4.append(self.sprite_click_list.pop())
+                        elif position == "34":
+                            self.stack_3_4.append(self.sprite_click_list.pop())
+                        elif position == "44":
+                            self.stack_4_4.append(self.sprite_click_list.pop())
 
                         self.click_count = 0
 
