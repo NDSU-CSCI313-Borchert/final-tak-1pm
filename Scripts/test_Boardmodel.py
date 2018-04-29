@@ -3,6 +3,8 @@ from board_model import *
 
 
 class test_BoardModel(unittest.TestCase):
+    
+####################################Set up tests###################################
     def test_board_model_can_be_created(self):
         board_model = BoardModel((0,0),"3x3")
         self.assertTrue(True)
@@ -15,14 +17,31 @@ class test_BoardModel(unittest.TestCase):
         board_model = BoardModel((0,0),"3x3")
         self.assertTrue(board_model.markGrid)
 
-    def test_board_model_has_dimensions(self):
+    def test_board_model_has_dimensions_3(self):
         board_model = BoardModel((0,0),"3x3")
         self.assertEqual(board_model.dimensions, 3)
+    
+    def test_board_model_has_dimensions_4(self):
+        board_model = BoardModel((0,0),"4x4")
+        self.assertEqual(board_model.dimensions, 4)
 
-    def test_board_model_coord_grid_has_correct_length(self):
+    def test_board_model_has_dimensions_5(self):
+        board_model = BoardModel((0,0),"5x5")
+        self.assertEqual(board_model.dimensions, 5)
+
+    def test_board_model_coord_grid_has_correct_length_3(self):
         board_model = BoardModel((0,0),"3x3")
         self.assertEqual(len(board_model.coord_grid), (board_model.dimensions**2))
 
+    def test_board_model_coord_grid_has_correct_length_4(self):
+        board_model = BoardModel((0,0),"4x4")
+        self.assertEqual(len(board_model.coord_grid), (board_model.dimensions**2))
+    
+    def test_board_model_coord_grid_has_correct_length_5(self):
+        board_model = BoardModel((0,0),"5x5")
+        self.assertEqual(len(board_model.coord_grid), (board_model.dimensions**2))
+
+###################get square method tests################################################
     def test_board_model_get_square_returns_correct_coord_00(self):
         board_model = BoardModel((0, 0), "5x5")
         self.assertEqual(board_model.get_square(400, 200), "00")
@@ -123,9 +142,19 @@ class test_BoardModel(unittest.TestCase):
         board_model = BoardModel((0, 0), "5x5")
         self.assertEqual(board_model.get_square(1000, 800), "44")
 
-    #def test_board_model_can_mark(self):
-     #   board_model = BoardModel(0, 0)
-      #  self.assertTrue(board_model.Mark_spot(400,200,True,False))
+
+###################check victory method tests################################################
+#def test_board_model_can_mark(self):
+#   board_model = BoardModel(0, 0)
+#  self.assertTrue(board_model.Mark_spot(400,200,True,False))
+
+# def test_board_model_occupied(self):
+#    board_model = BoardModel(0, 0)
+#    board_model.Mark_spot(400, 200, True, False)
+#    board_model.spot_occupied(400,200)
+#    self.assertEqual(board_model.spot_occupied(400,200),True)
+
+###################grid operations method tests################################################
 
     #def test_board_model_can_win(self):
      #   board_model = BoardModel(0, 0)
@@ -136,8 +165,4 @@ class test_BoardModel(unittest.TestCase):
      #   board_model.Mark_spot(980, 200, True, False)
      #   board_model.Check_victory()
 
-   # def test_board_model_occupied(self):
-    #    board_model = BoardModel(0, 0)
-    #    board_model.Mark_spot(400, 200, True, False)
-    #    board_model.spot_occupied(400,200)
-    #    self.assertEqual(board_model.spot_occupied(400,200),True)
+
