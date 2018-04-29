@@ -150,7 +150,8 @@ class BoardModel():
             return False
 #xposition, ypositon, then if it is player1 make it true
 
-
+# if the spot is not equal to empty, append what is in that spot to the handstack, and make the mark on the board,
+    #be what the old piece was
     def pickup(self, posx,posy):
         
         """
@@ -275,6 +276,79 @@ class BoardModel():
                 self.handstack.append(self.markGrid[4][4])
                 self.markGrid[4][4] = self.stack25.pop()
 
+    def putdown(self,posx,posy):
+        """
+                   Grid reference
+                   __________________________
+                   | 00 | 01 | 02 | 03 | 04 |
+                   --------------------------
+                   | 10 | 11 | 12 | 13 | 14 |
+                   --------------------------
+                   | 20 | 21 | 22 | 23 | 24 |
+                   --------------------------
+                   | 30 | 31 | 32 | 33 | 34 |
+                   --------------------------
+                   | 40 | 41 | 42 | 43 | 44 |
+                   --------------------------
+               """
+
+        position = self.get_square(posx, posy)
+
+        if position == "00":
+            self.markGrid[0][0]=self.handstack.pop()
+
+        elif position == "10":
+            self.markGrid[1][0] = self.handstack.pop()
+        elif position == "20":
+            self.markGrid[2][0] = self.handstack.pop()
+        elif position == "30":
+            self.markGrid[3][0] = self.handstack.pop()
+        elif position == "40":
+            self.markGrid[4][0] = self.handstack.pop()
+
+        elif position == "01":
+            self.markGrid[0][1] = self.handstack.pop()
+        elif position == "11":
+            self.markGrid[1][1] = self.handstack.pop()
+        elif position == "21":
+            self.markGrid[2][1] = self.handstack.pop()
+        elif position == "31":
+            self.markGrid[3][1] = self.handstack.pop()
+        elif position == "41":
+            self.markGrid[4][1] = self.handstack.pop()
+
+        elif position == "02":
+            self.markGrid[0][2] = self.handstack.pop()
+        elif position == "12":
+            self.markGrid[1][2] = self.handstack.pop()
+        elif position == "22":
+            self.markGrid[2][2] = self.handstack.pop()
+        elif position == "32":
+            self.markGrid[3][2] = self.handstack.pop()
+        elif position == "42":
+            self.markGrid[4][2] = self.handstack.pop()
+
+        elif position == "03":
+            self.markGrid[0][3] = self.handstack.pop()
+        elif position == "13":
+            self.markGrid[1][3] = self.handstack.pop()
+        elif position == "23":
+            self.markGrid[2][3] = self.handstack.pop()
+        elif position == "33":
+            self.markGrid[3][3] = self.handstack.pop()
+        elif position == "43":
+            self.markGrid[4][3] = self.handstack.pop()
+
+        elif position == "04":
+            self.markGrid[0][4] = self.handstack.pop()
+        elif position == "14":
+            self.markGrid[1][4] = self.handstack.pop()
+        elif position == "24":
+            self.markGrid[2][4] = self.handstack.pop()
+        elif position == "34":
+            self.markGrid[3][4] = self.handstack.pop()
+        elif position == "44":
+            self.markGrid[4][4] = self.handstack.pop()
 
 
     def flatten_stone(self,posx,posy,b):
