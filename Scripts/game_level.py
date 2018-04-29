@@ -245,11 +245,21 @@ class GameLevel():
                 --------------------------
                 """
 
-                #piece pickup from grid logic (psuedocode)
+###############piece pickup from grid logic###################
+                
+                #find the grid that was clicked on
                 if grid_pos == "00":
+                    
+                    #grab index of top piece
                     index = len(self.stack_0_0) - 1
+                    
+                    #if current stack has a piece in it, we are safe to call operations
                     if len(self.stack_0_0) > 0:
+                        
+                        #check current player against color of piece
                         if self.current_player == self.player1 and self.stack_0_0[index].color == "brown":
+                            
+                            #if current player matches color of piece clicked on, allow to push to sprite click list
                             self.sprite_click_list.append(self.stack_0_0.pop())
                             self.click_count += 1
                         elif self.current_player == self.player2 and self.stack_0_0[index].color == "beige":
