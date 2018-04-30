@@ -124,6 +124,66 @@ class BoardModel():
         elif x > 977 and x < 1129 and y > 766 and y < 917:
             return "44"
 
+    def get_adjacent_squares(self, current_position):
+        
+        position = current_position
+        
+        #returns clockwise array of adjacent grid spaces
+        if position == "00":
+            return ["01", "10"]
+        elif position == "10":
+            return ["00", "11", "20"]
+        elif position == "20":
+            return ["10", "21", "30"]
+        elif position == "30":
+            return ["20", "31", "40"]
+        elif position == "40":
+            return ["30", "41"]
+
+        elif position == "01":
+            return ["02","11","00"]
+        elif position == "11":
+            return ["01","12","21", "10"]
+        elif position == "21":
+            return ["11","22","31", "20"]
+        elif position == "31":
+            return ["21","32","41", "30"]
+        elif position == "41":
+            return ["31","42","40"]
+        
+        elif position == "02":
+            return ["03","12","01"]
+        elif position == "12":
+            return ["02","13","22", "11"]
+        elif position == "22":
+            return ["12","23","32", "21"]
+        elif position == "32":
+            return ["22","33","42", "31"]
+        elif position == "42":
+            return ["32","43","41"]
+
+        elif position == "03":
+            return ["04","13","02"]
+        elif position == "13":
+            return ["03","14","23", "12"]
+        elif position == "23":
+            return ["13","24","33", "22"]
+        elif position == "33":
+            return ["23","34","43", "32"]
+        elif position == "43":
+            return ["33","44","42"]
+        
+        elif position == "04":
+            return ["14", "03"]
+        elif position == "14":
+            return ["04", "24", "13"]
+        elif position == "24":
+            return ["14", "34", "23"]
+        elif position == "34":
+            return ["24", "44", "33"]
+        elif position == "44":
+            return ["34", "43"]
+
     def Check_victoryX(self):
         h_victory = False
         v_victory = False
