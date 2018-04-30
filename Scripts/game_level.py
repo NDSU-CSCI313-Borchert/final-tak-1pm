@@ -44,7 +44,6 @@ class GameLevel():
 
         # Create the board
         board_type = str(self.size + self.design)
-        print(board_type)
         
         self.board = Board(board_type)
         self.board.rect.center = (SCREEN_CENTER)
@@ -504,7 +503,6 @@ class GameLevel():
                     px, py = stone.rect.topleft
                     
                     position = self.board_model.get_square(px, py)
-                    print(position)
                     
                     #####code that handles placing a piece######
                     #if spot is occupied don't allow placement

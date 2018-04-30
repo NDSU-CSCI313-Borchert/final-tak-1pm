@@ -3,6 +3,7 @@ from constants import *
 from level_manager import *
 from title_screen import *
 from game_level import *
+from board import *
 
 class MenuLevel():
     def __init__(self):
@@ -18,6 +19,14 @@ class MenuLevel():
 
         self.size_index = 0
         self.design_index = 0
+
+        self.preview_list = pygame.sprite.Group()
+
+        self.preview = "3x3" + str(self.designs[0])
+        
+        self.board = Board(self.preview)
+        self.board.rect.center = (SCREEN_CENTER)
+        self.preview_list.add(self.board)
 
     def update(self):
         pass
@@ -36,12 +45,19 @@ class MenuLevel():
                     self.design_index += 1
                 else:
                     self.design_index = 0
+                self.preview = "3x3" + str(self.designs[self.design_index])
+                self.board = Board(self.preview)
+                self.board.rect.center = (SCREEN_CENTER)
+                self.preview_list.add(self.board)
             elif event.key == pygame.K_p:
                 LevelManager().load_level(GameLevel(size=self.sizes[self.size_index], design=self.designs[self.design_index]))
 
 
     def draw(self, screen):
         screen.fill(WHITE)
+
+        self.preview_list.draw(screen)
+        
         header_string = "Board Settings:"
         size_string = "Board [S]ize: " + str(self.sizes[self.size_index])
         design_string = "Board [D]esign: " + str(self.designs[self.design_index])
