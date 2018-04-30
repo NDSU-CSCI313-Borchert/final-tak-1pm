@@ -45,10 +45,6 @@ class MenuLevel():
                     self.design_index += 1
                 else:
                     self.design_index = 0
-                self.preview = "3x3" + str(self.designs[self.design_index])
-                self.board = Board(self.preview)
-                self.board.rect.center = (SCREEN_CENTER)
-                self.preview_list.add(self.board)
             elif event.key == pygame.K_p:
                 LevelManager().load_level(GameLevel(size=self.sizes[self.size_index], design=self.designs[self.design_index]))
 
@@ -56,7 +52,7 @@ class MenuLevel():
     def draw(self, screen):
         screen.fill(WHITE)
 
-        self.preview_list.draw(screen)
+        # self.preview_list.draw(screen)
         
         header_string = "Board Settings:"
         size_string = "Board [S]ize: " + str(self.sizes[self.size_index])
@@ -75,6 +71,6 @@ class MenuLevel():
         screen.blit(size_text, [(SCREEN_WIDTH/2)-100, 300])
         screen.blit(design_text, [(SCREEN_WIDTH/2)-100, 400])
         screen.blit(progress_text, [(SCREEN_WIDTH/2)-100, SCREEN_HEIGHT-300])
-
+        screen.blit(pygame.image.load("../Assets/3x3" + str(self.designs[self.design_index]) + ".png"), [SCREEN_CENTER[0]+250, SCREEN_CENTER[1]-250])
 
         pygame.display.flip()
