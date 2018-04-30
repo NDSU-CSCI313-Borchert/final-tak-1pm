@@ -32,5 +32,5 @@ class Art:
 
     def get_image(image_request):
         image_needed = art_dictionary.get(str(image_request))
-        path = os.path.join("../Assets/", image_needed)
+        path = os.path.join("../Assets/", str(image_needed))
         return pygame.image.load(path)

@@ -43,8 +43,9 @@ class GameLevel():
         self.design = design
 
         # Create the board
-        board_type = str(self.size) + str(self.design)
-
+        board_type = str(self.size + self.design)
+        print(board_type)
+        
         self.board = Board(board_type)
         self.board.rect.center = (SCREEN_CENTER)
         self.board_list.add(self.board)
@@ -190,7 +191,7 @@ class GameLevel():
             grid_pos = self.board_model.get_square(self.current_x, self.current_y)
 
             if self.button.collidepoint(pos):
-                LevelManager().load_level(GameLevel(self.p1_wins, self.p2_wins, self.p1_score, self.p2_score))
+                LevelManager().load_level(GameLevel(self.p1_wins, self.p2_wins, self.p1_score, self.p2_score, self.size, self.design))
 
             #No piece has been picked up yet
             if self.click_count == 0:
