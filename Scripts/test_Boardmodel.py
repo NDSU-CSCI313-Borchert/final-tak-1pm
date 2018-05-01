@@ -283,10 +283,13 @@ class test_BoardModel(unittest.TestCase):
 
 
 
+###################grid operations method tests################################################
 
 
-
-
+    def test_board_model_mark_spot(self):
+        board_model = BoardModel((0, 0), "5x5")
+        board_model.Mark_spot(380,250,True,False)
+        self.assertEqual(board_model.get_item_in_block(380,250),'X')
 
 
 
