@@ -22,7 +22,7 @@ class BoardModel():
         self.grid2 = []
 
         self.markGrid = [['' for i in range(5)] for j in range(5)]
-        
+        self.capstoneSpots = [['' for i in range (self.dimensions)] for j in range (self.dimensions)]
         self.handstack = []
         
         self.stack_0_0_model = []
@@ -410,7 +410,64 @@ class BoardModel():
         elif position == "44":
             self.markGrid[4][4] = self.handstack.pop()
 
+    def get_item_in_block(self,posx,posy):
+        position = self.get_square(posx, posy)
 
+        if position == "00":
+            return self.markGrid[0][0]
+
+        elif position == "10":
+            return self.markGrid[1][0]
+        elif position == "20":
+            return self.markGrid[2][0]
+        elif position == "30":
+            return self.markGrid[3][0]
+        elif position == "40":
+            return self.markGrid[4][0]
+
+        elif position == "01":
+            return self.markGrid[0][1]
+        elif position == "11":
+            return self.markGrid[1][1]
+        elif position == "21":
+            return self.markGrid[2][1]
+        elif position == "31":
+            return self.markGrid[3][1]
+        elif position == "41":
+            return self.markGrid[4][1]
+
+        elif position == "02":
+            return self.markGrid[0][2]
+        elif position == "12":
+            return self.markGrid[1][2]
+        elif position == "22":
+            return self.markGrid[2][2]
+        elif position == "32":
+            return self.markGrid[3][2]
+        elif position == "42":
+            return self.markGrid[4][2]
+
+        elif position == "03":
+            return self.markGrid[0][3]
+        elif position == "13":
+            return self.markGrid[1][3]
+        elif position == "23":
+            return self.markGrid[2][3]
+        elif position == "33":
+            return self.markGrid[3][3]
+        elif position == "43":
+            return self.markGrid[4][3]
+
+        elif position == "04":
+            return self.markGrid[0][4]
+        elif position == "14":
+            return self.markGrid[1][4]
+        elif position == "24":
+            return self.markGrid[2][4]
+        elif position == "34":
+            return self.markGrid[3][4]
+        elif position == "44":
+            return self.markGrid[4][4]
     def flatten_stone(self,posx,posy,b):
         
         """
@@ -621,6 +678,149 @@ class BoardModel():
             self.stack_4_4_model.append(self.markGrid[4][4])
             self.markGrid[4][4] = mark
     #print.print(self.markGrid)
+    #Trying something new I suppose, whenever a capstone is placed there is a second matrix where the info is stored to help fro when being picked up
+    def mark_grid2(self,posx,posy,piece, color):
+        b = False
+        position = self.get_square(posx, posy)
+        if piece =="flat" and color =="brown":
+            mark ='X'
+        elif piece =="flat" and color =="beige":
+            mark ='Y'
+        elif piece =="wall":
+            mark ='Z'
+        elif piece =="capstone" and color =="brown":
+            mark='X'
+            b=True
+        if position == "00":
+            self.stack_0_0_model.append(self.markGrid[0][0])
+            self.markGrid[0][0] = mark
+            if b ==True:
+                self.capstoneSpots[0][0] = mark
+        elif position == "10":
+            self.stack_1_0_model.append(self.markGrid[1][0])
+            self.markGrid[1][0] = mark
+            if b ==True:
+                self.capstoneSpots[1][0] = mark
+        elif position == "20":
+            self.stack_2_0_model.append(self.markGrid[2][0])
+            self.markGrid[2][0] = mark
+            if b ==True:
+                self.capstoneSpots[2][0] = mark
+        elif position == "30":
+            self.stack_3_0_model.append(self.markGrid[3][0])
+            self.markGrid[3][0] = mark
+            if b ==True:
+                self.capstoneSpots[3][0] = mark
+        elif position == "40":
+            self.stack_4_0_model.append(self.markGrid[4][0])
+            self.markGrid[4][0] = mark
+            if b ==True:
+                self.capstoneSpots[4][0] = mark
+
+        elif position == "01":
+            self.stack_0_1_model.append(self.markGrid[0][1])
+            self.markGrid[0][1] = mark
+            if b ==True:
+                self.capstoneSpots[0][1] = mark
+        elif position == "11":
+            self.stack_1_1_model.append(self.markGrid[1][1])
+            self.markGrid[1][1] = mark
+            if b ==True:
+                self.capstoneSpots[1][1] = mark
+        elif position == "21":
+            self.stack_2_1_model.append(self.markGrid[2][1])
+            self.markGrid[2][1] = mark
+            if b ==True:
+                self.capstoneSpots[2][1] = mark
+        elif position == "31":
+            self.stack_3_1_model.append(self.markGrid[3][1])
+            self.markGrid[3][1] = mark
+            if b ==True:
+                self.capstoneSpots[3][1] = mark
+        elif position == "41":
+            self.stack_4_1_model.append(self.markGrid[4][1])
+            self.markGrid[4][1] = mark
+            if b ==True:
+                self.capstoneSpots[4][1] = mark
+
+        elif position == "02":
+            self.stack_0_2_model.append(self.markGrid[0][2])
+            self.markGrid[0][2] = mark
+            if b ==True:
+                self.capstoneSpots[0][2] = mark
+        elif position == "12":
+            self.stack_1_2_model.append(self.markGrid[1][2])
+            self.markGrid[1][2] = mark
+            if b ==True:
+                self.capstoneSpots[1][2] = mark
+        elif position == "22":
+            self.stack_2_2_model.append(self.markGrid[2][2])
+            self.markGrid[2][2] = mark
+            if b ==True:
+                self.capstoneSpots[2][2] = mark
+        elif position == "32":
+            self.stack_3_2_model.append(self.markGrid[3][2])
+            self.markGrid[3][2] = mark
+            if b ==True:
+                self.capstoneSpots[3][2] = mark
+        elif position == "42":
+            self.stack_4_2_model.append(self.markGrid[4][2])
+            self.markGrid[4][2] = mark
+            if b ==True:
+                self.capstoneSpots[4][2] = mark
+
+        elif position == "03":
+            self.stack_0_3_model.append(self.markGrid[0][3])
+            self.markGrid[0][3] = mark
+            if b ==True:
+                self.capstoneSpots[0][3] = mark
+        elif position == "13":
+            self.stack_1_3_model.append(self.markGrid[1][3])
+            self.markGrid[1][3] = mark
+            if b ==True:
+                self.capstoneSpots[1][3] = mark
+        elif position == "23":
+            self.stack_2_3_model.append(self.markGrid[2][3])
+            self.markGrid[2][3] = mark
+            if b ==True:
+                self.capstoneSpots[2][3] = mark
+        elif position == "33":
+            self.stack_3_3_model.append(self.markGrid[3][3])
+            self.markGrid[3][3] = mark
+            if b ==True:
+                self.capstoneSpots[3][3] = mark
+        elif position == "43":
+            self.stack_4_3_model.append(self.markGrid[4][3])
+            self.markGrid[4][3] = mark
+            if b ==True:
+                self.capstoneSpots[4][3] = mark
+
+        elif position == "04":
+            self.stack_0_4_model.append(self.markGrid[0][4])
+            self.markGrid[0][4] = mark
+            if b ==True:
+                self.capstoneSpots[0][4] = mark
+        elif position == "14":
+            self.stack_1_4_model.append(self.markGrid[1][4])
+            self.markGrid[1][4] = mark
+            if b ==True:
+                self.capstoneSpots[1][4] = mark
+        elif position == "24":
+            self.stack_2_4_model.append(self.markGrid[2][4])
+            self.markGrid[2][4] = mark
+            if b ==True:
+                self.capstoneSpots[2][4] = mark
+        elif position == "34":
+            self.stack_3_4_model.append(self.markGrid[3][4])
+            self.markGrid[3][4] = mark
+            if b ==True:
+                self.capstoneSpots[3][4] = mark
+        elif position == "44":
+            self.stack_4_4_model.append(self.markGrid[4][4])
+            self.markGrid[4][4] = mark
+            if b ==True:
+                self.capstoneSpots[4][4] = mark
+
 
     #Feed this method an x and y coordinate for it to check if that spot is occupied
     def spot_occupied(self,posx,posy):
@@ -643,82 +843,180 @@ class BoardModel():
         position = self.get_square(posx, posy)
 
         if position == "00":
-            if self.markGrid[0][0] ==('Z') :
+            if self.markGrid[0][0] !=('') :
                 return True
         elif position == "10":
-            if self.markGrid[1][0]==('Z') :
+            if self.markGrid[1][0]!=('') :
                 return True
         elif position == "20":
-            if self.markGrid[2][0]==('Z') :
+            if self.markGrid[2][0]!=('') :
                 return True
         elif position == "30":
-            if self.markGrid[3][0]==('Z') :
+            if self.markGrid[3][0]!=('') :
                 return True
         elif position == "40":
-            if self.markGrid[4][0]==('Z') :
+            if self.markGrid[4][0]!=('') :
                 return True
 
         elif position == "01":
-            if self.markGrid[0][1]==('Z') :
+            if self.markGrid[0][1]!=('') :
                 return True
         elif position == "11":
-            if self.markGrid[1][1]==('Z') :
+            if self.markGrid[1][1]!=('') :
                 return True
         elif position == "21":
-            if self.markGrid[2][1]==('Z') :
+            if self.markGrid[2][1]!=('') :
                 return True
         elif position == "31":
-            if self.markGrid[3][1]==('Z') :
+            if self.markGrid[3][1]!=('') :
                 return True
         elif position == "41":
-            if self.markGrid[4][1]==('Z') :
+            if self.markGrid[4][1]!=('') :
                 return True
 
         elif position == "02":
-            if self.markGrid[0][2]==('Z') :
+            if self.markGrid[0][2]!=('') :
                 return True
         elif position == "12":
-            if self.markGrid[1][2]==('Z') :
+            if self.markGrid[1][2]!=('') :
                 return True
         elif position == "22":
-            if self.markGrid[2][2]==('Z') :
+            if self.markGrid[2][2]!=('') :
                 return True
         elif position == "32":
-            if self.markGrid[3][2]==('Z') :
+            if self.markGrid[3][2]!=('') :
                 return True
         elif position == "42":
-            if self.markGrid[4][2]==('Z') :
+            if self.markGrid[4][2]!=('') :
                 return True
 
         elif position == "03":
-            if self.markGrid[0][3]==('Z') :
+            if self.markGrid[0][3]!=('') :
                 return True
         elif position == "13":
-            if self.markGrid[1][3]==('Z') :
+            if self.markGrid[1][3]!=('') :
                 return True
         elif position == "23":
-            if self.markGrid[2][3]==('Z') :
+            if self.markGrid[2][3]!=('') :
                 return True
         elif position == "33":
-            if self.markGrid[3][3]==('Z') :
+            if self.markGrid[3][3]!=('') :
                 return True
         elif position == "43":
-            if self.markGrid[4][3]==('Z') :
+            if self.markGrid[4][3]!=('') :
                 return True
 
         elif position == "04":
-            if self.markGrid[0][4]==('Z') :
+            if self.markGrid[0][4]!=('') :
                 return True
         elif position == "14":
-            if self.markGrid[1][4]==('Z') :
+            if self.markGrid[1][4]!=('') :
                 return True
         elif position == "24":
-            if self.markGrid[2][4]==('Z') :
+            if self.markGrid[2][4]!=('') :
                 return True
         elif position == "34":
-            if self.markGrid[3][4]==('Z') :
+            if self.markGrid[3][4]!=('') :
                 return True
         elif position == "44":
-            if self.markGrid[4][4]==('Z') :
+            if self.markGrid[4][4]!=('') :
                 return True
 
+    def is_wall(self, posx, posy):
+
+        """
+        Grid reference
+        __________________________
+        | 00 | 01 | 02 | 03 | 04 |
+        --------------------------
+        | 10 | 11 | 12 | 13 | 14 |
+        --------------------------
+        | 20 | 21 | 22 | 23 | 24 |
+        --------------------------
+        | 30 | 31 | 32 | 33 | 34 |
+        --------------------------
+        | 40 | 41 | 42 | 43 | 44 |
+        --------------------------
+        """
+
+        position = self.get_square(posx, posy)
+
+        if position == "00":
+            if self.markGrid[0][0] == ('Z'):
+                return True
+        elif position == "10":
+            if self.markGrid[1][0] == ('Z'):
+                return True
+        elif position == "20":
+            if self.markGrid[2][0] == ('Z'):
+                return True
+        elif position == "30":
+            if self.markGrid[3][0] == ('Z'):
+                return True
+        elif position == "40":
+            if self.markGrid[4][0] == ('Z'):
+                return True
+
+        elif position == "01":
+            if self.markGrid[0][1] == ('Z'):
+                return True
+        elif position == "11":
+            if self.markGrid[1][1] == ('Z'):
+                return True
+        elif position == "21":
+            if self.markGrid[2][1] == ('Z'):
+                return True
+        elif position == "31":
+            if self.markGrid[3][1] == ('Z'):
+                return True
+        elif position == "41":
+            if self.markGrid[4][1] == ('Z'):
+                return True
+
+        elif position == "02":
+            if self.markGrid[0][2] == ('Z'):
+                return True
+        elif position == "12":
+            if self.markGrid[1][2] == ('Z'):
+                return True
+        elif position == "22":
+            if self.markGrid[2][2] == ('Z'):
+                return True
+        elif position == "32":
+            if self.markGrid[3][2] == ('Z'):
+                return True
+        elif position == "42":
+            if self.markGrid[4][2] == ('Z'):
+                return True
+
+        elif position == "03":
+            if self.markGrid[0][3] == ('Z'):
+                return True
+        elif position == "13":
+            if self.markGrid[1][3] == ('Z'):
+                return True
+        elif position == "23":
+            if self.markGrid[2][3] == ('Z'):
+                return True
+        elif position == "33":
+            if self.markGrid[3][3] == ('Z'):
+                return True
+        elif position == "43":
+            if self.markGrid[4][3] == ('Z'):
+                return True
+
+        elif position == "04":
+            if self.markGrid[0][4] == ('Z'):
+                return True
+        elif position == "14":
+            if self.markGrid[1][4] == ('Z'):
+                return True
+        elif position == "24":
+            if self.markGrid[2][4] == ('Z'):
+                return True
+        elif position == "34":
+            if self.markGrid[3][4] == ('Z'):
+                return True
+        elif position == "44":
+            if self.markGrid[4][4] == ('Z'):
+                return True
