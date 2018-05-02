@@ -879,6 +879,9 @@ class GameLevel():
                         print(stack_4_2_info)
                         print(stack_4_3_info)
                         print(stack_4_4_info)
+                        
+                        #Send current snapshot to data model
+                        #board_model.mark_grid(stack_0_0_info, stack_0_1_info, stack_0_2_info, stack_0_3_info, stack_0_4_info, stack_1_0_info, stack_1_1_info, stack_1_2_info, stack_1_3_info, stack_1_4_info, stack_2_0_info, stack_2_1_info, stack_2_2_info, stack_2_3_info, stack_2_4_info, stack_3_0_info, stack_3_1_info, stack_3_2_info, stack_3_3_info, stack_3_4_info, stack_4_0_info, stack_4_1_info, stack_4_1_info, stack_4_2_info, stack_4_3_info, stack_4_4_info)
 
                         if self.current_player == self.player1:
                             if self.board_model.Check_victoryX():
