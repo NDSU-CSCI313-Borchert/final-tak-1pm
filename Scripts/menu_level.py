@@ -3,6 +3,7 @@ from constants import *
 from level_manager import *
 from title_screen import *
 from game_level import *
+from board import *
 
 class MenuLevel():
     def __init__(self):
@@ -18,6 +19,14 @@ class MenuLevel():
 
         self.size_index = 0
         self.design_index = 0
+
+        self.preview_list = pygame.sprite.Group()
+
+        self.preview = "3x3" + str(self.designs[0])
+        
+        self.board = Board(self.preview)
+        self.board.rect.center = (SCREEN_CENTER)
+        self.preview_list.add(self.board)
 
     def update(self):
         pass
@@ -42,6 +51,9 @@ class MenuLevel():
 
     def draw(self, screen):
         screen.fill(WHITE)
+
+        # self.preview_list.draw(screen)
+        
         header_string = "Board Settings:"
         size_string = "Board [S]ize: " + str(self.sizes[self.size_index])
         design_string = "Board [D]esign: " + str(self.designs[self.design_index])
@@ -59,6 +71,6 @@ class MenuLevel():
         screen.blit(size_text, [(SCREEN_WIDTH/2)-100, 300])
         screen.blit(design_text, [(SCREEN_WIDTH/2)-100, 400])
         screen.blit(progress_text, [(SCREEN_WIDTH/2)-100, SCREEN_HEIGHT-300])
-
+        screen.blit(pygame.image.load("../Assets/3x3" + str(self.designs[self.design_index]) + ".png"), [SCREEN_CENTER[0]+250, SCREEN_CENTER[1]-250])
 
         pygame.display.flip()
