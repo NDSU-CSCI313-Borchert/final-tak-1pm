@@ -590,7 +590,7 @@ class GameLevel():
                         self.click_count = 0
 
                         if self.current_player == self.player1:
-                            if self.board_model.Check_victoryX():
+                            if self.board_model.check_victory("X"):
                                 self.done = True
                                 self.winner = "Player One"
                                 self.p1_wins += 1
@@ -598,7 +598,7 @@ class GameLevel():
                             else:
                                 self.current_player = self.player2
                         else:
-                            if self.board_model.Check_victoryY():
+                            if self.board_model.check_victory("Y"):
                                 self.done = True
                                 self.winner = "Player Two"
                                 self.p2_wins += 1
