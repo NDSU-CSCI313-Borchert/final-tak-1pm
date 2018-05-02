@@ -589,6 +589,297 @@ class GameLevel():
 
                         self.click_count = 0
 
+                        #set up for the new mark grid method
+                        
+                        #create the local info for each stacks
+                        stack_0_0_info = []
+                        stack_0_1_info = []
+                        stack_0_2_info = []
+                        stack_0_3_info = []
+                        stack_0_4_info = []
+                        stack_1_0_info = []
+                        stack_1_1_info = []
+                        stack_1_2_info = []
+                        stack_1_3_info = []
+                        stack_1_4_info = []
+                        stack_2_0_info = []
+                        stack_2_1_info = []
+                        stack_2_2_info = []
+                        stack_2_3_info = []
+                        stack_2_4_info = []
+                        stack_3_0_info = []
+                        stack_3_1_info = []
+                        stack_3_2_info = []
+                        stack_3_3_info = []
+                        stack_3_4_info = []
+                        stack_4_0_info = []
+                        stack_4_1_info = []
+                        stack_4_2_info = []
+                        stack_4_3_info = []
+                        stack_4_4_info = []
+                        
+                        #if there's something in the stack
+                        if len(self.stack_0_0) > 0:
+                            #append the position
+                            stack_0_0_info.append("00")
+                            #append the name of the top stone
+                            stack_0_0_info.append(self.stack_0_0[len(self.stack_0_0) - 1].name)
+                            #append the color of the top stone
+                            stack_0_0_info.append(self.stack_0_0[len(self.stack_0_0) - 1].color)
+                        else:
+                            #append the position
+                            stack_0_0_info.append("00")
+                            #append nothing as it is an empty stack
+                            stack_0_0_info.append("")
+                            #append nothing as it is an empty stack
+                            stack_0_0_info.append("")
+                    
+                        if len(self.stack_0_1) > 0:
+                            stack_0_1_info.append("01")
+                            stack_0_1_info.append(self.stack_0_1[len(self.stack_0_1) - 1].name)
+                            stack_0_1_info.append(self.stack_0_1[len(self.stack_0_1) - 1].color)
+                        else:
+                            stack_0_1_info.append("01")
+                            stack_0_1_info.append("")
+                            stack_0_1_info.append("")
+                        
+                        if len(self.stack_0_2) > 0:
+                            stack_0_2_info.append("02")
+                            stack_0_2_info.append(self.stack_0_2[len(self.stack_0_2) - 1].name)
+                            stack_0_2_info.append(self.stack_0_2[len(self.stack_0_2) - 1].color)
+                        else:
+                            stack_0_2_info.append("02")
+                            stack_0_2_info.append("")
+                            stack_0_2_info.append("")
+                        
+                        if len(self.stack_0_3) > 0:
+                            stack_0_3_info.append("03")
+                            stack_0_3_info.append(self.stack_0_3[len(self.stack_0_3) - 1].name)
+                            stack_0_3_info.append(self.stack_0_3[len(self.stack_0_3) - 1].color)
+                        else:
+                            stack_0_3_info.append("03")
+                            stack_0_3_info.append("")
+                            stack_0_3_info.append("")
+
+                        if len(self.stack_0_4) > 0:
+                            stack_0_4_info.append("04")
+                            stack_0_4_info.append(self.stack_0_4[len(self.stack_0_4) - 1].name)
+                            stack_0_4_info.append(self.stack_0_4[len(self.stack_0_4) - 1].color)
+                        else:
+                            stack_0_4_info.append("04")
+                            stack_0_4_info.append("")
+                            stack_0_4_info.append("")
+
+                        if len(self.stack_1_0) > 0:
+                            stack_1_0_info.append("10")
+                            stack_1_0_info.append(self.stack_1_0[len(self.stack_1_0) - 1].name)
+                            stack_1_0_info.append(self.stack_1_0[len(self.stack_1_0) - 1].color)
+                        else:
+                            stack_1_0_info.append("10")
+                            stack_1_0_info.append("")
+                            stack_1_0_info.append("")
+
+                        if len(self.stack_1_1) > 0:
+                            stack_1_1_info.append("11")
+                            stack_1_1_info.append(self.stack_1_1[len(self.stack_1_1) - 1].name)
+                            stack_1_1_info.append(self.stack_1_1[len(self.stack_1_1) - 1].color)
+                        else:
+                            stack_1_1_info.append("11")
+                            stack_1_1_info.append("")
+                            stack_1_1_info.append("")
+        
+                        if len(self.stack_1_2) > 0:
+                            stack_1_2_info.append("12")
+                            stack_1_2_info.append(self.stack_1_2[len(self.stack_1_2) - 1].name)
+                            stack_1_2_info.append(self.stack_1_2[len(self.stack_1_2) - 1].color)
+                        else:
+                            stack_1_2_info.append("12")
+                            stack_1_2_info.append("")
+                            stack_1_2_info.append("")
+
+                        if len(self.stack_1_3) > 0:
+                            stack_1_3_info.append("13")
+                            stack_1_3_info.append(self.stack_1_3[len(self.stack_1_3) - 1].name)
+                            stack_1_3_info.append(self.stack_1_3[len(self.stack_1_3) - 1].color)
+                        else:
+                            stack_1_3_info.append("13")
+                            stack_1_3_info.append("")
+                            stack_1_3_info.append("")
+
+                        if len(self.stack_1_4) > 0:
+                            stack_1_4_info.append("14")
+                            stack_1_4_info.append(self.stack_1_4[len(self.stack_1_4) - 1].name)
+                            stack_1_4_info.append(self.stack_1_4[len(self.stack_1_4) - 1].color)
+                        else:
+                            stack_1_4_info.append("14")
+                            stack_1_4_info.append("")
+                            stack_1_4_info.append("")
+        
+                        if len(self.stack_2_0) > 0:
+                            stack_2_0_info.append("20")
+                            stack_2_0_info.append(self.stack_2_0[len(self.stack_2_0) - 1].name)
+                            stack_2_0_info.append(self.stack_2_0[len(self.stack_2_0) - 1].color)
+                        else:
+                            stack_2_0_info.append("20")
+                            stack_2_0_info.append("")
+                            stack_2_0_info.append("")
+                        
+                        if len(self.stack_2_1) > 0:
+                            stack_2_1_info.append("21")
+                            stack_2_1_info.append(self.stack_2_1[len(self.stack_2_1) - 1].name)
+                            stack_2_1_info.append(self.stack_2_1[len(self.stack_2_1) - 1].color)
+                        else:
+                            stack_2_1_info.append("21")
+                            stack_2_1_info.append("")
+                            stack_2_1_info.append("")
+                        
+                        if len(self.stack_2_2) > 0:
+                            stack_2_2_info.append("22")
+                            stack_2_2_info.append(self.stack_2_2[len(self.stack_2_2) - 1].name)
+                            stack_2_2_info.append(self.stack_2_2[len(self.stack_2_2) - 1].color)
+                        else:
+                            stack_2_2_info.append("22")
+                            stack_2_2_info.append("")
+                            stack_2_2_info.append("")
+                        
+                        if len(self.stack_2_3) > 0:
+                            stack_2_3_info.append("23")
+                            stack_2_3_info.append(self.stack_2_3[len(self.stack_2_3) - 1].name)
+                            stack_2_3_info.append(self.stack_2_3[len(self.stack_2_3) - 1].color)
+                        else:
+                            stack_2_3_info.append("23")
+                            stack_2_3_info.append("")
+                            stack_2_3_info.append("")
+                        
+                        if len(self.stack_2_4) > 0:
+                            stack_2_4_info.append("24")
+                            stack_2_4_info.append(self.stack_2_4[len(self.stack_2_4) - 1].name)
+                            stack_2_4_info.append(self.stack_2_4[len(self.stack_2_4) - 1].color)
+                        else:
+                            stack_2_4_info.append("24")
+                            stack_2_4_info.append("")
+                            stack_2_4_info.append("")
+                        
+                        if len(self.stack_3_0) > 0:
+                            stack_3_0_info.append("30")
+                            stack_3_0_info.append(self.stack_3_0[len(self.stack_3_0) - 1].name)
+                            stack_3_0_info.append(self.stack_3_0[len(self.stack_3_0) - 1].color)
+                        else:
+                            stack_3_0_info.append("30")
+                            stack_3_0_info.append("")
+                            stack_3_0_info.append("")
+                        
+                        if len(self.stack_3_1) > 0:
+                            stack_3_1_info.append("31")
+                            stack_3_1_info.append(self.stack_3_1[len(self.stack_3_1) - 1].name)
+                            stack_3_1_info.append(self.stack_3_1[len(self.stack_3_1) - 1].color)
+                        else:
+                            stack_3_1_info.append("31")
+                            stack_3_1_info.append("")
+                            stack_3_1_info.append("")
+                        
+                        if len(self.stack_3_2) > 0:
+                            stack_3_2_info.append("32")
+                            stack_3_2_info.append(self.stack_3_2[len(self.stack_3_2) - 1].name)
+                            stack_3_2_info.append(self.stack_3_2[len(self.stack_3_2) - 1].color)
+                        else:
+                            stack_3_2_info.append("32")
+                            stack_3_2_info.append("")
+                            stack_3_2_info.append("")
+                        
+                        if len(self.stack_3_3) > 0:
+                            stack_3_3_info.append("33")
+                            stack_3_3_info.append(self.stack_3_3[len(self.stack_3_3) - 1].name)
+                            stack_3_3_info.append(self.stack_3_3[len(self.stack_3_3) - 1].color)
+                        else:
+                            stack_3_3_info.append("33")
+                            stack_3_3_info.append("")
+                            stack_3_3_info.append("")
+                        
+                        if len(self.stack_3_4) > 0:
+                            stack_3_4_info.append("34")
+                            stack_3_4_info.append(self.stack_3_4[len(self.stack_3_4) - 1].name)
+                            stack_3_4_info.append(self.stack_3_4[len(self.stack_3_4) - 1].color)
+                        else:
+                            stack_3_4_info.append("34")
+                            stack_3_4_info.append("")
+                            stack_3_4_info.append("")
+                        
+                        if len(self.stack_4_0) > 0:
+                            stack_4_0_info.append("40")
+                            stack_4_0_info.append(self.stack_4_0[len(self.stack_4_0) - 1].name)
+                            stack_4_0_info.append(self.stack_4_0[len(self.stack_4_0) - 1].color)
+                        else:
+                            stack_4_0_info.append("40")
+                            stack_4_0_info.append("")
+                            stack_4_0_info.append("")
+                    
+                        if len(self.stack_4_1) > 0:
+                            stack_4_1_info.append("41")
+                            stack_4_1_info.append(self.stack_4_1[len(self.stack_4_1) - 1].name)
+                            stack_4_1_info.append(self.stack_4_1[len(self.stack_4_1) - 1].color)
+                        else:
+                            stack_4_1_info.append("41")
+                            stack_4_1_info.append("")
+                            stack_4_1_info.append("")
+                        
+                        if len(self.stack_4_2) > 0:
+                            stack_4_2_info.append("42")
+                            stack_4_2_info.append(self.stack_4_2[len(self.stack_4_2) - 1].name)
+                            stack_4_2_info.append(self.stack_4_2[len(self.stack_4_2) - 1].color)
+                        else:
+                            stack_4_2_info.append("42")
+                            stack_4_2_info.append("")
+                            stack_4_2_info.append("")
+                        
+                        if len(self.stack_4_3) > 0:
+                            stack_4_3_info.append("43")
+                            stack_4_3_info.append(self.stack_4_3[len(self.stack_4_3) - 1].name)
+                            stack_4_3_info.append(self.stack_4_3[len(self.stack_4_3) - 1].color)
+                        else:
+                            stack_4_3_info.append("43")
+                            stack_4_3_info.append("")
+                            stack_4_3_info.append("")
+                        
+                        if len(self.stack_4_4) > 0:
+                            stack_4_4_info.append("44")
+                            stack_4_4_info.append(self.stack_4_4[len(self.stack_4_4) - 1].name)
+                            stack_4_4_info.append(self.stack_4_4[len(self.stack_4_4) - 1].color)
+                        else:
+                            stack_4_4_info.append("44")
+                            stack_4_4_info.append("")
+                            stack_4_4_info.append("")
+                        
+                        print(stack_0_0_info)
+                        print(stack_0_1_info)
+                        print(stack_0_2_info)
+                        print(stack_0_3_info)
+                        print(stack_0_4_info)
+                        
+                        print(stack_1_0_info)
+                        print(stack_1_1_info)
+                        print(stack_1_2_info)
+                        print(stack_1_3_info)
+                        print(stack_1_4_info)
+                        
+                        print(stack_2_0_info)
+                        print(stack_2_1_info)
+                        print(stack_2_2_info)
+                        print(stack_2_3_info)
+                        print(stack_2_4_info)
+                        
+                        print(stack_3_0_info)
+                        print(stack_3_1_info)
+                        print(stack_3_2_info)
+                        print(stack_3_3_info)
+                        print(stack_3_4_info)
+                        
+                        print(stack_4_0_info)
+                        print(stack_4_1_info)
+                        print(stack_4_2_info)
+                        print(stack_4_3_info)
+                        print(stack_4_4_info)
+
                         if self.current_player == self.player1:
                             if self.board_model.Check_victoryX():
                                 self.done = True
