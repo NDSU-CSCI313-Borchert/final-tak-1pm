@@ -818,7 +818,33 @@ class BoardModel():
             if b ==True:
                 self.capstoneSpots[4][4] = mark
 
-
+    def mark_spot3(self,stack00,stack10,stack20,stack30,stack40,stack01,stack11,stack21,stack31,stack41,stack02,stack12,stack22,stack32,stack42,stack03,stack13,stack23,stack33,stack43,stack04,stack14,stack24,stack34,stack44):
+        self.markGrid[0][0]=stack00[len(stack00)-1]
+        self.markGrid[1][0] = stack00[len(stack00) - 1]
+        self.markGrid[2][0] = stack00[len(stack00) - 1]
+        self.markGrid[3][0] = stack00[len(stack00) - 1]
+        self.markGrid[4][0] = stack00[len(stack00) - 1]
+        self.markGrid[0][1] = stack00[len(stack00) - 1]
+        self.markGrid[1][1] = stack00[len(stack00) - 1]
+        self.markGrid[2][1] = stack00[len(stack00) - 1]
+        self.markGrid[3][1] = stack00[len(stack00) - 1]
+        self.markGrid[4][1] = stack00[len(stack00) - 1]
+        self.markGrid[0][2] = stack00[len(stack00) - 1]
+        self.markGrid[1][2] = stack00[len(stack00) - 1]
+        self.markGrid[2][2] = stack00[len(stack00) - 1]
+        self.markGrid[3][2] = stack00[len(stack00) - 1]
+        self.markGrid[4][2] = stack00[len(stack00) - 1]
+        self.markGrid[0][3] = stack00[len(stack00) - 1]
+        self.markGrid[1][3] = stack00[len(stack00) - 1]
+        self.markGrid[2][3] = stack00[len(stack00) - 1]
+        self.markGrid[3][3] = stack00[len(stack00) - 1]
+        self.markGrid[4][3] = stack00[len(stack00) - 1]
+        self.markGrid[0][4] = stack00[len(stack00) - 1]
+        self.markGrid[1][4] = stack00[len(stack00) - 1]
+        self.markGrid[2][4] = stack00[len(stack00) - 1]
+        self.markGrid[3][4] = stack00[len(stack00) - 1]
+        self.markGrid[4][4] = stack00[len(stack00) - 1]
+        #looks at the top of the stack and makes it that on the markgrid
     #Feed this method an x and y coordinate for it to check if that spot is occupied
     def spot_occupied(self,posx,posy):
 
