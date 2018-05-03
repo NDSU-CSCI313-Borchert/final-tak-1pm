@@ -122,6 +122,8 @@ class GameLevel():
         self.stack_4_3 = []
         self.stack_4_4 = []
         
+        self.current_grid_pos = ""
+        
         # Loop until the user clicks the close button.
         done = False
         
@@ -255,7 +257,7 @@ class GameLevel():
                     
                     #if current stack has a piece in it, we are safe to call operations
                     if len(self.stack_0_0) > 0:
-                        
+                        self.current_grid_pos = "00"
                         #check current player against color of piece
                         if self.current_player == self.player1 and self.stack_0_0[index].color == "brown":
                             
@@ -268,6 +270,7 @@ class GameLevel():
                 elif grid_pos == "10":
                     index = len(self.stack_1_0) - 1
                     if len(self.stack_1_0) > 0:
+                        self.current_grid_pos = "10"
                         if self.current_player == self.player1 and self.stack_1_0[index].color == "brown":
                             self.sprite_click_list.append(self.stack_1_0.pop())
                             self.click_count += 1
@@ -277,6 +280,7 @@ class GameLevel():
                 elif grid_pos == "20":
                     index = len(self.stack_2_0) - 1
                     if len(self.stack_2_0) > 0:
+                        self.current_grid_pos = "20"
                         if self.current_player == self.player1 and self.stack_2_0[index].color == "brown":
                             self.sprite_click_list.append(self.stack_2_0.pop())
                             self.click_count += 1
@@ -286,6 +290,7 @@ class GameLevel():
                 elif grid_pos == "30":
                     index = len(self.stack_3_0) - 1
                     if len(self.stack_3_0) > 0:
+                        self.current_grid_pos = "30"
                         if self.current_player == self.player1 and self.stack_3_0[index].color == "brown":
                             self.sprite_click_list.append(self.stack_3_0.pop())
                             self.click_count += 1
@@ -295,6 +300,7 @@ class GameLevel():
                 elif grid_pos == "40":
                     index = len(self.stack_4_0) - 1
                     if len(self.stack_4_0) > 0:
+                        self.current_grid_pos = "40"
                         if self.current_player == self.player1 and self.stack_4_0[index].color == "brown":
                             self.sprite_click_list.append(self.stack_4_0.pop())
                             self.click_count += 1
@@ -305,6 +311,7 @@ class GameLevel():
                 elif grid_pos == "01":
                     index = len(self.stack_0_1) - 1
                     if len(self.stack_0_1) > 0:
+                        self.current_grid_pos = "01"
                         if self.current_player == self.player1 and self.stack_0_1[index].color == "brown":
                             self.sprite_click_list.append(self.stack_0_1.pop())
                             self.click_count += 1
@@ -314,6 +321,7 @@ class GameLevel():
                 elif grid_pos == "11":
                     index = len(self.stack_1_1) - 1
                     if len(self.stack_1_1) > 0:
+                        self.current_grid_pos = "11"
                         if self.current_player == self.player1 and self.stack_1_1[index].color == "brown":
                             self.sprite_click_list.append(self.stack_1_1.pop())
                             self.click_count += 1
@@ -323,6 +331,7 @@ class GameLevel():
                 elif grid_pos == "21":
                     index = len(self.stack_2_1) - 1
                     if len(self.stack_2_1) > 0:
+                        self.current_grid_pos = "21"
                         if self.current_player == self.player1 and self.stack_2_1[index].color == "brown":
                             self.sprite_click_list.append(self.stack_2_1.pop())
                             self.click_count += 1
@@ -332,6 +341,7 @@ class GameLevel():
                 elif grid_pos == "31":
                     index = len(self.stack_3_1) - 1
                     if len(self.stack_3_1) > 0:
+                        self.current_grid_pos = "31"
                         if self.current_player == self.player1 and self.stack_3_1[index].color == "brown":
                             self.sprite_click_list.append(self.stack_3_1.pop())
                             self.click_count += 1
@@ -341,6 +351,7 @@ class GameLevel():
                 elif grid_pos == "41":
                     index = len(self.stack_4_1) - 1
                     if len(self.stack_4_1) > 0:
+                        self.current_grid_pos = "41"
                         if self.current_player == self.player1 and self.stack_4_1[index].color == "brown":
                             self.sprite_click_list.append(self.stack_4_1.pop())
                             self.click_count += 1
@@ -351,6 +362,7 @@ class GameLevel():
                 elif grid_pos == "02":
                     index = len(self.stack_0_2) - 1
                     if len(self.stack_0_2) > 0:
+                        self.current_grid_pos = "02"
                         if self.current_player == self.player1 and self.stack_0_2[index].color == "brown":
                             self.sprite_click_list.append(self.stack_0_2.pop())
                             self.click_count += 1
@@ -360,6 +372,7 @@ class GameLevel():
                 elif grid_pos == "12":
                     index = len(self.stack_1_2) - 1
                     if len(self.stack_1_2) > 0:
+                        self.current_grid_pos = "12"
                         if self.current_player == self.player1 and self.stack_1_2[index].color == "brown":
                             self.sprite_click_list.append(self.stack_1_2.pop())
                             self.click_count += 1
@@ -369,6 +382,7 @@ class GameLevel():
                 elif grid_pos == "22":
                     index = len(self.stack_2_2) - 1
                     if len(self.stack_2_2) > 0:
+                        self.current_grid_pos = "22"
                         if self.current_player == self.player1 and self.stack_2_2[index].color == "brown":
                             self.sprite_click_list.append(self.stack_2_2.pop())
                             self.click_count += 1
@@ -378,6 +392,7 @@ class GameLevel():
                 elif grid_pos == "32":
                     index = len(self.stack_3_2) - 1
                     if len(self.stack_3_2) > 0:
+                        self.current_grid_pos = "32"
                         if self.current_player == self.player1 and self.stack_3_2[index].color == "brown":
                             self.sprite_click_list.append(self.stack_3_2.pop())
                             self.click_count += 1
@@ -387,6 +402,7 @@ class GameLevel():
                 elif grid_pos == "42":
                     index = len(self.stack_4_2) - 1
                     if len(self.stack_4_2) > 0:
+                        self.current_grid_pos = "42"
                         if self.current_player == self.player1 and self.stack_4_2[index].color == "brown":
                             self.sprite_click_list.append(self.stack_4_2.pop())
                             self.click_count += 1
@@ -397,6 +413,7 @@ class GameLevel():
                 elif grid_pos == "03":
                     index = len(self.stack_0_3) - 1
                     if len(self.stack_0_3) > 0:
+                        self.current_grid_pos = "03"
                         if self.current_player == self.player1 and self.stack_0_3[index].color == "brown":
                             self.sprite_click_list.append(self.stack_0_3.pop())
                             self.click_count += 1
@@ -406,6 +423,7 @@ class GameLevel():
                 elif grid_pos == "13":
                     index = len(self.stack_1_3) - 1
                     if len(self.stack_1_3) > 0:
+                        self.current_grid_pos = "13"
                         if self.current_player == self.player1 and self.stack_1_3[index].color == "brown":
                             self.sprite_click_list.append(self.stack_1_3.pop())
                             self.click_count += 1
@@ -415,6 +433,7 @@ class GameLevel():
                 elif grid_pos == "23":
                     index = len(self.stack_2_3) - 1
                     if len(self.stack_2_3) > 0:
+                        self.current_grid_pos = "23"
                         if self.current_player == self.player1 and self.stack_2_3[index].color == "brown":
                             self.sprite_click_list.append(self.stack_2_3.pop())
                             self.click_count += 1
@@ -424,6 +443,7 @@ class GameLevel():
                 elif grid_pos == "33":
                     index = len(self.stack_3_3) - 1
                     if len(self.stack_3_3) > 0:
+                        self.current_grid_pos = "33"
                         if self.current_player == self.player1 and self.stack_3_3[index].color == "brown":
                             self.sprite_click_list.append(self.stack_3_3.pop())
                             self.click_count += 1
@@ -433,6 +453,7 @@ class GameLevel():
                 elif grid_pos == "43":
                     index = len(self.stack_4_3) - 1
                     if len(self.stack_4_3) > 0:
+                        self.current_grid_pos = "43"
                         if self.current_player == self.player1 and self.stack_4_3[index].color == "brown":
                             self.sprite_click_list.append(self.stack_4_3.pop())
                             self.click_count += 1
@@ -443,6 +464,7 @@ class GameLevel():
                 elif grid_pos == "04":
                     index = len(self.stack_0_4) - 1
                     if len(self.stack_0_4) > 0:
+                        self.current_grid_pos = "04"
                         if self.current_player == self.player1 and self.stack_0_4[index].color == "brown":
                             self.sprite_click_list.append(self.stack_0_4.pop())
                             self.click_count += 1
@@ -452,6 +474,7 @@ class GameLevel():
                 elif grid_pos == "14":
                     index = len(self.stack_1_4) - 1
                     if len(self.stack_1_4) > 0:
+                        self.current_grid_pos = "14"
                         if self.current_player == self.player1 and self.stack_1_4[index].color == "brown":
                             self.sprite_click_list.append(self.stack_1_4.pop())
                             self.click_count += 1
@@ -461,6 +484,7 @@ class GameLevel():
                 elif grid_pos == "24":
                     index = len(self.stack_2_4) - 1
                     if len(self.stack_2_4) > 0:
+                        self.current_grid_pos = "24"
                         if self.current_player == self.player1 and self.stack_2_4[index].color == "brown":
                             self.sprite_click_list.append(self.stack_2_4.pop())
                             self.click_count += 1
@@ -470,6 +494,7 @@ class GameLevel():
                 elif grid_pos == "34":
                     index = len(self.stack_3_4) - 1
                     if len(self.stack_3_4) > 0:
+                        self.current_grid_pos = "34"
                         if self.current_player == self.player1 and self.stack_3_4[index].color == "brown":
                             self.sprite_click_list.append(self.stack_3_4.pop())
                             self.click_count += 1
@@ -479,6 +504,7 @@ class GameLevel():
                 elif grid_pos == "44":
                     index = len(self.stack_4_4) - 1
                     if len(self.stack_4_4) > 0:
+                        self.current_grid_pos = "44"
                         if self.current_player == self.player1 and self.stack_4_4[index].color == "brown":
                             self.sprite_click_list.append(self.stack_4_4.pop())
                             self.click_count += 1
