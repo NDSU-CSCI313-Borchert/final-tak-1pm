@@ -121,6 +121,9 @@ class BoardModel():
         elif x > 977 and x < 1129 and y > 766 and y < 917:
             return "44"
 
+        else:
+            return ""
+
     def get_adjacent_squares(self, current_position):
         
         position = current_position
