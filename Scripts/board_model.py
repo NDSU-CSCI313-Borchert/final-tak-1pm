@@ -182,11 +182,20 @@ class BoardModel():
             return ["34", "43"]
 
     def check_victory(self, target):
+        x_victory = self.check_victory_x(target)
+        if not x_victory:
+            y_victory = self.check_victory_y(target)
+        if x_victory or y_victory:
+            return True
+        else:
+            return False
+
+    def check_victory_x(self, target):
         self.target = target
         self.current_x = None
         self.current_y = None
         self.victory = False
-        checks = 0
+        self.checks = 0
 
         # self.markGrid[row][column]
         
@@ -201,8 +210,8 @@ class BoardModel():
             while self.current_x < self.dimensions:
                 print(str(self.current_x) + "," + str(self.current_y))
                 # failsafe to avoid infinite looping
-                checks += 1
-                if checks == 50:
+                self.checks += 1
+                if self.checks == 50:
                     break
                 if self.markGrid[self.current_x][self.current_y] == self.target:
                         if self.current_x == (self.dimensions - 1):
@@ -215,6 +224,44 @@ class BoardModel():
                             self.current_y += 1
                         elif self.markGrid[self.current_x][self.current_y-1] == self.target and self.current_y > 0:
                             self.current_y -= 1
+                        else:
+                            break
+
+        return self.victory
+
+    def check_victory_y(self, target):
+        self.target = target
+        self.current_x = None
+        self.current_y = None
+        self.victory = False
+        self.checks = 0
+        
+        for row in range(0, self.dimensions):
+            if self.markGrid[row][0] == self.target:
+                self.current_x = row
+                self.current_y = 0
+                break
+
+
+        # vertical checking
+        if self.current_y is not None:
+            while self.current_y < self.dimensions:
+                print(str(self.current_x) + "," + str(self.current_y))
+                # failsafe to avoid infinite looping
+                self.checks += 1
+                if self.checks == 50:
+                    break
+                if self.markGrid[self.current_x][self.current_y] == self.target:
+                        if self.current_y == (self.dimensions - 1):
+                            self.victory = True
+                            break
+                        # prioritize the direction you are checking for
+                        elif self.current_y < self.dimensions-1 and self.markGrid[self.current_x][self.current_y + 1] == self.target:
+                            self.current_y += 1
+                        elif self.current_x < self.dimensions-1 and self.markGrid[self.current_x + 1][self.current_y] == self.target:
+                            self.current_x += 1
+                        elif self.markGrid[self.current_x - 1][self.current_y] == self.target and self.current_x > 0:
+                            self.current_x -= 1
                         else:
                             break
                     
