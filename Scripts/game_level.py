@@ -631,7 +631,36 @@ class GameLevel():
 
             #grid piece is in sprite click list
             elif self.click_count == 2:
-                print("A grid piece in the hand is worth 2 in the unplayed stone stack")
+                if (self.board.rect.topleft[0] < self.current_x < self.board.rect.topright[0]) and (self.board.rect.topleft[1] < self.current_y < self.board.rect.bottomleft[1]):
+                # This code helps the pieces snap in place
+                    distance_to_snap = 145
+                    stone = self.sprite_click_list[0]
+                    px, py = stone.rect.topleft
+            
+                    position = self.board_model.get_square(px, py)
+                    print(position)
+                    adjacent_positions = self.board_model.get_adjacent_squares(self.current_grid_pos)
+                    print(adjacent_positions)
+                    adjacent_positions_length = len(adjacent_positions)
+                    print(adjacent_positions_length)
+                ####################################code that handles placing a piece#####################################
+                #if spot is occupied don't allow placement
+                if self.board_model.spot_occupied_by_wall(px, py):
+                    #####MUST UPDATE METHOD AFTER MIKE GETS HIS PIECE DONE##############
+                    pass
+                for x in range(0, adjacent_positions_length):
+                    if position == adjacent_positions[x]:
+                        
+                        for cx, cy in self.board_model.coord_grid:
+                            if math.hypot(cx-px, cy-py) < distance_to_snap:
+                                stone.rect.x = cx+25
+                                stone.rect.y = cy+45
+                                break
+                        
+                        self.place_piece_on_grid(adjacent_positions[x])
+                        self.end_turn()
+                
+                
         elif event.type == pygame.MOUSEBUTTONUP and event.button == RIGHT_CLICK:
             print ("Right click")
 
