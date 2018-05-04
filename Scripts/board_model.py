@@ -196,9 +196,11 @@ class BoardModel():
                 self.current_y = col
                 break
 
+        # vertical checking
         if self.current_x is not None:
             while self.current_x < self.dimensions:
                 print(str(self.current_x) + "," + str(self.current_y))
+                # failsafe to avoid infinite looping
                 checks += 1
                 if checks == 50:
                     break
@@ -206,6 +208,7 @@ class BoardModel():
                         if self.current_x == (self.dimensions - 1):
                             self.victory = True
                             break
+                        # prioritize the direction you are checking for
                         elif self.current_x < self.dimensions-1 and self.markGrid[self.current_x + 1][self.current_y] == self.target:
                             self.current_x += 1
                         elif self.current_y < self.dimensions-1 and self.markGrid[self.current_x][self.current_y + 1] == self.target:
