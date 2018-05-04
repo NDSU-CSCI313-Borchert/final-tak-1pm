@@ -818,32 +818,139 @@ class BoardModel():
             if b ==True:
                 self.capstoneSpots[4][4] = mark
 
+    def marking(self,position,name,color):
+        if name == "flat" and color == "brown":
+            mark='1f'
+        elif name == "flat" and color == "beige":
+            mark='2f'
+        elif name == "wall" and color == "brown":
+            mark='1w'
+        elif name =="wall" and color =="beige":
+            mark='2w'
+        elif name =="capstone" and color =="brown":
+            mark='1c'
+        elif name =="capstone" and color =="beige":
+            mark='2c'
+
+
+        if position == "00":
+            self.markGrid[0][0] = mark
+
+        elif position == "10":
+
+            self.markGrid[1][0] = mark
+
+        elif position == "20":
+
+            self.markGrid[2][0] = mark
+
+        elif position == "30":
+
+            self.markGrid[3][0] = mark
+
+        elif position == "40":
+
+            self.markGrid[4][0] = mark
+
+
+        elif position == "01":
+
+            self.markGrid[0][1] = mark
+
+        elif position == "11":
+
+            self.markGrid[1][1] = mark
+
+        elif position == "21":
+
+            self.markGrid[2][1] = mark
+
+        elif position == "31":
+
+            self.markGrid[3][1] = mark
+
+        elif position == "41":
+
+            self.markGrid[4][1] = mark
+
+
+        elif position == "02":
+
+            self.markGrid[0][2] = mark
+
+        elif position == "12":
+
+            self.markGrid[1][2] = mark
+
+        elif position == "22":
+
+            self.markGrid[2][2] = mark
+
+        elif position == "32":
+
+            self.markGrid[3][2] = mark
+
+        elif position == "42":
+
+            self.markGrid[4][2] = mark
+
+
+        elif position == "03":
+
+            self.markGrid[0][3] = mark
+
+        elif position == "13":
+
+            self.markGrid[1][3] = mark
+
+        elif position == "23":
+
+            self.markGrid[2][3] = mark
+
+        elif position == "33":
+
+            self.markGrid[3][3] = mark
+
+        elif position == "43":
+
+            self.markGrid[4][3] = mark
+
+
+        elif position == "04":
+
+            self.markGrid[0][4] = mark
+
+        elif position == "14":
+
+            self.markGrid[1][4] = mark
+
+        elif position == "24":
+
+            self.markGrid[2][4] = mark
+
+        elif position == "34":
+
+            self.markGrid[3][4] = mark
+
+        elif position == "44":
+
+            self.markGrid[4][4] = mark
+
+
     def mark_spot3(self,stack00,stack10,stack20,stack30,stack40,stack01,stack11,stack21,stack31,stack41,stack02,stack12,stack22,stack32,stack42,stack03,stack13,stack23,stack33,stack43,stack04,stack14,stack24,stack34,stack44):
-        self.markGrid[0][0]=stack00[len(stack00)-1]
-        self.markGrid[1][0] = stack00[len(stack00) - 1]
-        self.markGrid[2][0] = stack00[len(stack00) - 1]
-        self.markGrid[3][0] = stack00[len(stack00) - 1]
-        self.markGrid[4][0] = stack00[len(stack00) - 1]
-        self.markGrid[0][1] = stack00[len(stack00) - 1]
-        self.markGrid[1][1] = stack00[len(stack00) - 1]
-        self.markGrid[2][1] = stack00[len(stack00) - 1]
-        self.markGrid[3][1] = stack00[len(stack00) - 1]
-        self.markGrid[4][1] = stack00[len(stack00) - 1]
-        self.markGrid[0][2] = stack00[len(stack00) - 1]
-        self.markGrid[1][2] = stack00[len(stack00) - 1]
-        self.markGrid[2][2] = stack00[len(stack00) - 1]
-        self.markGrid[3][2] = stack00[len(stack00) - 1]
-        self.markGrid[4][2] = stack00[len(stack00) - 1]
-        self.markGrid[0][3] = stack00[len(stack00) - 1]
-        self.markGrid[1][3] = stack00[len(stack00) - 1]
-        self.markGrid[2][3] = stack00[len(stack00) - 1]
-        self.markGrid[3][3] = stack00[len(stack00) - 1]
-        self.markGrid[4][3] = stack00[len(stack00) - 1]
-        self.markGrid[0][4] = stack00[len(stack00) - 1]
-        self.markGrid[1][4] = stack00[len(stack00) - 1]
-        self.markGrid[2][4] = stack00[len(stack00) - 1]
-        self.markGrid[3][4] = stack00[len(stack00) - 1]
-        self.markGrid[4][4] = stack00[len(stack00) - 1]
+        #Not done tried to do in the morning, will finish in class during first 5 minutes
+        self.marking(stack00[len(stack00)-3],stack00[len(stack00)-2],stack00[len(stack00)-1])
+        self.marking(stack10[len(stack10) - 3], stack10[len(stack10) - 2], stack10[len(stack10) - 1])
+        self.marking(stack20[len(stack20) - 3], stack20[len(stack20) - 2], stack20[len(stack20) - 1])
+        self.marking(stack30[len(stack30) - 3], stack30[len(stack30) - 2], stack30[len(stack30) - 1])
+        self.marking(stack40[len(stack40) - 3], stack40[len(stack40) - 2], stack40[len(stack40) - 1])
+        self.marking(stack01[len(stack01) - 3], stack01[len(stack01) - 2], stack01[len(stack01) - 1])
+        self.marking(stack11[len(stack11) - 3], stack11[len(stack11) - 2], stack11[len(stack11) - 1])
+        self.marking(stack21[len(stack21) - 3], stack21[len(stack21) - 2], stack21[len(stack21) - 1])
+        self.marking(stack31[len(stack31) - 3], stack31[len(stack31) - 2], stack31[len(stack31) - 1])
+
+
+
         #looks at the top of the stack and makes it that on the markgrid
     #Feed this method an x and y coordinate for it to check if that spot is occupied
     def spot_occupied(self,posx,posy):
