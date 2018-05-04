@@ -18,7 +18,7 @@ class BoardModel():
 
         self.grid2 = []
 
-        self.markGrid = [['' for i in range(5)] for j in range(5)]
+        self.markGrid = [['' for i in range(self.dimensions)] for j in range(self.dimensions)]
         self.capstoneSpots = [['' for i in range (self.dimensions)] for j in range (self.dimensions)]
         self.handstack = []
         
@@ -190,28 +190,28 @@ class BoardModel():
 
         # self.markGrid[row][column]
         
-        for x in range(0, self.dimensions):
-            if self.markGrid[x][0] == self.target:
-                self.current_x = x
-                self.current_y = 0
+        for col in range(0, self.dimensions):
+            if self.markGrid[0][col] == self.target:
+                self.current_x = 0
+                self.current_y = col
                 break
 
         if self.current_x is not None:
-            while self.current_y < self.dimensions:
+            while self.current_x < self.dimensions:
                 print(str(self.current_x) + "," + str(self.current_y))
                 checks += 1
                 if checks == 50:
                     break
                 if self.markGrid[self.current_x][self.current_y] == self.target:
-                        if self.markGrid[self.current_x][self.current_y + 1] == self.target:
-                            self.current_y += 1
-                        elif self.markGrid[self.current_x + 1][self.current_y] == self.target:
-                            self.current_x += 1
-                        elif self.markGrid[self.current_x-1][self.current_y] == target:
-                            self.current_x -= 1
-                        elif self.current_y == (self.dimensions - 1):
+                        if self.current_x == (self.dimensions - 1):
                             self.victory = True
                             break
+                        elif self.current_x < self.dimensions-1 and self.markGrid[self.current_x + 1][self.current_y] == self.target:
+                            self.current_x += 1
+                        elif self.current_y < self.dimensions-1 and self.markGrid[self.current_x][self.current_y + 1] == self.target:
+                            self.current_y += 1
+                        elif self.markGrid[self.current_x][self.current_y-1] == self.target and self.current_y > 0:
+                            self.current_y -= 1
                         else:
                             break
                     
