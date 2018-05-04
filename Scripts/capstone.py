@@ -8,3 +8,8 @@ class Capstone(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.name = "capstone"
 
+        if sprite == "brown_capstone":
+            self.color = "brown"
+        elif sprite == "beige_capstone":
+            self.color = "beige"
+
