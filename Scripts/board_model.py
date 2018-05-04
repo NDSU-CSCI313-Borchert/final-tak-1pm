@@ -18,7 +18,7 @@ class BoardModel():
 
         self.grid2 = []
 
-        self.markGrid = [['' for i in range(5)] for j in range(5)]
+        self.markGrid = [['' for i in range(self.dimensions)] for j in range(self.dimensions)]
         self.capstoneSpots = [['' for i in range (self.dimensions)] for j in range (self.dimensions)]
         self.handstack = []
         
@@ -184,30 +184,95 @@ class BoardModel():
         elif position == "44":
             return ["34", "43"]
 
-    def Check_victoryX(self):
-        h_victory = False
-        v_victory = False
-        my_list =[]
-        my_listy =[]
-
-        # Vertical check
-        for y in range(0,5):
-            if self.markGrid[0][y]==('X'):
-                if self.markGrid[1][y] == 'X' and self.markGrid[2][y] == 'X' and self.markGrid[3][y] == 'X' and self.markGrid[4][y] == 'X':
-                    v_victory = True
-                    break
-
-        # Horizontal check
-        for x in range(0,5):
-            if self.markGrid[x][0] == 'X':
-                if self.markGrid[x][1] == 'X' and self.markGrid[x][2] == 'X' and self.markGrid[x][3] == 'X' and self.markGrid[x][4] == 'X':
-                    h_victory = True
-                    break
-
-        if v_victory or h_victory:
+    def check_victory(self, target):
+        x_victory = self.check_victory_x(target)
+        if not x_victory:
+            y_victory = self.check_victory_y(target)
+        if x_victory or y_victory:
             return True
         else:
             return False
+
+    def check_victory_x(self, target):
+        self.target = target
+        self.current_x = None
+        self.current_y = None
+        self.victory = False
+        self.checks = 0
+
+        # self.markGrid[row][column]
+        
+        for col in range(0, self.dimensions):
+            if self.markGrid[0][col] == self.target:
+                self.current_x = 0
+                self.current_y = col
+                break
+
+        # vertical checking
+        if self.current_x is not None:
+            while self.current_x < self.dimensions:
+                print(str(self.current_x) + "," + str(self.current_y))
+                # failsafe to avoid infinite looping
+                self.checks += 1
+                if self.checks == 50:
+                    break
+                if self.markGrid[self.current_x][self.current_y] == self.target:
+                        if self.current_x == (self.dimensions - 1):
+                            self.victory = True
+                            break
+                        # prioritize the direction you are checking for
+                        elif self.current_x < self.dimensions-1 and self.markGrid[self.current_x + 1][self.current_y] == self.target:
+                            self.current_x += 1
+                        elif self.current_y < self.dimensions-1 and self.markGrid[self.current_x][self.current_y + 1] == self.target:
+                            self.current_y += 1
+                        elif self.markGrid[self.current_x][self.current_y-1] == self.target and self.current_y > 0:
+                            self.current_y -= 1
+                        else:
+                            break
+
+        return self.victory
+
+    def check_victory_y(self, target):
+        self.target = target
+        self.current_x = None
+        self.current_y = None
+        self.victory = False
+        self.checks = 0
+        
+        for row in range(0, self.dimensions):
+            if self.markGrid[row][0] == self.target:
+                self.current_x = row
+                self.current_y = 0
+                break
+
+
+        # vertical checking
+        if self.current_y is not None:
+            while self.current_y < self.dimensions:
+                print(str(self.current_x) + "," + str(self.current_y))
+                # failsafe to avoid infinite looping
+                self.checks += 1
+                if self.checks == 50:
+                    break
+                if self.markGrid[self.current_x][self.current_y] == self.target:
+                        if self.current_y == (self.dimensions - 1):
+                            self.victory = True
+                            break
+                        # prioritize the direction you are checking for
+                        elif self.current_y < self.dimensions-1 and self.markGrid[self.current_x][self.current_y + 1] == self.target:
+                            self.current_y += 1
+                        elif self.current_x < self.dimensions-1 and self.markGrid[self.current_x + 1][self.current_y] == self.target:
+                            self.current_x += 1
+                        elif self.markGrid[self.current_x - 1][self.current_y] == self.target and self.current_x > 0:
+                            self.current_x -= 1
+                        else:
+                            break
+                    
+        return self.victory
+                        
+            
+
+        
 #xposition, ypositon, then if it is player1 make it true
 
 # if the spot is not equal to empty, append what is in that spot to the handstack, and make the mark on the board,
@@ -546,31 +611,7 @@ class BoardModel():
             self.markGrid[3][4] = mark
         elif position == "44":
             self.markGrid[4][4] = mark
-
-    def Check_victoryY(self):
-        h_victory = False
-        v_victory = False
-        my_list = []
-        my_listy = []
-
-        # Vertical check
-        for y in range(0, 5):
-            if self.markGrid[0][y] == ('Y'):
-                if self.markGrid[1][y]  == 'Y' and self.markGrid[2][y]  == 'Y' and self.markGrid[3][y] == 'Y' and self.markGrid[4][y] == 'Y':
-                    v_victory = True
-                    break
-
-        # Horizontal check
-        for x in range(0, 5):
-            if self.markGrid[x][0] == 'Y':
-                if self.markGrid[x][1] == 'Y' and self.markGrid[x][2] == 'Y' and self.markGrid[x][3] == 'Y' and self.markGrid[x][4] == 'Y':
-                    h_victory = True
-                    break
-
-        if v_victory or h_victory:
-            return True
-        else:
-            return False
+            
 
     # pos x from the mouse, position y from the mouse, a boolean stating weather or not it is player1, then if the stone is a standing stone.
     def Mark_spot(self, posx, posy, b,standingStone):
