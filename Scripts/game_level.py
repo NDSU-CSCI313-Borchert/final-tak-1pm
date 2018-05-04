@@ -183,7 +183,6 @@ class GameLevel():
 
         elif event.type == pygame.MOUSEBUTTONUP and event.button == LEFT_CLICK:
 
-
             pos = pygame.mouse.get_pos()
             
             self.current_x = pos[0]
@@ -263,50 +262,50 @@ class GameLevel():
                             
                             #if current player matches color of piece clicked on, allow to push to sprite click list
                             self.sprite_click_list.append(self.stack_0_0.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_0_0[index].color == "beige":
                             self.sprite_click_list.append(self.stack_0_0.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "10":
                     index = len(self.stack_1_0) - 1
                     if len(self.stack_1_0) > 0:
                         self.current_grid_pos = "10"
                         if self.current_player == self.player1 and self.stack_1_0[index].color == "brown":
                             self.sprite_click_list.append(self.stack_1_0.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_1_0[index].color == "beige":
                             self.sprite_click_list.append(self.stack_1_0.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "20":
                     index = len(self.stack_2_0) - 1
                     if len(self.stack_2_0) > 0:
                         self.current_grid_pos = "20"
                         if self.current_player == self.player1 and self.stack_2_0[index].color == "brown":
                             self.sprite_click_list.append(self.stack_2_0.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_2_0[index].color == "beige":
                             self.sprite_click_list.append(self.stack_2_0.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "30":
                     index = len(self.stack_3_0) - 1
                     if len(self.stack_3_0) > 0:
                         self.current_grid_pos = "30"
                         if self.current_player == self.player1 and self.stack_3_0[index].color == "brown":
                             self.sprite_click_list.append(self.stack_3_0.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_3_0[index].color == "beige":
                             self.sprite_click_list.append(self.stack_3_0.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "40":
                     index = len(self.stack_4_0) - 1
                     if len(self.stack_4_0) > 0:
                         self.current_grid_pos = "40"
                         if self.current_player == self.player1 and self.stack_4_0[index].color == "brown":
                             self.sprite_click_list.append(self.stack_4_0.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_4_0[index].color == "beige":
                             self.sprite_click_list.append(self.stack_4_0.pop())
-                            self.click_count += 1
+                            self.click_count = 2
 
                 elif grid_pos == "01":
                     index = len(self.stack_0_1) - 1
@@ -314,50 +313,50 @@ class GameLevel():
                         self.current_grid_pos = "01"
                         if self.current_player == self.player1 and self.stack_0_1[index].color == "brown":
                             self.sprite_click_list.append(self.stack_0_1.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_0_1[index].color == "beige":
                             self.sprite_click_list.append(self.stack_0_1.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "11":
                     index = len(self.stack_1_1) - 1
                     if len(self.stack_1_1) > 0:
                         self.current_grid_pos = "11"
                         if self.current_player == self.player1 and self.stack_1_1[index].color == "brown":
                             self.sprite_click_list.append(self.stack_1_1.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_1_1[index].color == "beige":
                             self.sprite_click_list.append(self.stack_1_1.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "21":
                     index = len(self.stack_2_1) - 1
                     if len(self.stack_2_1) > 0:
                         self.current_grid_pos = "21"
                         if self.current_player == self.player1 and self.stack_2_1[index].color == "brown":
                             self.sprite_click_list.append(self.stack_2_1.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_2_1[index].color == "beige":
                             self.sprite_click_list.append(self.stack_2_1.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "31":
                     index = len(self.stack_3_1) - 1
                     if len(self.stack_3_1) > 0:
                         self.current_grid_pos = "31"
                         if self.current_player == self.player1 and self.stack_3_1[index].color == "brown":
                             self.sprite_click_list.append(self.stack_3_1.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_3_1[index].color == "beige":
                             self.sprite_click_list.append(self.stack_3_1.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "41":
                     index = len(self.stack_4_1) - 1
                     if len(self.stack_4_1) > 0:
                         self.current_grid_pos = "41"
                         if self.current_player == self.player1 and self.stack_4_1[index].color == "brown":
                             self.sprite_click_list.append(self.stack_4_1.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_4_1[index].color == "beige":
                             self.sprite_click_list.append(self.stack_4_1.pop())
-                            self.click_count += 1
+                            self.click_count = 2
 
                 elif grid_pos == "02":
                     index = len(self.stack_0_2) - 1
@@ -365,50 +364,50 @@ class GameLevel():
                         self.current_grid_pos = "02"
                         if self.current_player == self.player1 and self.stack_0_2[index].color == "brown":
                             self.sprite_click_list.append(self.stack_0_2.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_0_2[index].color == "beige":
                             self.sprite_click_list.append(self.stack_0_2.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "12":
                     index = len(self.stack_1_2) - 1
                     if len(self.stack_1_2) > 0:
                         self.current_grid_pos = "12"
                         if self.current_player == self.player1 and self.stack_1_2[index].color == "brown":
                             self.sprite_click_list.append(self.stack_1_2.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_1_2[index].color == "beige":
                             self.sprite_click_list.append(self.stack_1_2.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "22":
                     index = len(self.stack_2_2) - 1
                     if len(self.stack_2_2) > 0:
                         self.current_grid_pos = "22"
                         if self.current_player == self.player1 and self.stack_2_2[index].color == "brown":
                             self.sprite_click_list.append(self.stack_2_2.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_2_2[index].color == "beige":
                             self.sprite_click_list.append(self.stack_2_2.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "32":
                     index = len(self.stack_3_2) - 1
                     if len(self.stack_3_2) > 0:
                         self.current_grid_pos = "32"
                         if self.current_player == self.player1 and self.stack_3_2[index].color == "brown":
                             self.sprite_click_list.append(self.stack_3_2.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_3_2[index].color == "beige":
                             self.sprite_click_list.append(self.stack_3_2.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "42":
                     index = len(self.stack_4_2) - 1
                     if len(self.stack_4_2) > 0:
                         self.current_grid_pos = "42"
                         if self.current_player == self.player1 and self.stack_4_2[index].color == "brown":
                             self.sprite_click_list.append(self.stack_4_2.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_4_2[index].color == "beige":
                             self.sprite_click_list.append(self.stack_4_2.pop())
-                            self.click_count += 1
+                            self.click_count = 2
 
                 elif grid_pos == "03":
                     index = len(self.stack_0_3) - 1
@@ -416,50 +415,50 @@ class GameLevel():
                         self.current_grid_pos = "03"
                         if self.current_player == self.player1 and self.stack_0_3[index].color == "brown":
                             self.sprite_click_list.append(self.stack_0_3.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_0_3[index].color == "beige":
                             self.sprite_click_list.append(self.stack_0_3.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "13":
                     index = len(self.stack_1_3) - 1
                     if len(self.stack_1_3) > 0:
                         self.current_grid_pos = "13"
                         if self.current_player == self.player1 and self.stack_1_3[index].color == "brown":
                             self.sprite_click_list.append(self.stack_1_3.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_1_3[index].color == "beige":
                             self.sprite_click_list.append(self.stack_1_3.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "23":
                     index = len(self.stack_2_3) - 1
                     if len(self.stack_2_3) > 0:
                         self.current_grid_pos = "23"
                         if self.current_player == self.player1 and self.stack_2_3[index].color == "brown":
                             self.sprite_click_list.append(self.stack_2_3.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_2_3[index].color == "beige":
                             self.sprite_click_list.append(self.stack_2_3.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "33":
                     index = len(self.stack_3_3) - 1
                     if len(self.stack_3_3) > 0:
                         self.current_grid_pos = "33"
                         if self.current_player == self.player1 and self.stack_3_3[index].color == "brown":
                             self.sprite_click_list.append(self.stack_3_3.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_3_3[index].color == "beige":
                             self.sprite_click_list.append(self.stack_3_3.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "43":
                     index = len(self.stack_4_3) - 1
                     if len(self.stack_4_3) > 0:
                         self.current_grid_pos = "43"
                         if self.current_player == self.player1 and self.stack_4_3[index].color == "brown":
                             self.sprite_click_list.append(self.stack_4_3.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_4_3[index].color == "beige":
                             self.sprite_click_list.append(self.stack_4_3.pop())
-                            self.click_count += 1
+                            self.click_count = 2
 
                 elif grid_pos == "04":
                     index = len(self.stack_0_4) - 1
@@ -467,50 +466,50 @@ class GameLevel():
                         self.current_grid_pos = "04"
                         if self.current_player == self.player1 and self.stack_0_4[index].color == "brown":
                             self.sprite_click_list.append(self.stack_0_4.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_0_4[index].color == "beige":
                             self.sprite_click_list.append(self.stack_0_4.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "14":
                     index = len(self.stack_1_4) - 1
                     if len(self.stack_1_4) > 0:
                         self.current_grid_pos = "14"
                         if self.current_player == self.player1 and self.stack_1_4[index].color == "brown":
                             self.sprite_click_list.append(self.stack_1_4.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_1_4[index].color == "beige":
                             self.sprite_click_list.append(self.stack_1_4.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "24":
                     index = len(self.stack_2_4) - 1
                     if len(self.stack_2_4) > 0:
                         self.current_grid_pos = "24"
                         if self.current_player == self.player1 and self.stack_2_4[index].color == "brown":
                             self.sprite_click_list.append(self.stack_2_4.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_2_4[index].color == "beige":
                             self.sprite_click_list.append(self.stack_2_4.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "34":
                     index = len(self.stack_3_4) - 1
                     if len(self.stack_3_4) > 0:
                         self.current_grid_pos = "34"
                         if self.current_player == self.player1 and self.stack_3_4[index].color == "brown":
                             self.sprite_click_list.append(self.stack_3_4.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_3_4[index].color == "beige":
                             self.sprite_click_list.append(self.stack_3_4.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 elif grid_pos == "44":
                     index = len(self.stack_4_4) - 1
                     if len(self.stack_4_4) > 0:
                         self.current_grid_pos = "44"
                         if self.current_player == self.player1 and self.stack_4_4[index].color == "brown":
                             self.sprite_click_list.append(self.stack_4_4.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                         elif self.current_player == self.player2 and self.stack_4_4[index].color == "beige":
                             self.sprite_click_list.append(self.stack_4_4.pop())
-                            self.click_count += 1
+                            self.click_count = 2
                 
                 #for each spite in grid
                     #if self.sprite.collidepoint(pos):
@@ -520,7 +519,7 @@ class GameLevel():
 
                         #function to only allow piece to move one space adjacent
 
-            #piece has been picked up and is in sprite click list
+            #unplayed piece has been picked up and is in sprite click list
             elif self.click_count == 1:
                 if (self.board.rect.topleft[0] < self.current_x < self.board.rect.topright[0]) and (self.board.rect.topleft[1] < self.current_y < self.board.rect.bottomleft[1]):
                     # This code helps the pieces snap in place
@@ -624,305 +623,15 @@ class GameLevel():
                             elif position == "44":
                                 self.place_piece_on_grid("44")
                                     
-                        #adjacency check is needed, as we are moving stones from the grid
-                        else:
-                        
-                            for x in range(len(adjacent_positions)):
-                                if position == adjacent_positions[x]:
-                                    self.place_piece_on_grid(adjacent_positions[x])
-                        
-
-
-
-################################set up for the mark grid method############################################
-                        
-                        #create the local info for each stacks
-                        stack_0_0_info = []
-                        stack_0_1_info = []
-                        stack_0_2_info = []
-                        stack_0_3_info = []
-                        stack_0_4_info = []
-                        stack_1_0_info = []
-                        stack_1_1_info = []
-                        stack_1_2_info = []
-                        stack_1_3_info = []
-                        stack_1_4_info = []
-                        stack_2_0_info = []
-                        stack_2_1_info = []
-                        stack_2_2_info = []
-                        stack_2_3_info = []
-                        stack_2_4_info = []
-                        stack_3_0_info = []
-                        stack_3_1_info = []
-                        stack_3_2_info = []
-                        stack_3_3_info = []
-                        stack_3_4_info = []
-                        stack_4_0_info = []
-                        stack_4_1_info = []
-                        stack_4_2_info = []
-                        stack_4_3_info = []
-                        stack_4_4_info = []
-                        
-                        #if there's something in the stack
-                        if len(self.stack_0_0) > 0:
-                            #append the position
-                            stack_0_0_info.append("00")
-                            #append the name of the top stone
-                            stack_0_0_info.append(self.stack_0_0[len(self.stack_0_0) - 1].name)
-                            #append the color of the top stone
-                            stack_0_0_info.append(self.stack_0_0[len(self.stack_0_0) - 1].color)
-                        else:
-                            #append the position
-                            stack_0_0_info.append("00")
-                            #append nothing as it is an empty stack
-                            stack_0_0_info.append("")
-                            #append nothing as it is an empty stack
-                            stack_0_0_info.append("")
-                    
-                        if len(self.stack_0_1) > 0:
-                            stack_0_1_info.append("01")
-                            stack_0_1_info.append(self.stack_0_1[len(self.stack_0_1) - 1].name)
-                            stack_0_1_info.append(self.stack_0_1[len(self.stack_0_1) - 1].color)
-                        else:
-                            stack_0_1_info.append("01")
-                            stack_0_1_info.append("")
-                            stack_0_1_info.append("")
-                        
-                        if len(self.stack_0_2) > 0:
-                            stack_0_2_info.append("02")
-                            stack_0_2_info.append(self.stack_0_2[len(self.stack_0_2) - 1].name)
-                            stack_0_2_info.append(self.stack_0_2[len(self.stack_0_2) - 1].color)
-                        else:
-                            stack_0_2_info.append("02")
-                            stack_0_2_info.append("")
-                            stack_0_2_info.append("")
-                        
-                        if len(self.stack_0_3) > 0:
-                            stack_0_3_info.append("03")
-                            stack_0_3_info.append(self.stack_0_3[len(self.stack_0_3) - 1].name)
-                            stack_0_3_info.append(self.stack_0_3[len(self.stack_0_3) - 1].color)
-                        else:
-                            stack_0_3_info.append("03")
-                            stack_0_3_info.append("")
-                            stack_0_3_info.append("")
-
-                        if len(self.stack_0_4) > 0:
-                            stack_0_4_info.append("04")
-                            stack_0_4_info.append(self.stack_0_4[len(self.stack_0_4) - 1].name)
-                            stack_0_4_info.append(self.stack_0_4[len(self.stack_0_4) - 1].color)
-                        else:
-                            stack_0_4_info.append("04")
-                            stack_0_4_info.append("")
-                            stack_0_4_info.append("")
-
-                        if len(self.stack_1_0) > 0:
-                            stack_1_0_info.append("10")
-                            stack_1_0_info.append(self.stack_1_0[len(self.stack_1_0) - 1].name)
-                            stack_1_0_info.append(self.stack_1_0[len(self.stack_1_0) - 1].color)
-                        else:
-                            stack_1_0_info.append("10")
-                            stack_1_0_info.append("")
-                            stack_1_0_info.append("")
-
-                        if len(self.stack_1_1) > 0:
-                            stack_1_1_info.append("11")
-                            stack_1_1_info.append(self.stack_1_1[len(self.stack_1_1) - 1].name)
-                            stack_1_1_info.append(self.stack_1_1[len(self.stack_1_1) - 1].color)
-                        else:
-                            stack_1_1_info.append("11")
-                            stack_1_1_info.append("")
-                            stack_1_1_info.append("")
-        
-                        if len(self.stack_1_2) > 0:
-                            stack_1_2_info.append("12")
-                            stack_1_2_info.append(self.stack_1_2[len(self.stack_1_2) - 1].name)
-                            stack_1_2_info.append(self.stack_1_2[len(self.stack_1_2) - 1].color)
-                        else:
-                            stack_1_2_info.append("12")
-                            stack_1_2_info.append("")
-                            stack_1_2_info.append("")
-
-                        if len(self.stack_1_3) > 0:
-                            stack_1_3_info.append("13")
-                            stack_1_3_info.append(self.stack_1_3[len(self.stack_1_3) - 1].name)
-                            stack_1_3_info.append(self.stack_1_3[len(self.stack_1_3) - 1].color)
-                        else:
-                            stack_1_3_info.append("13")
-                            stack_1_3_info.append("")
-                            stack_1_3_info.append("")
-
-                        if len(self.stack_1_4) > 0:
-                            stack_1_4_info.append("14")
-                            stack_1_4_info.append(self.stack_1_4[len(self.stack_1_4) - 1].name)
-                            stack_1_4_info.append(self.stack_1_4[len(self.stack_1_4) - 1].color)
-                        else:
-                            stack_1_4_info.append("14")
-                            stack_1_4_info.append("")
-                            stack_1_4_info.append("")
-        
-                        if len(self.stack_2_0) > 0:
-                            stack_2_0_info.append("20")
-                            stack_2_0_info.append(self.stack_2_0[len(self.stack_2_0) - 1].name)
-                            stack_2_0_info.append(self.stack_2_0[len(self.stack_2_0) - 1].color)
-                        else:
-                            stack_2_0_info.append("20")
-                            stack_2_0_info.append("")
-                            stack_2_0_info.append("")
-                        
-                        if len(self.stack_2_1) > 0:
-                            stack_2_1_info.append("21")
-                            stack_2_1_info.append(self.stack_2_1[len(self.stack_2_1) - 1].name)
-                            stack_2_1_info.append(self.stack_2_1[len(self.stack_2_1) - 1].color)
-                        else:
-                            stack_2_1_info.append("21")
-                            stack_2_1_info.append("")
-                            stack_2_1_info.append("")
-                        
-                        if len(self.stack_2_2) > 0:
-                            stack_2_2_info.append("22")
-                            stack_2_2_info.append(self.stack_2_2[len(self.stack_2_2) - 1].name)
-                            stack_2_2_info.append(self.stack_2_2[len(self.stack_2_2) - 1].color)
-                        else:
-                            stack_2_2_info.append("22")
-                            stack_2_2_info.append("")
-                            stack_2_2_info.append("")
-                        
-                        if len(self.stack_2_3) > 0:
-                            stack_2_3_info.append("23")
-                            stack_2_3_info.append(self.stack_2_3[len(self.stack_2_3) - 1].name)
-                            stack_2_3_info.append(self.stack_2_3[len(self.stack_2_3) - 1].color)
-                        else:
-                            stack_2_3_info.append("23")
-                            stack_2_3_info.append("")
-                            stack_2_3_info.append("")
-                        
-                        if len(self.stack_2_4) > 0:
-                            stack_2_4_info.append("24")
-                            stack_2_4_info.append(self.stack_2_4[len(self.stack_2_4) - 1].name)
-                            stack_2_4_info.append(self.stack_2_4[len(self.stack_2_4) - 1].color)
-                        else:
-                            stack_2_4_info.append("24")
-                            stack_2_4_info.append("")
-                            stack_2_4_info.append("")
-                        
-                        if len(self.stack_3_0) > 0:
-                            stack_3_0_info.append("30")
-                            stack_3_0_info.append(self.stack_3_0[len(self.stack_3_0) - 1].name)
-                            stack_3_0_info.append(self.stack_3_0[len(self.stack_3_0) - 1].color)
-                        else:
-                            stack_3_0_info.append("30")
-                            stack_3_0_info.append("")
-                            stack_3_0_info.append("")
-                        
-                        if len(self.stack_3_1) > 0:
-                            stack_3_1_info.append("31")
-                            stack_3_1_info.append(self.stack_3_1[len(self.stack_3_1) - 1].name)
-                            stack_3_1_info.append(self.stack_3_1[len(self.stack_3_1) - 1].color)
-                        else:
-                            stack_3_1_info.append("31")
-                            stack_3_1_info.append("")
-                            stack_3_1_info.append("")
-                        
-                        if len(self.stack_3_2) > 0:
-                            stack_3_2_info.append("32")
-                            stack_3_2_info.append(self.stack_3_2[len(self.stack_3_2) - 1].name)
-                            stack_3_2_info.append(self.stack_3_2[len(self.stack_3_2) - 1].color)
-                        else:
-                            stack_3_2_info.append("32")
-                            stack_3_2_info.append("")
-                            stack_3_2_info.append("")
-                        
-                        if len(self.stack_3_3) > 0:
-                            stack_3_3_info.append("33")
-                            stack_3_3_info.append(self.stack_3_3[len(self.stack_3_3) - 1].name)
-                            stack_3_3_info.append(self.stack_3_3[len(self.stack_3_3) - 1].color)
-                        else:
-                            stack_3_3_info.append("33")
-                            stack_3_3_info.append("")
-                            stack_3_3_info.append("")
-                        
-                        if len(self.stack_3_4) > 0:
-                            stack_3_4_info.append("34")
-                            stack_3_4_info.append(self.stack_3_4[len(self.stack_3_4) - 1].name)
-                            stack_3_4_info.append(self.stack_3_4[len(self.stack_3_4) - 1].color)
-                        else:
-                            stack_3_4_info.append("34")
-                            stack_3_4_info.append("")
-                            stack_3_4_info.append("")
-                        
-                        if len(self.stack_4_0) > 0:
-                            stack_4_0_info.append("40")
-                            stack_4_0_info.append(self.stack_4_0[len(self.stack_4_0) - 1].name)
-                            stack_4_0_info.append(self.stack_4_0[len(self.stack_4_0) - 1].color)
-                        else:
-                            stack_4_0_info.append("40")
-                            stack_4_0_info.append("")
-                            stack_4_0_info.append("")
-                    
-                        if len(self.stack_4_1) > 0:
-                            stack_4_1_info.append("41")
-                            stack_4_1_info.append(self.stack_4_1[len(self.stack_4_1) - 1].name)
-                            stack_4_1_info.append(self.stack_4_1[len(self.stack_4_1) - 1].color)
-                        else:
-                            stack_4_1_info.append("41")
-                            stack_4_1_info.append("")
-                            stack_4_1_info.append("")
-                        
-                        if len(self.stack_4_2) > 0:
-                            stack_4_2_info.append("42")
-                            stack_4_2_info.append(self.stack_4_2[len(self.stack_4_2) - 1].name)
-                            stack_4_2_info.append(self.stack_4_2[len(self.stack_4_2) - 1].color)
-                        else:
-                            stack_4_2_info.append("42")
-                            stack_4_2_info.append("")
-                            stack_4_2_info.append("")
-                        
-                        if len(self.stack_4_3) > 0:
-                            stack_4_3_info.append("43")
-                            stack_4_3_info.append(self.stack_4_3[len(self.stack_4_3) - 1].name)
-                            stack_4_3_info.append(self.stack_4_3[len(self.stack_4_3) - 1].color)
-                        else:
-                            stack_4_3_info.append("43")
-                            stack_4_3_info.append("")
-                            stack_4_3_info.append("")
-                        
-                        if len(self.stack_4_4) > 0:
-                            stack_4_4_info.append("44")
-                            stack_4_4_info.append(self.stack_4_4[len(self.stack_4_4) - 1].name)
-                            stack_4_4_info.append(self.stack_4_4[len(self.stack_4_4) - 1].color)
-                        else:
-                            stack_4_4_info.append("44")
-                            stack_4_4_info.append("")
-                            stack_4_4_info.append("")
-                        
-                        
-                        #Send current snapshot to data model
-                        #board_model.mark_grid(stack_0_0_info, stack_0_1_info, stack_0_2_info, stack_0_3_info, stack_0_4_info, stack_1_0_info, stack_1_1_info, stack_1_2_info, stack_1_3_info, stack_1_4_info, stack_2_0_info, stack_2_1_info, stack_2_2_info, stack_2_3_info, stack_2_4_info, stack_3_0_info, stack_3_1_info, stack_3_2_info, stack_3_3_info, stack_3_4_info, stack_4_0_info, stack_4_1_info, stack_4_1_info, stack_4_2_info, stack_4_3_info, stack_4_4_info)
-                        
-                        
-################################End of piece placements/Victory checks/Player switch####################################
-                        if self.current_player == self.player1:
-                            if self.board_model.Check_victoryX():
-                                self.done = True
-                                self.winner = "Player One"
-                                self.p1_wins += 1
-                                self.p1_score += (25 + self.player1.stones)
-                            else:
-                                self.current_player = self.player2
-                        else:
-                            if self.board_model.Check_victoryY():
-                                self.done = True
-                                self.winner = "Player Two"
-                                self.p2_wins += 1
-                                self.p2_score += (25 + self.player2.stones)
-                            else:
-                                self.current_player = self.player1
-                        print(self.winner)
+                        self.end_turn()
 
                 # Clicking outside the board will toggle the piece between road and wall
                 else:
                     self.sprite_click_list[0].flipStone()
-        
+
+            #grid piece is in sprite click list
+            elif self.click_count == 2:
+                print("A grid piece in the hand is worth 2 in the unplayed stone stack")
         elif event.type == pygame.MOUSEBUTTONUP and event.button == RIGHT_CLICK:
             print ("Right click")
 
@@ -991,7 +700,293 @@ class GameLevel():
             self.stack_4_4.append(self.sprite_click_list.pop())
 
         self.click_count = 0
+    
+    def end_turn(self):
+        ################################set up for the mark grid method############################################
+        
+        #create the local info for each stacks
+        stack_0_0_info = []
+        stack_0_1_info = []
+        stack_0_2_info = []
+        stack_0_3_info = []
+        stack_0_4_info = []
+        stack_1_0_info = []
+        stack_1_1_info = []
+        stack_1_2_info = []
+        stack_1_3_info = []
+        stack_1_4_info = []
+        stack_2_0_info = []
+        stack_2_1_info = []
+        stack_2_2_info = []
+        stack_2_3_info = []
+        stack_2_4_info = []
+        stack_3_0_info = []
+        stack_3_1_info = []
+        stack_3_2_info = []
+        stack_3_3_info = []
+        stack_3_4_info = []
+        stack_4_0_info = []
+        stack_4_1_info = []
+        stack_4_2_info = []
+        stack_4_3_info = []
+        stack_4_4_info = []
+        
+        #if there's something in the stack
+        if len(self.stack_0_0) > 0:
+            #append the position
+            stack_0_0_info.append("00")
+            #append the name of the top stone
+            stack_0_0_info.append(self.stack_0_0[len(self.stack_0_0) - 1].name)
+            #append the color of the top stone
+            stack_0_0_info.append(self.stack_0_0[len(self.stack_0_0) - 1].color)
+        else:
+            #append the position
+            stack_0_0_info.append("00")
+            #append nothing as it is an empty stack
+            stack_0_0_info.append("")
+            #append nothing as it is an empty stack
+            stack_0_0_info.append("")
+                        
+        if len(self.stack_0_1) > 0:
+            stack_0_1_info.append("01")
+            stack_0_1_info.append(self.stack_0_1[len(self.stack_0_1) - 1].name)
+            stack_0_1_info.append(self.stack_0_1[len(self.stack_0_1) - 1].color)
+        else:
+            stack_0_1_info.append("01")
+            stack_0_1_info.append("")
+            stack_0_1_info.append("")
+                        
+        if len(self.stack_0_2) > 0:
+            stack_0_2_info.append("02")
+            stack_0_2_info.append(self.stack_0_2[len(self.stack_0_2) - 1].name)
+            stack_0_2_info.append(self.stack_0_2[len(self.stack_0_2) - 1].color)
+        else:
+            stack_0_2_info.append("02")
+            stack_0_2_info.append("")
+            stack_0_2_info.append("")
+                
+        if len(self.stack_0_3) > 0:
+            stack_0_3_info.append("03")
+            stack_0_3_info.append(self.stack_0_3[len(self.stack_0_3) - 1].name)
+            stack_0_3_info.append(self.stack_0_3[len(self.stack_0_3) - 1].color)
+        else:
+            stack_0_3_info.append("03")
+            stack_0_3_info.append("")
+            stack_0_3_info.append("")
+                        
+        if len(self.stack_0_4) > 0:
+            stack_0_4_info.append("04")
+            stack_0_4_info.append(self.stack_0_4[len(self.stack_0_4) - 1].name)
+            stack_0_4_info.append(self.stack_0_4[len(self.stack_0_4) - 1].color)
+        else:
+            stack_0_4_info.append("04")
+            stack_0_4_info.append("")
+            stack_0_4_info.append("")
+                        
+        if len(self.stack_1_0) > 0:
+            stack_1_0_info.append("10")
+            stack_1_0_info.append(self.stack_1_0[len(self.stack_1_0) - 1].name)
+            stack_1_0_info.append(self.stack_1_0[len(self.stack_1_0) - 1].color)
+        else:
+            stack_1_0_info.append("10")
+            stack_1_0_info.append("")
+            stack_1_0_info.append("")
+                    
+        if len(self.stack_1_1) > 0:
+            stack_1_1_info.append("11")
+            stack_1_1_info.append(self.stack_1_1[len(self.stack_1_1) - 1].name)
+            stack_1_1_info.append(self.stack_1_1[len(self.stack_1_1) - 1].color)
+        else:
+            stack_1_1_info.append("11")
+            stack_1_1_info.append("")
+            stack_1_1_info.append("")
+                        
+        if len(self.stack_1_2) > 0:
+            stack_1_2_info.append("12")
+            stack_1_2_info.append(self.stack_1_2[len(self.stack_1_2) - 1].name)
+            stack_1_2_info.append(self.stack_1_2[len(self.stack_1_2) - 1].color)
+        else:
+            stack_1_2_info.append("12")
+            stack_1_2_info.append("")
+            stack_1_2_info.append("")
+                        
+        if len(self.stack_1_3) > 0:
+            stack_1_3_info.append("13")
+            stack_1_3_info.append(self.stack_1_3[len(self.stack_1_3) - 1].name)
+            stack_1_3_info.append(self.stack_1_3[len(self.stack_1_3) - 1].color)
+        else:
+            stack_1_3_info.append("13")
+            stack_1_3_info.append("")
+            stack_1_3_info.append("")
             
+        if len(self.stack_1_4) > 0:
+            stack_1_4_info.append("14")
+            stack_1_4_info.append(self.stack_1_4[len(self.stack_1_4) - 1].name)
+            stack_1_4_info.append(self.stack_1_4[len(self.stack_1_4) - 1].color)
+        else:
+            stack_1_4_info.append("14")
+            stack_1_4_info.append("")
+            stack_1_4_info.append("")
+                        
+        if len(self.stack_2_0) > 0:
+            stack_2_0_info.append("20")
+            stack_2_0_info.append(self.stack_2_0[len(self.stack_2_0) - 1].name)
+            stack_2_0_info.append(self.stack_2_0[len(self.stack_2_0) - 1].color)
+        else:
+            stack_2_0_info.append("20")
+            stack_2_0_info.append("")
+            stack_2_0_info.append("")
+                        
+        if len(self.stack_2_1) > 0:
+            stack_2_1_info.append("21")
+            stack_2_1_info.append(self.stack_2_1[len(self.stack_2_1) - 1].name)
+            stack_2_1_info.append(self.stack_2_1[len(self.stack_2_1) - 1].color)
+        else:
+            stack_2_1_info.append("21")
+            stack_2_1_info.append("")
+            stack_2_1_info.append("")
+                        
+        if len(self.stack_2_2) > 0:
+            stack_2_2_info.append("22")
+            stack_2_2_info.append(self.stack_2_2[len(self.stack_2_2) - 1].name)
+            stack_2_2_info.append(self.stack_2_2[len(self.stack_2_2) - 1].color)
+        else:
+            stack_2_2_info.append("22")
+            stack_2_2_info.append("")
+            stack_2_2_info.append("")
+                        
+        if len(self.stack_2_3) > 0:
+            stack_2_3_info.append("23")
+            stack_2_3_info.append(self.stack_2_3[len(self.stack_2_3) - 1].name)
+            stack_2_3_info.append(self.stack_2_3[len(self.stack_2_3) - 1].color)
+        else:
+            stack_2_3_info.append("23")
+            stack_2_3_info.append("")
+            stack_2_3_info.append("")
+                
+        if len(self.stack_2_4) > 0:
+            stack_2_4_info.append("24")
+            stack_2_4_info.append(self.stack_2_4[len(self.stack_2_4) - 1].name)
+            stack_2_4_info.append(self.stack_2_4[len(self.stack_2_4) - 1].color)
+        else:
+            stack_2_4_info.append("24")
+            stack_2_4_info.append("")
+            stack_2_4_info.append("")
+                        
+        if len(self.stack_3_0) > 0:
+            stack_3_0_info.append("30")
+            stack_3_0_info.append(self.stack_3_0[len(self.stack_3_0) - 1].name)
+            stack_3_0_info.append(self.stack_3_0[len(self.stack_3_0) - 1].color)
+        else:
+            stack_3_0_info.append("30")
+            stack_3_0_info.append("")
+            stack_3_0_info.append("")
+                        
+        if len(self.stack_3_1) > 0:
+            stack_3_1_info.append("31")
+            stack_3_1_info.append(self.stack_3_1[len(self.stack_3_1) - 1].name)
+            stack_3_1_info.append(self.stack_3_1[len(self.stack_3_1) - 1].color)
+        else:
+            stack_3_1_info.append("31")
+            stack_3_1_info.append("")
+            stack_3_1_info.append("")
+
+        if len(self.stack_3_2) > 0:
+            stack_3_2_info.append("32")
+            stack_3_2_info.append(self.stack_3_2[len(self.stack_3_2) - 1].name)
+            stack_3_2_info.append(self.stack_3_2[len(self.stack_3_2) - 1].color)
+        else:
+            stack_3_2_info.append("32")
+            stack_3_2_info.append("")
+            stack_3_2_info.append("")
+                        
+        if len(self.stack_3_3) > 0:
+            stack_3_3_info.append("33")
+            stack_3_3_info.append(self.stack_3_3[len(self.stack_3_3) - 1].name)
+            stack_3_3_info.append(self.stack_3_3[len(self.stack_3_3) - 1].color)
+        else:
+            stack_3_3_info.append("33")
+            stack_3_3_info.append("")
+            stack_3_3_info.append("")
+
+        if len(self.stack_3_4) > 0:
+            stack_3_4_info.append("34")
+            stack_3_4_info.append(self.stack_3_4[len(self.stack_3_4) - 1].name)
+            stack_3_4_info.append(self.stack_3_4[len(self.stack_3_4) - 1].color)
+        else:
+            stack_3_4_info.append("34")
+            stack_3_4_info.append("")
+            stack_3_4_info.append("")
+                        
+        if len(self.stack_4_0) > 0:
+            stack_4_0_info.append("40")
+            stack_4_0_info.append(self.stack_4_0[len(self.stack_4_0) - 1].name)
+            stack_4_0_info.append(self.stack_4_0[len(self.stack_4_0) - 1].color)
+        else:
+            stack_4_0_info.append("40")
+            stack_4_0_info.append("")
+            stack_4_0_info.append("")
+
+        if len(self.stack_4_1) > 0:
+            stack_4_1_info.append("41")
+            stack_4_1_info.append(self.stack_4_1[len(self.stack_4_1) - 1].name)
+            stack_4_1_info.append(self.stack_4_1[len(self.stack_4_1) - 1].color)
+        else:
+            stack_4_1_info.append("41")
+            stack_4_1_info.append("")
+            stack_4_1_info.append("")
+
+        if len(self.stack_4_2) > 0:
+            stack_4_2_info.append("42")
+            stack_4_2_info.append(self.stack_4_2[len(self.stack_4_2) - 1].name)
+            stack_4_2_info.append(self.stack_4_2[len(self.stack_4_2) - 1].color)
+        else:
+            stack_4_2_info.append("42")
+            stack_4_2_info.append("")
+            stack_4_2_info.append("")
+                        
+        if len(self.stack_4_3) > 0:
+            stack_4_3_info.append("43")
+            stack_4_3_info.append(self.stack_4_3[len(self.stack_4_3) - 1].name)
+            stack_4_3_info.append(self.stack_4_3[len(self.stack_4_3) - 1].color)
+        else:
+            stack_4_3_info.append("43")
+            stack_4_3_info.append("")
+            stack_4_3_info.append("")
+
+        if len(self.stack_4_4) > 0:
+            stack_4_4_info.append("44")
+            stack_4_4_info.append(self.stack_4_4[len(self.stack_4_4) - 1].name)
+            stack_4_4_info.append(self.stack_4_4[len(self.stack_4_4) - 1].color)
+        else:
+            stack_4_4_info.append("44")
+            stack_4_4_info.append("")
+            stack_4_4_info.append("")
+                        
+                        
+        #Send current snapshot to data model
+        #board_model.mark_grid(stack_0_0_info, stack_0_1_info, stack_0_2_info, stack_0_3_info, stack_0_4_info, stack_1_0_info, stack_1_1_info, stack_1_2_info, stack_1_3_info, stack_1_4_info, stack_2_0_info, stack_2_1_info, stack_2_2_info, stack_2_3_info, stack_2_4_info, stack_3_0_info, stack_3_1_info, stack_3_2_info, stack_3_3_info, stack_3_4_info, stack_4_0_info, stack_4_1_info, stack_4_1_info, stack_4_2_info, stack_4_3_info, stack_4_4_info)
+                        
+
+################################End of piece placements/Victory checks/Player switch####################################
+        if self.current_player == self.player1:
+            if self.board_model.Check_victoryX():
+                self.done = True
+                self.winner = "Player One"
+                self.p1_wins += 1
+                self.p1_score += (25 + self.player1.stones)
+            else:
+                self.current_player = self.player2
+        else:
+            if self.board_model.Check_victoryY():
+                self.done = True
+                self.winner = "Player Two"
+                self.p2_wins += 1
+                self.p2_score += (25 + self.player2.stones)
+            else:
+                self.current_player = self.player1
+        print(self.winner)
+    
     def draw(self, screen):
         seconds = self.seconds
         minutes = self.minutes
