@@ -245,7 +245,6 @@ class BoardModel():
                 self.current_y = 0
                 break
 
-
         # vertical checking
         if self.current_y is not None:
             while self.current_y < self.dimensions:
@@ -267,213 +266,109 @@ class BoardModel():
                             self.current_x -= 1
                         else:
                             break
-                    
+
         return self.victory
-                        
-            
-
-        
-#xposition, ypositon, then if it is player1 make it true
-
-# if the spot is not equal to empty, append what is in that spot to the handstack, and make the mark on the board,
-    #be what the old piece was
-    def pickup(self, posx,posy):
-        
-        """
-            Grid reference
-            __________________________
-            | 00 | 01 | 02 | 03 | 04 |
-            --------------------------
-            | 10 | 11 | 12 | 13 | 14 |
-            --------------------------
-            | 20 | 21 | 22 | 23 | 24 |
-            --------------------------
-            | 30 | 31 | 32 | 33 | 34 |
-            --------------------------
-            | 40 | 41 | 42 | 43 | 44 |
-            --------------------------
-        """
-        
-        position = self.get_square(posx, posy)
-        
-        if position == "00":
-            if self.markGrid[0][0]!=(''):
-                self.handstack.append(self.markGrid[0][0])
-                self.markGrid[0][0]=self.stack.pop()
-        elif position == "10":
-            if self.markGrid[1][0]!=(''):
-                self.handstack.append(self.markGrid[1][0])
-                self.markGrid[1][0] = self.stack2.pop()
-        elif position == "20":
-            if self.markGrid[2][0]!=(''):
-                self.handstack.append(self.markGrid[2][0])
-                self.markGrid[2][0] = self.stack3.pop()
-        elif position == "30":
-            if self.markGrid[3][0]!=(''):
-                self.handstack.append(self.markGrid[3][0])
-                self.markGrid[3][0] = self.stack4.pop()
-        elif position == "40":
-            if self.markGrid[4][0]!=(''):
-                self.handstack.append(self.markGrid[4][0])
-                self.markGrid[4][0] = self.stack5.pop()
-
-        elif position == "01":
-            if self.markGrid[0][1]!=(''):
-                self.handstack.append(self.markGrid[0][1])
-                self.markGrid[0][1] = self.stack6.pop()
-        elif position == "11":
-            if self.markGrid[1][1]!=(''):
-                self.handstack.append(self.markGrid[1][1])
-                self.markGrid[1][1] = self.stack7.pop()
-        elif position == "21":
-            if self.markGrid[2][1]!=(''):
-                self.handstack.append(self.markGrid[2][1])
-                self.markGrid[2][1] = self.stack8.pop()
-        elif position == "31":
-            if self.markGrid[3][1]!=(''):
-                self.handstack.append(self.markGrid[3][1])
-                self.markGrid[3][1] = self.stack9.pop()
-        elif position == "41":
-            if self.markGrid[4][1]!=(''):
-                self.handstack.append(self.markGrid[4][1])
-                self.markGrid[4][1] = self.stack10.pop()
-
-        elif position == "02":
-            if self.markGrid[0][2]!=(''):
-                self.handstack.append(self.markGrid[0][2])
-                self.markGrid[0][2] = self.stack11.pop()
-        elif position == "12":
-            if self.markGrid[1][2]!=(''):
-                self.handstack.append(self.markGrid[1][2])
-                self.markGrid[1][2] = self.stack12.pop()
-        elif position == "22":
-            if self.markGrid[2][2]!=(''):
-                self.handstack.append(self.markGrid[2][2])
-                self.markGrid[2][2] = self.stack13.pop()
-        elif position == "32":
-            if self.markGrid[3][2]!=(''):
-                self.handstack.append(self.markGrid[3][2])
-                self.markGrid[3][2] = self.stack14.pop()
-        elif position == "42":
-            if self.markGrid[4][2]!=(''):
-                self.handstack.append(self.markGrid[4][2])
-                self.markGrid[4][2] = self.stack15.pop()
-
-        elif position == "03":
-            if self.markGrid[0][3]!=(''):
-                self.handstack.append(self.markGrid[0][3])
-                self.markGrid[0][3] = self.stack16.pop()
-        elif position == "13":
-            if self.markGrid[1][3]!=(''):
-                self.handstack.append(self.markGrid[1][3])
-                self.markGrid[1][3] = self.stack17.pop()
-        elif position == "23":
-            if self.markGrid[2][3]!=(''):
-                self.handstack.append(self.markGrid[2][3])
-                self.markGrid[2][3] = self.stack18.pop()
-        elif position == "33":
-            if self.markGrid[3][3]!=(''):
-                self.handstack.append(self.markGrid[3][3])
-                self.markGrid[3][3] = self.stack19.pop()
-        elif position == "43":
-            if self.markGrid[4][3]!=(''):
-                self.handstack.append(self.markGrid[4][3])
-                self.markGrid[4][3] = self.stack20.pop()
-
-        elif position == "04":
-            if self.markGrid[0][4]!=(''):
-                self.handstack.append(self.markGrid[0][4])
-                self.markGrid[0][4] = self.stack21.pop()
-        elif position == "14":
-            if self.markGrid[1][4]!=(''):
-                self.handstack.append(self.markGrid[1][4])
-            self.markGrid[1][4] = self.stack22.pop()
-        elif position == "24":
-            if self.markGrid[2][4]!=(''):
-                self.handstack.append(self.markGrid[2][4])
-                self.markGrid[2][4] = self.stack23.pop()
-        elif position == "34":
-            if self.markGrid[3][4]!=(''):
-                self.handstack.append(self.markGrid[3][4])
-                self.markGrid[3][4] = self.stack24.pop()
-        elif position == "44":
-            if self.markGrid[4][4]!=(''):
-                self.handstack.append(self.markGrid[4][4])
-                self.markGrid[4][4] = self.stack25.pop()
-
-    def putdown(self,posx,posy):
-        """
-                   Grid reference
-                   __________________________
-                   | 00 | 01 | 02 | 03 | 04 |
-                   --------------------------
-                   | 10 | 11 | 12 | 13 | 14 |
-                   --------------------------
-                   | 20 | 21 | 22 | 23 | 24 |
-                   --------------------------
-                   | 30 | 31 | 32 | 33 | 34 |
-                   --------------------------
-                   | 40 | 41 | 42 | 43 | 44 |
-                   --------------------------
-               """
-
-        position = self.get_square(posx, posy)
+      
+    
+    def marking(self,position,name,color):
+        if name == "flat" and color == "brown":
+            mark='1f'
+        elif name == "flat" and color == "beige":
+            mark='2f'
+        elif name == "wall" and color == "brown":
+            mark='1w'
+        elif name =="wall" and color =="beige":
+            mark='2w'
+        elif name =="capstone" and color =="brown":
+            mark='1c'
+        elif name =="capstone" and color =="beige":
+            mark='2c'
 
         if position == "00":
-            self.markGrid[0][0]=self.handstack.pop()
-
+            self.markGrid[0][0] = mark
         elif position == "10":
-            self.markGrid[1][0] = self.handstack.pop()
+            self.markGrid[1][0] = mark
         elif position == "20":
-            self.markGrid[2][0] = self.handstack.pop()
+            self.markGrid[2][0] = mark
         elif position == "30":
-            self.markGrid[3][0] = self.handstack.pop()
+            self.markGrid[3][0] = mark
         elif position == "40":
-            self.markGrid[4][0] = self.handstack.pop()
-
+            self.markGrid[4][0] = mark
+                
         elif position == "01":
-            self.markGrid[0][1] = self.handstack.pop()
+            self.markGrid[0][1] = mark
         elif position == "11":
-            self.markGrid[1][1] = self.handstack.pop()
+            self.markGrid[1][1] = mark
         elif position == "21":
-            self.markGrid[2][1] = self.handstack.pop()
+            self.markGrid[2][1] = mark
         elif position == "31":
-            self.markGrid[3][1] = self.handstack.pop()
+            self.markGrid[3][1] = mark
         elif position == "41":
-            self.markGrid[4][1] = self.handstack.pop()
-
+            self.markGrid[4][1] = mark
+                
         elif position == "02":
-            self.markGrid[0][2] = self.handstack.pop()
+            self.markGrid[0][2] = mark
         elif position == "12":
-            self.markGrid[1][2] = self.handstack.pop()
+            self.markGrid[1][2] = mark
         elif position == "22":
-            self.markGrid[2][2] = self.handstack.pop()
+            self.markGrid[2][2] = mark
         elif position == "32":
-            self.markGrid[3][2] = self.handstack.pop()
+            self.markGrid[3][2] = mark
         elif position == "42":
-            self.markGrid[4][2] = self.handstack.pop()
-
+            self.markGrid[4][2] = mark
+                                                                                                                                                                            
         elif position == "03":
-            self.markGrid[0][3] = self.handstack.pop()
+            self.markGrid[0][3] = mark
         elif position == "13":
-            self.markGrid[1][3] = self.handstack.pop()
+            self.markGrid[1][3] = mark
         elif position == "23":
-            self.markGrid[2][3] = self.handstack.pop()
+            self.markGrid[2][3] = mark
         elif position == "33":
-            self.markGrid[3][3] = self.handstack.pop()
+            self.markGrid[3][3] = mark
         elif position == "43":
-            self.markGrid[4][3] = self.handstack.pop()
-
+            self.markGrid[4][3] = mark
+                                                                                                                                                                                                                    
         elif position == "04":
-            self.markGrid[0][4] = self.handstack.pop()
+            self.markGrid[0][4] = mark
         elif position == "14":
-            self.markGrid[1][4] = self.handstack.pop()
+            self.markGrid[1][4] = mark
         elif position == "24":
-            self.markGrid[2][4] = self.handstack.pop()
+            self.markGrid[2][4] = mark
         elif position == "34":
-            self.markGrid[3][4] = self.handstack.pop()
+            self.markGrid[3][4] = mark
         elif position == "44":
-            self.markGrid[4][4] = self.handstack.pop()
+            self.markGrid[4][4] = mark
+    
+    def mark_grid(self,stack00,stack10,stack20,stack30,stack40,stack01,stack11,stack21,stack31,stack41,stack02,stack12,stack22,stack32,stack42,stack03,stack13,stack23,stack33,stack43,stack04,stack14,stack24,stack34,stack44):
+        self.marking(stack00[len(stack00) - 3], stack00[len(stack00) - 2], stack00[len(stack00) - 1])
+        self.marking(stack10[len(stack10) - 3], stack10[len(stack10) - 2], stack10[len(stack10) - 1])
+        self.marking(stack20[len(stack20) - 3], stack20[len(stack20) - 2], stack20[len(stack20) - 1])
+        self.marking(stack30[len(stack30) - 3], stack30[len(stack30) - 2], stack30[len(stack30) - 1])
+        self.marking(stack40[len(stack40) - 3], stack40[len(stack40) - 2], stack40[len(stack40) - 1])
+        
+        self.marking(stack01[len(stack01) - 3], stack01[len(stack01) - 2], stack01[len(stack01) - 1])
+        self.marking(stack11[len(stack11) - 3], stack11[len(stack11) - 2], stack11[len(stack11) - 1])
+        self.marking(stack21[len(stack21) - 3], stack21[len(stack21) - 2], stack21[len(stack21) - 1])
+        self.marking(stack31[len(stack31) - 3], stack31[len(stack31) - 2], stack31[len(stack31) - 1])
+        self.marking(stack41[len(stack41) - 3], stack41[len(stack41) - 2], stack41[len(stack41) - 1])
+        
+        self.marking(stack02[len(stack02) - 3], stack02[len(stack02) - 2], stack02[len(stack02) - 1])
+        self.marking(stack12[len(stack12) - 3], stack12[len(stack12) - 2], stack12[len(stack12) - 1])
+        self.marking(stack22[len(stack22) - 3], stack22[len(stack22) - 2], stack22[len(stack22) - 1])
+        self.marking(stack32[len(stack32) - 3], stack32[len(stack32) - 2], stack32[len(stack32) - 1])
+        self.marking(stack42[len(stack42) - 3], stack42[len(stack42) - 2], stack42[len(stack42) - 1])
+        
+        self.marking(stack03[len(stack03) - 3], stack03[len(stack03) - 2], stack03[len(stack03) - 1])
+        self.marking(stack13[len(stack13) - 3], stack13[len(stack13) - 2], stack13[len(stack13) - 1])
+        self.marking(stack23[len(stack23) - 3], stack23[len(stack23) - 2], stack23[len(stack23) - 1])
+        self.marking(stack33[len(stack33) - 3], stack33[len(stack33) - 2], stack33[len(stack33) - 1])
+        self.marking(stack43[len(stack43) - 3], stack43[len(stack43) - 2], stack43[len(stack43) - 1])
+        
+        self.marking(stack04[len(stack04) - 3], stack04[len(stack04) - 2], stack04[len(stack04) - 1])
+        self.marking(stack14[len(stack14) - 3], stack14[len(stack14) - 2], stack14[len(stack14) - 1])
+        self.marking(stack24[len(stack24) - 3], stack24[len(stack24) - 2], stack24[len(stack24) - 1])
+        self.marking(stack34[len(stack34) - 3], stack34[len(stack34) - 2], stack34[len(stack34) - 1])
+        self.marking(stack44[len(stack44) - 3], stack44[len(stack44) - 2], stack44[len(stack44) - 1])
 
     def get_item_in_block(self,posx,posy):
         position = self.get_square(posx, posy)
@@ -533,86 +428,8 @@ class BoardModel():
             return self.markGrid[3][4]
         elif position == "44":
             return self.markGrid[4][4]
-    def flatten_stone(self,posx,posy,b):
-        
-        """
-            Grid reference
-            __________________________
-            | 00 | 01 | 02 | 03 | 04 |
-            --------------------------
-            | 10 | 11 | 12 | 13 | 14 |
-            --------------------------
-            | 20 | 21 | 22 | 23 | 24 |
-            --------------------------
-            | 30 | 31 | 32 | 33 | 34 |
-            --------------------------
-            | 40 | 41 | 42 | 43 | 44 |
-            --------------------------
-        """
-        
-        position = self.get_square(posx, posy)
-        
-        if b == True:
-            mark = 'X'
-        else:
-            mark = 'Y'
-        
-        if position == "00":
-            self.markGrid[0][0] = mark
-        elif position == "10":
-            self.markGrid[1][0] = mark
-        elif position == "20":
-            self.markGrid[2][0] = mark
-        elif position == "30":
-            self.markGrid[3][0] = mark
-        elif position == "40":
-            self.markGrid[4][0] = mark
 
-        elif position == "01":
-            self.markGrid[0][1] = mark
-        elif position == "11":
-            self.markGrid[1][1] = mark
-        elif position == "21":
-            self.markGrid[2][1] = mark
-        elif position == "31":
-            self.markGrid[3][1] = mark
-        elif position == "41":
-            self.markGrid[4][1] = mark
-
-        elif position == "02":
-            self.markGrid[0][2] = mark
-        elif position == "12":
-            self.markGrid[1][2] = mark
-        elif position == "22":
-            self.markGrid[2][2] = mark
-        elif position == "32":
-            self.markGrid[3][2] = mark
-        elif position == "42":
-            self.markGrid[4][2] = mark
-
-        elif position == "03":
-            self.markGrid[0][3] = mark
-        elif position == "13":
-            self.markGrid[1][3] = mark
-        elif position == "23":
-            self.markGrid[2][3] = mark
-        elif position == "33":
-            self.markGrid[3][3] = mark
-        elif position == "43":
-            self.markGrid[4][3] = mark
-
-        elif position == "04":
-            self.markGrid[0][4] = mark
-        elif position == "14":
-            self.markGrid[1][4] = mark
-        elif position == "24":
-            self.markGrid[2][4] = mark
-        elif position == "34":
-            self.markGrid[3][4] = mark
-        elif position == "44":
-            self.markGrid[4][4] = mark
-            
-
+    '''
     # pos x from the mouse, position y from the mouse, a boolean stating weather or not it is player1, then if the stone is a standing stone.
     def Mark_spot(self, posx, posy, b,standingStone):
         
@@ -861,8 +678,8 @@ class BoardModel():
             self.markGrid[4][4] = mark
             if b ==True:
                 self.capstoneSpots[4][4] = mark
-
-
+        '''
+    
     #Feed this method an x and y coordinate for it to check if that spot is occupied
     def spot_occupied(self,posx,posy):
 
