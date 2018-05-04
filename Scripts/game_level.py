@@ -594,7 +594,7 @@ class GameLevel():
                                 self.done = True
                                 self.winner = "Player One"
                                 self.p1_wins += 1
-                                self.p1_score += (25 + self.player1.stones)
+                                self.p1_score += ((self.size[0] **2) + self.player1.stones)
                             else:
                                 self.current_player = self.player2
                         else:
@@ -602,7 +602,7 @@ class GameLevel():
                                 self.done = True
                                 self.winner = "Player Two"
                                 self.p2_wins += 1
-                                self.p2_score += (25 + self.player2.stones)
+                                self.p2_score += ((self.size[0] **2) + self.player2.stones)
                             else:
                                 self.current_player = self.player1
                         print(self.winner)
