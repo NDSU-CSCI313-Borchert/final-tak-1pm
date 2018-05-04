@@ -121,6 +121,9 @@ class BoardModel():
         elif x > 977 and x < 1129 and y > 766 and y < 917:
             return "44"
 
+        else:
+            return ""
+
     def get_adjacent_squares(self, current_position):
         
         position = current_position
@@ -918,6 +921,107 @@ class BoardModel():
         elif position == "44":
             if self.markGrid[4][4]!=('') :
                 return True
+
+    def spot_occupied_by_wall(self,posx,posy):
+        
+        """
+            Grid reference
+            __________________________
+            | 00 | 01 | 02 | 03 | 04 |
+            --------------------------
+            | 10 | 11 | 12 | 13 | 14 |
+            --------------------------
+            | 20 | 21 | 22 | 23 | 24 |
+            --------------------------
+            | 30 | 31 | 32 | 33 | 34 |
+            --------------------------
+            | 40 | 41 | 42 | 43 | 44 |
+            --------------------------
+            """
+        
+        position = self.get_square(posx, posy)
+        
+        if position == "00":
+            if self.markGrid[0][0] !=('') :
+                return True
+        elif position == "10":
+            if self.markGrid[1][0]!=('') :
+                return True
+        elif position == "20":
+            if self.markGrid[2][0]!=('') :
+                return True
+        elif position == "30":
+            if self.markGrid[3][0]!=('') :
+                return True
+        elif position == "40":
+            if self.markGrid[4][0]!=('') :
+                return True
+        
+        elif position == "01":
+            if self.markGrid[0][1]!=('') :
+                return True
+        elif position == "11":
+            if self.markGrid[1][1]!=('') :
+                return True
+        elif position == "21":
+            if self.markGrid[2][1]!=('') :
+                return True
+        elif position == "31":
+            if self.markGrid[3][1]!=('') :
+                return True
+        elif position == "41":
+            if self.markGrid[4][1]!=('') :
+                return True
+
+        elif position == "02":
+            if self.markGrid[0][2]!=('') :
+                return True
+        elif position == "12":
+            if self.markGrid[1][2]!=('') :
+                return True
+        elif position == "22":
+            if self.markGrid[2][2]!=('') :
+                return True
+        elif position == "32":
+            if self.markGrid[3][2]!=('') :
+                return True
+        elif position == "42":
+            if self.markGrid[4][2]!=('') :
+                return True
+        
+        elif position == "03":
+            if self.markGrid[0][3]!=('') :
+                return True
+        elif position == "13":
+            if self.markGrid[1][3]!=('') :
+                return True
+        elif position == "23":
+            if self.markGrid[2][3]!=('') :
+                return True
+        elif position == "33":
+            if self.markGrid[3][3]!=('') :
+                return True
+        elif position == "43":
+            if self.markGrid[4][3]!=('') :
+                return True
+
+        elif position == "04":
+            if self.markGrid[0][4]!=('') :
+                return True
+        elif position == "14":
+            if self.markGrid[1][4]!=('') :
+                return True
+        elif position == "24":
+            if self.markGrid[2][4]!=('') :
+                return True
+        elif position == "34":
+            if self.markGrid[3][4]!=('') :
+                return True
+        elif position == "44":
+            if self.markGrid[4][4]!=('') :
+                return True
+
+
 
     def is_wall(self, posx, posy):
 
