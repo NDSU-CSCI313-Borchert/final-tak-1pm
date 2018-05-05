@@ -271,6 +271,9 @@ class BoardModel():
       
     
     def marking(self,position,name,color):
+        
+        mark = ''
+        
         if name == "flat" and color == "brown":
             mark='1f'
         elif name == "flat" and color == "beige":
@@ -369,13 +372,42 @@ class BoardModel():
         self.marking(stack24[len(stack24) - 3], stack24[len(stack24) - 2], stack24[len(stack24) - 1])
         self.marking(stack34[len(stack34) - 3], stack34[len(stack34) - 2], stack34[len(stack34) - 1])
         self.marking(stack44[len(stack44) - 3], stack44[len(stack44) - 2], stack44[len(stack44) - 1])
+    
+        print(self.markGrid[0][0])
+        print(self.markGrid[1][0])
+        print(self.markGrid[2][0])
+        print(self.markGrid[3][0])
+        print(self.markGrid[4][0])
+
+        print(self.markGrid[0][1])
+        print(self.markGrid[1][1])
+        print(self.markGrid[2][1])
+        print(self.markGrid[3][1])
+        print(self.markGrid[4][1])
+    
+        print(self.markGrid[0][2])
+        print(self.markGrid[1][2])
+        print(self.markGrid[2][2])
+        print(self.markGrid[3][2])
+        print(self.markGrid[4][2])
+    
+        print(self.markGrid[0][3])
+        print(self.markGrid[1][3])
+        print(self.markGrid[2][3])
+        print(self.markGrid[3][3])
+        print(self.markGrid[4][3])
+
+        print(self.markGrid[0][4])
+        print(self.markGrid[1][4])
+        print(self.markGrid[2][4])
+        print(self.markGrid[3][4])
+        print(self.markGrid[4][4])
 
     def get_item_in_block(self,posx,posy):
         position = self.get_square(posx, posy)
 
         if position == "00":
             return self.markGrid[0][0]
-
         elif position == "10":
             return self.markGrid[1][0]
         elif position == "20":
