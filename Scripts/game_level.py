@@ -525,7 +525,7 @@ class GameLevel():
                     # This code helps the pieces snap in place
                     distance_to_snap = 145
                     stone = self.sprite_click_list[0]
-                    px, py = stone.rect.topleft
+                    px, py = stone.rect.center
                     
                     position = self.board_model.get_square(px, py)
                     adjacent_positions = self.board_model.get_adjacent_squares(position)
@@ -635,14 +635,10 @@ class GameLevel():
                 # This code helps the pieces snap in place
                     distance_to_snap = 145
                     stone = self.sprite_click_list[0]
-                    px, py = stone.rect.topleft
-            
+                    px, py = stone.rect.center
                     position = self.board_model.get_square(px, py)
-                    print(position)
                     adjacent_positions = self.board_model.get_adjacent_squares(self.current_grid_pos)
-                    print(adjacent_positions)
                     adjacent_positions_length = len(adjacent_positions)
-                    print(adjacent_positions_length)
                 ####################################code that handles placing a piece#####################################
                 #if spot is occupied don't allow placement
                 if self.board_model.spot_occupied_by_wall(px, py):
@@ -759,8 +755,6 @@ class GameLevel():
         stack_4_2_info = []
         stack_4_3_info = []
         stack_4_4_info = []
-        
-        print("end turn")
         
         #if there's something in the stack
         if len(self.stack_0_0) > 0:
@@ -993,8 +987,7 @@ class GameLevel():
             stack_4_4_info.append("44")
             stack_4_4_info.append("")
             stack_4_4_info.append("")
-                        
-                        
+        
         #Send current snapshot to data model
         self.board_model.mark_grid(stack_0_0_info, stack_0_1_info, stack_0_2_info, stack_0_3_info, stack_0_4_info, stack_1_0_info, stack_1_1_info, stack_1_2_info, stack_1_3_info, stack_1_4_info, stack_2_0_info, stack_2_1_info, stack_2_2_info, stack_2_3_info, stack_2_4_info, stack_3_0_info, stack_3_1_info, stack_3_2_info, stack_3_3_info, stack_3_4_info, stack_4_0_info, stack_4_1_info,  stack_4_2_info, stack_4_3_info, stack_4_4_info)
                         

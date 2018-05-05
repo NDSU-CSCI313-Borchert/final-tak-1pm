@@ -373,35 +373,7 @@ class BoardModel():
         self.marking(stack34[len(stack34) - 3], stack34[len(stack34) - 2], stack34[len(stack34) - 1])
         self.marking(stack44[len(stack44) - 3], stack44[len(stack44) - 2], stack44[len(stack44) - 1])
     
-        print(self.markGrid[0][0])
-        print(self.markGrid[1][0])
-        print(self.markGrid[2][0])
-        print(self.markGrid[3][0])
-        print(self.markGrid[4][0])
-
-        print(self.markGrid[0][1])
-        print(self.markGrid[1][1])
-        print(self.markGrid[2][1])
-        print(self.markGrid[3][1])
-        print(self.markGrid[4][1])
-    
-        print(self.markGrid[0][2])
-        print(self.markGrid[1][2])
-        print(self.markGrid[2][2])
-        print(self.markGrid[3][2])
-        print(self.markGrid[4][2])
-    
-        print(self.markGrid[0][3])
-        print(self.markGrid[1][3])
-        print(self.markGrid[2][3])
-        print(self.markGrid[3][3])
-        print(self.markGrid[4][3])
-
-        print(self.markGrid[0][4])
-        print(self.markGrid[1][4])
-        print(self.markGrid[2][4])
-        print(self.markGrid[3][4])
-        print(self.markGrid[4][4])
+        pprint.pprint(self.markGrid)
 
     def get_item_in_block(self,posx,posy):
         position = self.get_square(posx, posy)
