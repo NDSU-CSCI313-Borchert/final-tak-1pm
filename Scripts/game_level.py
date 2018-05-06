@@ -642,19 +642,20 @@ class GameLevel():
                     adjacent_positions_length = len(adjacent_positions)
                 ####################################code that handles placing a piece#####################################
                 #if spot is occupied don't allow placement
-                if self.board_model.spot_occupied_by_wall(px, py):
-                    #####MUST UPDATE METHOD AFTER MIKE GETS HIS PIECE DONE##############
+                if self.board_model.spot_occupied_by_wall_or_capstone(px, py):
                     pass
-                for x in range(0, adjacent_positions_length):
-                    if position == adjacent_positions[x]:
-                        
-                        for cx, cy in self.board_model.coord_grid:
-                            if math.hypot(cx-px, cy-py) < distance_to_snap:
-                                stone.rect.x = cx+25
-                                stone.rect.y = cy+45
-                                break
-                        
-                        self.place_piece_on_grid(adjacent_positions[x])
+                else:
+                    for x in range(0, adjacent_positions_length):
+                        if position == adjacent_positions[x] or position == self.current_grid_pos:
+                            
+                            for cx, cy in self.board_model.coord_grid:
+                                if math.hypot(cx-px, cy-py) < distance_to_snap:
+                                    stone.rect.x = cx+25
+                                    stone.rect.y = cy+45
+                                    break
+                            
+                            self.place_piece_on_grid(adjacent_positions[x])
+
                         
                 
                 
