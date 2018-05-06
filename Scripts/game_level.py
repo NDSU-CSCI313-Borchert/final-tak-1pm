@@ -69,13 +69,21 @@ class GameLevel():
 
         #Create the pieces
         self.player1pieces = []
-        for i in range(0, self.piece_total-1):
-            stone = Stone("brown_stone", "brown_wall")
-            stone.rect.x = (SCREEN_WIDTH / 6) - 100
-            stone.rect.y = (SCREEN_HEIGHT / 2)
-            self.all_sprites_list.add(stone)
-            self.player1pieces.append(stone)
+        self.player2pieces = []
+        for i in range(0, (self.piece_total-1) * 2):
+            stone1 = Stone("brown_stone", "brown_wall")
+            stone1.rect.x = (SCREEN_WIDTH / 6) - 100
+            stone1.rect.y = (SCREEN_HEIGHT / 2)
+            self.all_sprites_list.add(stone1)
+            self.player1pieces.append(stone1)
         
+            stone2 = Stone("beige_stone", "beige_wall")
+            stone2.rect.x = (SCREEN_WIDTH / 6 * 5)
+            stone2.rect.y = (SCREEN_HEIGHT / 2)
+            self.all_sprites_list.add(stone2)
+            self.player2pieces.append(stone2)
+        
+        '''
         self.player2pieces = []
         for i in range(0, self.piece_total-1):
             stone = Stone("beige_stone", "beige_wall")
@@ -83,6 +91,7 @@ class GameLevel():
             stone.rect.y = (SCREEN_HEIGHT / 2)
             self.all_sprites_list.add(stone)
             self.player2pieces.append(stone)
+        '''
         
         #Create the capstones if board size allows it
         if self.capstone_total > 0:
@@ -170,9 +179,6 @@ class GameLevel():
             sprite.rect.y = pos[1]-25
 
         self.all_sprites_list.update()
-            #if self.Check_victory(self.grid):
-            #print("Congratulations you won this round of Tak")
-
 
     def handle_keyboard_event(self, event):
 
