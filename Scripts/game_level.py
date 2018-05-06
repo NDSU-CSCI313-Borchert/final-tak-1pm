@@ -564,67 +564,62 @@ class GameLevel():
                                 stone.rect.y = cy+45
                                 break
                         
-                        #this checks if we picked from unplayed stones or grid stones
-                            #if current piece is picked from unplayed stones, allow the placement on any unoccupied spaces
-                        if self.current_grid_pos == "":
-                        #remove piece from sprite click list and place into stack grids
-                            if position == "00":
-                                self.place_piece_on_grid("00")
-                            elif position == "10":
-                                self.place_piece_on_grid("10")
-                            elif position == "20":
-                                self.place_piece_on_grid("20")
-                            elif position == "30":
-                                self.place_piece_on_grid("30")
-                            elif position == "40":
-                                self.place_piece_on_grid("40")
-                            
-                            elif position == "01":
-                                self.place_piece_on_grid("01")
-                            elif position == "11":
-                                self.place_piece_on_grid("11")
-                            elif position == "21":
-                                self.place_piece_on_grid("21")
-                            elif position == "31":
-                                self.place_piece_on_grid("31")
-                            elif position == "41":
-                                self.place_piece_on_grid("41")
-                            
-                            elif position == "02":
-                                self.place_piece_on_grid("02")
-                            elif position == "12":
-                                self.place_piece_on_grid("12")
-                            elif position == "22":
-                                self.place_piece_on_grid("22")
-                            elif position == "32":
-                                self.place_piece_on_grid("32")
-                            elif position == "42":
-                                self.place_piece_on_grid("42")
+                        if position == "00":
+                            self.place_piece_on_grid("00")
+                        elif position == "10":
+                            self.place_piece_on_grid("10")
+                        elif position == "20":
+                            self.place_piece_on_grid("20")
+                        elif position == "30":
+                            self.place_piece_on_grid("30")
+                        elif position == "40":
+                            self.place_piece_on_grid("40")
+                        
+                        elif position == "01":
+                            self.place_piece_on_grid("01")
+                        elif position == "11":
+                            self.place_piece_on_grid("11")
+                        elif position == "21":
+                            self.place_piece_on_grid("21")
+                        elif position == "31":
+                            self.place_piece_on_grid("31")
+                        elif position == "41":
+                            self.place_piece_on_grid("41")
 
-                            elif position == "03":
-                                self.place_piece_on_grid("03")
-                            elif position == "13":
-                                self.place_piece_on_grid("13")
-                            elif position == "23":
-                                self.place_piece_on_grid("23")
-                            elif position == "33":
-                                self.place_piece_on_grid("33")
-                            elif position == "43":
-                                self.place_piece_on_grid("43")
+                        elif position == "02":
+                            self.place_piece_on_grid("02")
+                        elif position == "12":
+                            self.place_piece_on_grid("12")
+                        elif position == "22":
+                            self.place_piece_on_grid("22")
+                        elif position == "32":
+                            self.place_piece_on_grid("32")
+                        elif position == "42":
+                            self.place_piece_on_grid("42")
 
-                            elif position == "04":
-                                self.place_piece_on_grid("04")
-                            elif position == "14":
-                                self.place_piece_on_grid("14")
-                            elif position == "24":
-                                self.place_piece_on_grid("24")
-                            elif position == "34":
-                                self.place_piece_on_grid("34")
-                            elif position == "44":
-                                self.place_piece_on_grid("44")
+                        elif position == "03":
+                            self.place_piece_on_grid("03")
+                        elif position == "13":
+                            self.place_piece_on_grid("13")
+                        elif position == "23":
+                            self.place_piece_on_grid("23")
+                        elif position == "33":
+                            self.place_piece_on_grid("33")
+                        elif position == "43":
+                            self.place_piece_on_grid("43")
+
+                        elif position == "04":
+                            self.place_piece_on_grid("04")
+                        elif position == "14":
+                            self.place_piece_on_grid("14")
+                        elif position == "24":
+                            self.place_piece_on_grid("24")
+                        elif position == "34":
+                            self.place_piece_on_grid("34")
+                        elif position == "44":
+                            self.place_piece_on_grid("44")
+
                                     
-                        self.end_turn()
-
                 # Clicking outside the board will toggle the piece between road and wall
                 else:
                     self.sprite_click_list[0].flipStone()
@@ -654,7 +649,7 @@ class GameLevel():
                                 break
                         
                         self.place_piece_on_grid(adjacent_positions[x])
-                        self.end_turn()
+                        
                 
                 
         elif event.type == pygame.MOUSEBUTTONUP and event.button == RIGHT_CLICK:
@@ -671,58 +666,83 @@ class GameLevel():
     def place_piece_on_grid(self, position):
         if position == "00":
             self.stack_0_0.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "10":
             self.stack_1_0.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "20":
             self.stack_2_0.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "30":
             self.stack_3_0.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "40":
             self.stack_4_0.append(self.sprite_click_list.pop())
+            self.end_turn()
         
         elif position == "01":
             self.stack_0_1.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "11":
             self.stack_1_1.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "21":
             self.stack_2_1.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "31":
             self.stack_3_1.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "41":
             self.stack_4_1.append(self.sprite_click_list.pop())
+            self.end_turn()
             
         elif position == "02":
             self.stack_0_2.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "12":
             self.stack_1_2.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "22":
             self.stack_2_2.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "32":
             self.stack_3_2.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "42":
             self.stack_4_2.append(self.sprite_click_list.pop())
-        
+            self.end_turn()
+
         elif position == "03":
             self.stack_0_3.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "13":
             self.stack_1_3.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "23":
             self.stack_2_3.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "33":
             self.stack_3_3.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "43":
             self.stack_4_3.append(self.sprite_click_list.pop())
+            self.end_turn()
         
         elif position == "04":
             self.stack_0_4.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "14":
             self.stack_1_4.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "24":
             self.stack_2_4.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "34":
             self.stack_3_4.append(self.sprite_click_list.pop())
+            self.end_turn()
         elif position == "44":
             self.stack_4_4.append(self.sprite_click_list.pop())
+            self.end_turn()
 
         self.click_count = 0
     
