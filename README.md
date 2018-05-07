@@ -11,6 +11,9 @@ Tak into a video game.
 Navigate to the "Scripts" folder and run
 `python main.py`
 
+## To run the unit tests manually:
+Navigate to the "Scripts" folder and run `python -m unittest -v (test_name).py`
+
 
 ## Changelog for Sprint #2 (based on user feedback): 
 
