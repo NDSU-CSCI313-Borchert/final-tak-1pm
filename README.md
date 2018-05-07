@@ -10,3 +10,12 @@ Tak into a video game.
 ## To play the game:
 Navigate to the "Scripts" folder and run
 `python main.py`
+
+
+## Changelog for Sprint #2 (based on user feedback): 
+
+* The game can be won in a traditional manner, using complex victory checking
+* Players can stack pieces on top of each other
+* Capstones were added
+* Different designed and sized boards were added
+* Quashed some bugs regarding grid snapping, grid marking, and victory checking
